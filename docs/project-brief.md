@@ -3,7 +3,7 @@
 **Version:** 0.1  
 **Author:** Nicola de Vera
 **Date:** 2026-05-09  
-**Status:** Draft — content model ready, curriculum content pending
+**Status:** Draft — content model and curriculum ready, implementation pending
 
 ---
 
@@ -67,8 +67,8 @@ pm-agent-kit-workbook/
   setup.html              # Day 0: environment setup (not counted in 20 days)
   terrain.html            # Company context: fictional Terrain scenario used throughout the challenge
   days/
-    day-01.html           # doc-review
-    day-02.html           # prd-draft
+    day-01.html           # prd-draft
+    day-02.html           # doc-review
     ...
     day-20.html           # Capstone II
   css/
@@ -123,7 +123,7 @@ The page should include:
 - **What Terrain is:** Two-sided marketplace for bookable outdoor experiences; guides list surf lessons, alpine climbs, foraging walks, kayaking tours, and similar experiences; adventurers discover and book them; Terrain earns an 18% take rate plus a 3% adventurer platform fee.
 - **Who the users are:** Short summaries of Marco (guide) and Jamie (adventurer), with their core goals and pain points.
 - **The business snapshot:** GMV, take-rate revenue, active guides, monthly active adventurers, average booking value, Guide Pro attach rate.
-- **The product context:** Current strategic work, especially Instant Book rollout, Android GA, Guide analytics dashboard, and under-consideration bets.
+- **The product context:** Current strategic work, especially Instant Book rollout, Android GA, expanded Guide Pro analytics dashboard, and under-consideration bets.
 - **The four active product problems:** Guide activation drop-off, high cancellation rate, low adventurer repeat rate, and Instant Book guide adoption.
 - **How to use this context:** Tell users they do not need to memorize Terrain. Relevant details will be embedded in advanced prompts. The point is to notice how richer context changes agent output, then apply the same pattern to their own company later.
 
@@ -174,7 +174,7 @@ Each day page contains the following sections in order:
 
 A root-level JSON file that describes the full 20-day curriculum. An agent that wants to understand the workbook loads this file as context rather than scraping all 20 HTML pages.
 
-**Source-of-truth decision:** HTML day pages own the human-readable content (skill overviews, narrative framing, full reflection questions). `workbook.json` mirrors the structured data that agents need to act on: skill name, invocation, prompts, output type, and sequencing metadata. If content changes, update the HTML page first, then sync the JSON. There is no runtime build step and the shipped site must not depend on generated files. During implementation, agents may use temporary validation scripts to confirm that each page's embedded metadata matches `workbook.json`.
+**Source-of-truth decision:** `docs/curriculum.md` owns the authored curriculum content: skill overviews, narrative framing, prompts, reflection questions, and per-day metadata. HTML day pages render that content for humans. `workbook.json` mirrors the structured data that agents need to act on: skill name, invocation, full runnable prompts, output type, and sequencing metadata. If content changes, update `docs/curriculum.md` first, then sync the HTML page and `workbook.json`. There is no runtime build step and the shipped site must not depend on generated files. During implementation, agents may use temporary validation scripts to confirm that each page's embedded metadata matches `workbook.json`.
 
 **Full schema for a skill day:**
 ```json
@@ -206,14 +206,14 @@ A root-level JSON file that describes the full 20-day curriculum. An agent that 
       "personas": ["Marco, freelance surf instructor and active Terrain guide", "Jamie, Seattle-based adventurer who books curated outdoor experiences"],
       "strategic_context": {
         "shipped": ["Core marketplace", "Guide Pro", "iOS app", "Instant Book beta"],
-        "in_flight": ["Instant Book rollout", "Android GA", "Guide analytics dashboard"],
+        "in_flight": ["Instant Book rollout", "Android GA", "expanded Guide Pro analytics dashboard"],
         "under_consideration": ["Group booking", "Seasonal / multi-day experiences", "Trust & safety improvements", "Social layer"]
       },
       "competitors": ["Airbnb Experiences", "Viator", "GetYourGuide", "REI Adventures"],
       "known_product_problems": ["Guide activation drop-off", "High cancellation rate", "Low adventurer repeat rate", "Instant Book guide adoption"],
       "day_scenario_map": {
-        "1": "Review an Instant Book PRD before engineering walkthrough",
-        "2": "Draft a PRD for guided listing setup improvements that raise guide activation",
+        "1": "Draft a PRD for guided listing setup improvements that raise guide activation",
+        "2": "Review the guide listing setup PRD before engineering walkthrough",
         "3": "Break the guide listing setup PRD into shippable stories",
         "4": "Plan a sprint around Android GA blockers and Instant Book adoption instrumentation",
         "5": "Draft a leadership update on Instant Book rollout risk and Android GA blockers",
@@ -244,20 +244,20 @@ A root-level JSON file that describes the full 20-day curriculum. An agent that 
       "day": 1,
       "week": 1,
       "type": "skill",
-      "skill": "doc-review",
-      "invocation": "/doc-review",
+      "skill": "prd-draft",
+      "invocation": "/prd-draft",
       "mode": null,
-      "title": "Evaluate Like a Senior PM",
+      "title": "Turn a Rough Idea Into a Spec",
       "theme": "Writing & Thinking",
       "estimated_minutes": 20,
-      "required_inputs": "Any PM document — a PRD, a ticket, a project brief. Paste it inline or point to a file.",
+      "required_inputs": "Any rough description of a product problem or feature direction — notes, bullets, stakeholder messages, data points.",
       "prompts": {
         "basic": "...",
         "advanced": "..."
       },
       "reflection_questions": ["...", "...", "..."],
-      "expected_output_type": "structured document review with severity-rated feedback and a smell test",
-      "saves_to_knowledge": null,
+      "expected_output_type": "complete PRD with context, problem, objectives, proposed solution, paths, acceptance criteria, data requirements, open questions, and assumptions",
+      "saves_to_knowledge": "knowledge/prds/",
       "prerequisites": []
     }
   ]
@@ -295,7 +295,7 @@ A root-level JSON file that describes the full 20-day curriculum. An agent that 
     }
   ],
   "reflection_questions": ["...", "...", "..."],
-  "prerequisites": [6, 2, 3]
+  "prerequisites": [6, 1, 3]
 }
 ```
 
@@ -337,8 +337,8 @@ The first week is about the written artifacts every PM produces constantly. Thes
 
 | Day | Skill | Title |
 |-----|-------|-------|
-| 1 | `doc-review` | Evaluate Like a Senior PM |
-| 2 | `prd-draft` | Turn a Rough Idea Into a Spec |
+| 1 | `prd-draft` | Turn a Rough Idea Into a Spec |
+| 2 | `doc-review` | Evaluate Like a Senior PM |
 | 3 | `generate-tasks` | Break a Spec Into Shippable Stories |
 | 4 | `sprint-plan` | Allocate Capacity and Set Goals |
 | 5 | `status-update` | Assess and Communicate Delivery Health |
@@ -506,11 +506,11 @@ The workbook is successful if:
 
 ---
 
-## Appendix: Day 1 Content Example
+## Appendix: Day 2 Content Example
 
-The following is the full authored content for Day 1 (`doc-review`). It serves as the quality anchor and pattern for all other day pages. Implementing agents should match this tone, depth, and specificity for every remaining day.
+The following is the full authored content for Day 2 (`doc-review`). It serves as the quality anchor and pattern for all other day pages. Implementing agents should match this tone, depth, and specificity for every remaining day.
 
-### Day 1 — Evaluate Like a Senior PM
+### Day 2 — Evaluate Like a Senior PM
 **Week 1: Writing & Thinking | Skill: `doc-review`**
 
 #### Skill Overview + Why It Matters
@@ -519,7 +519,7 @@ The following is the full authored content for Day 1 (`doc-review`). It serves a
 
 PMs produce and review documents constantly, but the review rarely happens with the same rigor as the writing. Teams approve PRDs with undefined success metrics, ship tickets with no edge cases, and brief engineers against specs that leave out the most important constraints. `doc-review` applies a consistent quality bar — the one a strong senior PM would apply — to every artifact you run it against.
 
-Day 1 is the right starting point because every skill in the kit produces a document. Learning to evaluate before you learn to produce trains you to hold the right bar from the beginning. By the time you're drafting PRDs on Day 2, you'll already know what a good one looks like from the outside.
+Day 2 uses the PRD produced on Day 1 as input. That sequence is intentional: the PM sees their own draft evaluated by the same bar they will use for future artifacts. By the end of Day 2, the PM knows what questions to ask before drafting, not just after.
 
 #### Sample Prompts
 
@@ -536,12 +536,12 @@ Review this PRD and tell me what's missing:
 ```
 /doc-review
 
-Review this PRD. I'm a PM at Terrain, a two-sided marketplace for bookable outdoor experiences — guides list surf lessons, alpine climbs, foraging walks; adventurers discover and book them. The PRD is for a new "Instant Book" feature that lets adventurers book available slots without waiting for guide approval. I need this reviewed before I walk engineering through it on Thursday — flag anything that would cause confusion or require a follow-up meeting to resolve.
+Review this PRD. I'm the Adventurer Experience PM at Terrain, a two-sided marketplace for bookable outdoor experiences — guides list surf lessons, alpine climbs, foraging walks; adventurers discover and book them. The PRD is for a guide listing setup guidance feature intended to raise guide activation from 62% to 75% by Q3. I need this reviewed before I walk the cross-squad engineering group through it on Thursday — flag anything that would cause confusion or require a follow-up meeting to resolve.
 
-[paste PRD here]
+[paste the PRD you produced on Day 1 here]
 ```
 
-*Don't have a PRD handy? Use any ticket, project brief, or even a Confluence page. The skill auto-detects the document type.*
+*Don't have a Day 1 PRD? Use any ticket, project brief, or even a Confluence page. The skill auto-detects the document type.*
 
 #### Reflection Prompts
 
@@ -689,7 +689,7 @@ Use these priorities when writing advanced prompts for `roadmap-prioritization`,
 #### In-flight (current quarter)
 - **Instant Book rollout** — expanding from beta to all eligible guides; adoption is the key risk (only 22% of beta-eligible guides have opted in)
 - **Android GA** — targeting launch in 6 weeks; main blockers are payment edge cases and push notification reliability
-- **Guide analytics dashboard** — expanded version behind Guide Pro paywall; in final QA
+- **Expanded Guide Pro analytics dashboard** — expanded version behind Guide Pro paywall; in final QA
 
 #### Under consideration / in discovery
 - **Group booking** — splitting a single experience payment across multiple adventurers; commonly requested but complex to implement
@@ -738,8 +738,8 @@ Use this map when authoring advanced prompts. Basic prompts can stay generic; ad
 
 | Day | Skill | Terrain scenario to use |
 |-----|-------|-------------------------|
-| 1 | `doc-review` | Review an Instant Book PRD before engineering walkthrough |
-| 2 | `prd-draft` | Draft a PRD for guided listing setup improvements that raise guide activation |
+| 1 | `prd-draft` | Draft a PRD for guided listing setup improvements that raise guide activation |
+| 2 | `doc-review` | Review the guide listing setup PRD before engineering walkthrough |
 | 3 | `generate-tasks` | Break the guide listing setup PRD into shippable stories |
 | 4 | `sprint-plan` | Plan a sprint around Android GA blockers and Instant Book adoption instrumentation |
 | 5 | `status-update` | Draft a leadership update on Instant Book rollout risk and Android GA blockers |
@@ -822,7 +822,7 @@ Audience: Dana Park (VP Product), Jordan Lee (PM, Guide Experience), Priya Anand
 Timeframe: This week
 Instant Book rollout: eligible guide opt-in remains low at 22%; conversion lift still strong at +31% on opted-in listings; guide concern is calendar risk.
 Android GA: still targeting launch in 6 weeks; payment edge-case bug remains open; push notification reliability improved from 91% to 97% in latest beta build.
-Guide analytics dashboard: final QA; no launch blocker yet.
+Expanded Guide Pro analytics dashboard: final QA; no launch blocker yet.
 Decision needed: whether to keep pushing opt-in education, build flexible Instant Book, or mandate Instant Book for high-quality guides.
 Risks: calendar conflict issues could create guide distrust; Android payment bug could slip GA if not resolved next sprint.
 ```
@@ -835,14 +835,14 @@ Use for `retro-synthesis` and process-oriented `alignment-memo` prompts.
 Retro: Instant Book Beta — Sprint 14
 Went well: conversion lift was clear; guide interviews surfaced concrete adoption blockers.
 Didn't go well: analytics events were added after launch, so early funnel data is incomplete. Support learned about the rollout from customer tickets.
-Action item: define instrumentation before beta launch. Owner: Theo. Status: not started.
+Action item: define instrumentation before beta launch. Owner: Fernando Lopez. Status: not started.
 
 Retro: Android GA — Sprint 15
 Went well: crash rate improved; QA found payment issues before public launch.
 Didn't go well: scope changed mid-sprint after leadership asked for push notification parity with iOS. Payment edge cases were underestimated.
-Action item: create launch-readiness checklist for mobile releases. Owner: Maya. Status: in progress.
+Action item: create launch-readiness checklist for mobile releases. Owner: Chris Okafor. Status: in progress.
 
-Retro: Guide Analytics Dashboard — Sprint 16
+Retro: Expanded Guide Pro Analytics Dashboard — Sprint 16
 Went well: Guide Pro beta users liked listing view data.
 Didn't go well: dashboard shipped with metrics but no recommendations, so guides did not know what action to take. PM and design disagreed late on whether insights should be prescriptive.
 Action item: define "actionable analytics" standard before adding new dashboard modules. Owner: Product. Status: not started.
