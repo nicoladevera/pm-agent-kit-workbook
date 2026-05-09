@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup (Day 0) | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page-layout">
+
+    <nav class="sidebar">
+      <a href="index.html" class="sidebar-logo">PM Agent Kit Workbook</a>
+      <p class="sidebar-tagline">20-day AI practice for PMs</p>
+      <div class="sidebar-nav">
+        <a href="index.html">Home</a>
+        <a href="setup.html">Setup (Day 0)</a>
+        <a href="terrain.html">Terrain Context</a>
+      </div>
+      <div class="week-group">
+        <span class="week-group-label">Week 1</span>
+        <a href="days/day-01.html">D1</a>
+        <a href="days/day-02.html">D2</a>
+        <a href="days/day-03.html">D3</a>
+        <a href="days/day-04.html">D4</a>
+        <a href="days/day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <span class="week-group-label">Week 2</span>
+        <a href="days/day-06.html">D6</a>
+        <a href="days/day-07.html">D7</a>
+        <a href="days/day-08.html">D8</a>
+        <a href="days/day-09.html">D9</a>
+        <a href="days/day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <span class="week-group-label">Week 3</span>
+        <a href="days/day-11.html">D11</a>
+        <a href="days/day-12.html">D12</a>
+        <a href="days/day-13.html">D13</a>
+        <a href="days/day-14.html">D14</a>
+        <a href="days/day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <span class="week-group-label">Week 4</span>
+        <a href="days/day-16.html">D16</a>
+        <a href="days/day-17.html">D17</a>
+        <a href="days/day-18.html">D18</a>
+        <a href="days/day-19.html">D19</a>
+        <a href="days/day-20.html">D20</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+
+      <h1>Day 0: Setup</h1>
+      <p style="color: var(--muted); font-size: 0.9rem;">Day 0 is not counted in the 20-day challenge. Complete this once, then start Day 1.</p>
+
+      <h2>What you need</h2>
+      <ul>
+        <li>A Mac or Linux machine</li>
+        <li>A Claude account (<a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>)</li>
+        <li>A terminal or IDE with a terminal</li>
+      </ul>
+
+      <h2>Setup steps</h2>
+
+      <div class="setup-step">
+        <h3>1. Install Claude Code</h3>
+        <p>Follow the instructions at <a href="https://claude.ai/code" target="_blank" rel="noopener">claude.ai/code</a>.</p>
+      </div>
+
+      <div class="setup-step">
+        <h3>2. Clone the PM Agent Kit</h3>
+        <div class="prompt-block-wrapper">
+          <pre class="prompt-block" id="setup-clone-kit">git clone https://github.com/nicoladevera/pm-agent-kit</pre>
+          <button class="copy-btn" data-target="setup-clone-kit">Copy</button>
+        </div>
+      </div>
+
+      <div class="setup-step">
+        <h3>3. Clone this workbook</h3>
+        <div class="prompt-block-wrapper">
+          <pre class="prompt-block" id="setup-clone-workbook">git clone https://github.com/nicoladevera/pm-agent-kit-workbook</pre>
+          <button class="copy-btn" data-target="setup-clone-workbook">Copy</button>
+        </div>
+      </div>
+
+      <div class="setup-step">
+        <h3>4. Copy the Terrain company context files into the kit</h3>
+        <div class="prompt-block-wrapper">
+          <pre class="prompt-block" id="setup-copy-terrain">cp -R pm-agent-kit-workbook/company/. pm-agent-kit/company/</pre>
+          <button class="copy-btn" data-target="setup-copy-terrain">Copy</button>
+        </div>
+        <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted);">This replaces the kit's stub placeholders with pre-filled Terrain context so every skill runs at full capacity. If you have already added real company context to <code>pm-agent-kit/company/</code>, back it up before running this.</p>
+      </div>
+
+      <div class="setup-step">
+        <h3>5. Open Claude Code in the pm-agent-kit directory</h3>
+        <div class="prompt-block-wrapper">
+          <pre class="prompt-block" id="setup-open-claude">cd pm-agent-kit
+claude</pre>
+          <button class="copy-btn" data-target="setup-open-claude">Copy</button>
+        </div>
+      </div>
+
+      <div class="setup-step">
+        <h3>6. Run a smoke test to confirm the kit is working</h3>
+        <div class="prompt-block-wrapper">
+          <pre class="prompt-block" id="setup-smoke-test">/doc-review
+
+Review this and tell me if it's a strong PRD: "We want to add a search filter. Users can't find things."</pre>
+          <button class="copy-btn" data-target="setup-smoke-test">Copy</button>
+        </div>
+        <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted);">If the skill returns structured feedback, you're set.</p>
+      </div>
+
+      <h2>What to expect</h2>
+      <p>The kit works through skills — each is a slash command like <code>/prd-draft</code> or <code>/doc-review</code> that reads your company context files and your input, then produces a structured PM artifact.</p>
+      <p>Output quality improves significantly when the agent has product, team, customer, and process context. That's why copying the Terrain files matters: it loads real context into the kit so you experience it at full capability from Day 1, not a watered-down version.</p>
+
+      <h2>Dependency matrix</h2>
+      <p>You don't need everything installed on Day 0. Install the extras before the day they're needed.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Skill</th>
+            <th>Additional setup required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1–7, 9–17</td>
+            <td>Most skills</td>
+            <td>None — works after cloning</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><code>data-analysis</code></td>
+            <td><code>python3 -m pip install matplotlib</code> (for chart generation)</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td><code>presentation-deck</code></td>
+            <td>
+              <code>python3 -m pip install python-pptx</code> for PPTX;<br>
+              <code>python3 -m pip install playwright &amp;&amp; python3 -m playwright install chromium</code> for PDF;<br>
+              or <code>python3 -m pip install weasyprint</code> as PDF fallback
+            </td>
+          </tr>
+          <tr>
+            <td>19–20</td>
+            <td>Capstone I &amp; II</td>
+            <td>Inherits dependencies from chained skills (see individual days above)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>PM Agent Kit README</h2>
+      <p>For full documentation on how the kit works, see the <a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">PM Agent Kit README on GitHub</a>.</p>
+
+      <div class="cta-group">
+        <a href="terrain.html" class="btn-primary">Continue to Terrain Context &rarr;</a>
+      </div>
+
+    </main>
+  </div>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 13 — Codify How the Team Operates | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 13,
+    "week": 3,
+    "type": "skill",
+    "skill": "alignment-memo",
+    "invocation": "/alignment-memo",
+    "mode": null,
+    "title": "Codify How the Team Operates",
+    "theme": "Strategy & Alignment",
+    "estimated_minutes": 20,
+    "required_inputs": "A recurring tension, process gap, or decision pattern to codify. Rough notes, a Slack thread summary, or a description of the problem. The skill adapts to subtype: operating memo, standard, framework, or proposal.",
+    "prompts": {
+      "basic": "/alignment-memo\n\nWe keep having the same debate every sprint about whether to prioritize platform stability work or new feature work. It's slowing us down. Help me write an operating memo that settles how we make this call so we don't have to relitigate it every planning meeting.",
+      "advanced": "/alignment-memo\n\nDraft an operating memo for how the Adventurer Experience and Guide Experience squads evaluate features that create a trade-off between one side of the Terrain marketplace and the other.\n\nContext: This tension comes up repeatedly. The most recent example is Instant Book: it lifts adventurer booking conversion by 31% but creates guide calendar risk and potential no-shows. We made the right call on Instant Book, but it took three weeks of debate and escalation to Dana Park. We need a working agreement so future trade-offs can be evaluated faster and more consistently.\n\nThe memo should establish:\n- How we frame guide/adventurer trade-offs when evaluating a feature (not a formula — a shared vocabulary and set of questions)\n- What evidence threshold is required before a trade-off decision can be made at the PM level vs. escalated to Dana\n- How the two squads (Adventurer Experience and Guide Experience) coordinate on features that touch both sides\n- What \"good enough\" looks like for a decision that helps one side at a cost to the other\n\nAudience: Jordan Lee (Guide Experience PM) and me (Adventurer Experience PM), plus Dana Park as the approving authority on the escalation threshold.\nAsk: adoption — this is a working agreement between the two PM squads, not a company policy. Dana needs to agree on the escalation threshold section only.\nInclude 2–3 concrete application examples from current work (Instant Book, guide activation, cancellation policy)."
+    },
+    "reflection_questions": [
+      "Which principle did the skill articulate that you hadn't explicitly named before — and would your team actually adopt it, or is it aspirational?",
+      "What's the scenario where this memo fails — the specific situation where the principles don't resolve the tension?",
+      "What did the skill get wrong about the 'ask' — and why does that matter for whether this memo actually changes behavior?"
+    ],
+    "expected_output_type": "structured alignment memo with executive summary, problem context, principles, core content adapted to subtype, application guidance with specific examples, and calibrated ask",
+    "saves_to_knowledge": "knowledge/memos/",
+    "prerequisites": [
+      12
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 3: Strategy &amp; Alignment</span>
+      <p class="day-number">Day 13 of 20</p>
+      <h1>Codify How the Team Operates</h1>
+
+      <h2>Skill Overview</h2>
+      <p><code>alignment-memo</code> drafts internal alignment artifacts: operating memos, standards, frameworks, and program proposals. It structures rough notes or a description of a recurring tension into a memo with an executive summary, problem-first context, principles grounded in specific behaviors rather than abstract values, core content adapted to the artifact subtype, application guidance (who does what differently because of this memo), and a calibrated ask (approval, adoption, alignment, or awareness — not all memos ask for the same thing).</p>
+      <p>The artifacts <code>alignment-memo</code> produces are the ones that make a team opinionated about how it operates, not just what it builds. Without them, the same trade-off gets re-debated every sprint. With them, the PM can point to an existing record of the principle and move on. The distinction between ask types matters: asking for adoption means asking people to change their behavior — that's different from asking for awareness, and the memo has to be written accordingly.</p>
+      <p>Day 13 follows the decision log because once the Instant Book decision is captured, the operating principle behind it needs to be codified. The decision isn't just about one feature — it's about how Terrain navigates features that benefit one side of the marketplace at a cost to the other. That's the pattern worth preserving in writing.</p>
+
+      <h2>Sample Prompts</h2>
+
+      <p class="prompt-label">Basic</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-basic">/alignment-memo
+
+We keep having the same debate every sprint about whether to prioritize platform stability work or new feature work. It's slowing us down. Help me write an operating memo that settles how we make this call so we don't have to relitigate it every planning meeting.</pre>
+        <button class="copy-btn" data-target="prompt-basic">Copy</button>
+      </div>
+
+      <p class="prompt-label">Advanced</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-advanced">/alignment-memo
+
+Draft an operating memo for how the Adventurer Experience and Guide Experience squads evaluate features that create a trade-off between one side of the Terrain marketplace and the other.
+
+Context: This tension comes up repeatedly. The most recent example is Instant Book: it lifts adventurer booking conversion by 31% but creates guide calendar risk and potential no-shows. We made the right call on Instant Book, but it took three weeks of debate and escalation to Dana Park. We need a working agreement so future trade-offs can be evaluated faster and more consistently.
+
+The memo should establish:
+- How we frame guide/adventurer trade-offs when evaluating a feature (not a formula — a shared vocabulary and set of questions)
+- What evidence threshold is required before a trade-off decision can be made at the PM level vs. escalated to Dana
+- How the two squads (Adventurer Experience and Guide Experience) coordinate on features that touch both sides
+- What "good enough" looks like for a decision that helps one side at a cost to the other
+
+Audience: Jordan Lee (Guide Experience PM) and me (Adventurer Experience PM), plus Dana Park as the approving authority on the escalation threshold.
+Ask: adoption — this is a working agreement between the two PM squads, not a company policy. Dana needs to agree on the escalation threshold section only.
+Include 2–3 concrete application examples from current work (Instant Book, guide activation, cancellation policy).</pre>
+        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>Which principle did the skill articulate that you hadn't explicitly named before — and would your team actually adopt it, or is it aspirational?</li>
+        <li>What's the scenario where this memo fails — the specific situation where the principles don't resolve the tension?</li>
+        <li>What did the skill get wrong about the "ask" — and why does that matter for whether this memo actually changes behavior?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-12.html">← Day 12</a>
+        <a href="day-14.html">Day 14 →</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

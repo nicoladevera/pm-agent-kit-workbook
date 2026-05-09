@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 18 — Build a Narrative for Any Audience | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 18,
+    "week": 4,
+    "type": "skill",
+    "skill": "presentation-deck",
+    "invocation": "/presentation-deck",
+    "mode": null,
+    "title": "Build a Narrative for Any Audience",
+    "theme": "Communication & Integration",
+    "estimated_minutes": 25,
+    "required_inputs": "Audience, purpose/deck type, and source material (business case, data analysis, status update, rough notes). Narrative mode: no install required. Slides mode: see setup page for python-pptx and playwright requirements.",
+    "prompts": {
+      "basic": "/presentation-deck\n\nNarrative mode. Build a 5-slide structure for a VP audience.\n\nSituation: our booking conversion rate has been flat for two quarters at 2.8%. Complication: our two largest competitors are both investing in instant-confirmation features. Resolution: we have an Instant Book feature in beta that shows 31% higher conversion, but adoption is low. We need alignment on how to accelerate it.",
+      "advanced": "/presentation-deck\n\nNarrative mode. Q3 marketplace priorities deck.\n\nAudience: Dana Park (VP Product) and Sam Rivera (Head of Engineering).\nPurpose: Exec Review / Strategy alignment.\nObjective: align on the recommended initiative sequence for the quarter after Android GA ships, and surface the Android GA timeline as a near-term constraint that shapes everything else.\n\nNarrative inputs (use these as source material for each slide — don't just summarize them, build takeaway-first headlines):\n\n1. From Day 8 data analysis: Instant Book shows a consistent ~31% conversion lift across all experience categories. Cancellation rate for Instant Book is 10.1% vs. 14% for request-to-book. But IB search volume is only 18% of total — the conversion benefit is reaching a small fraction of adventurers.\n\n2. From Day 10 business case: adventurer repeat rate is 38%, target 45%. A 7-point improvement = ~$1.1M GMV annually without new acquisition spend. No current re-engagement mechanism. This is the highest-ROI initiative given current CAC.\n\n3. From Day 11 prioritization: recommended Q3 sequence — (1) guide activation listing guidance (can start now, lower Android dependency), (2) adventurer repeat loop (starts post-Android GA), (3) Instant Book flexible mode (third, after repeat loop is in flight). Instant Book mandate debate is resolved: flexible mode is the direction.\n\n4. Android GA constraint: Android GA ships in 6 weeks and consumes the single Android engineer until then. No Android feature work starts before GA. This shapes everything.\n\n5. Post-Day 14 outcome: Dana approved flexible Instant Book as the direction after reviewing the Day 12 decision log and Day 14 meeting brief.\n\nDeck type: Strategy/Roadmap. Target: 8–10 slides. Include speaker notes."
+    },
+    "reflection_questions": [
+      "How did the skill's headline framing differ from how you would have labeled the slides — and which version makes a stronger claim?",
+      "Which slide structure revealed a gap in the narrative — a claim you made that doesn't yet have a supporting slide?",
+      "What would you change about the Situation → Complication → Resolution arc the skill constructed?"
+    ],
+    "expected_output_type": "slide-by-slide narrative structure with takeaway-first headlines, supporting content, visual guidance, and speaker notes per slide; for Exec Review deck types: narrative stress test included",
+    "saves_to_knowledge": "knowledge/presentations/",
+    "prerequisites": [10, 11, 17]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 4: Communication &amp; Integration</span>
+      <p class="day-number">Day 18 of 20</p>
+      <h1>Build a Narrative for Any Audience</h1>
+
+      <h2>Skill Overview</h2>
+      <p><code>presentation-deck</code> has two modes. Narrative mode produces a slide-by-slide markdown structure — each slide has a headline written as a takeaway (not a topic label), supporting content points, visual guidance, and speaker notes. Slides mode generates an actual presentation file: <code>.html</code> (default, self-contained), <code>.pdf</code> (via playwright or weasyprint), or <code>.pptx</code> (via python-pptx). Required inputs: audience and purpose/deck type. High-stakes deck types (Exec Review, Board Update) include an additional stress test on the narrative.</p>
+      <p>Most presentation problems are narrative problems, not design problems. Slides full of bullets fail because they describe content rather than make a claim. A deck with a clear Situation → Complication → Resolution arc tells the audience what to think, not just what to look at. <code>presentation-deck</code> builds the narrative first. If you can't state each slide's headline as a complete claim, the thinking isn't ready to put on a slide.</p>
+      <p>Day 18 synthesizes the week. The PM has built a business case, prioritized a roadmap, captured decisions, aligned on operating principles, and drafted a one-pager. The deck is how all of that becomes a coherent leadership narrative — the most composable output in the kit.</p>
+
+      <p><strong>Setup note for Slides mode:</strong> Slides mode requires additional installs. Use Narrative mode today unless you completed the Slides setup. To generate <code>.pptx</code>: <code>python3 -m pip install python-pptx</code>. To generate <code>.pdf</code>: <code>python3 -m pip install playwright &amp;&amp; python3 -m playwright install chromium</code>.</p>
+
+      <h2>Sample Prompts</h2>
+
+      <p class="prompt-label">Basic</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-basic">/presentation-deck
+
+Narrative mode. Build a 5-slide structure for a VP audience.
+
+Situation: our booking conversion rate has been flat for two quarters at 2.8%. Complication: our two largest competitors are both investing in instant-confirmation features. Resolution: we have an Instant Book feature in beta that shows 31% higher conversion, but adoption is low. We need alignment on how to accelerate it.</pre>
+        <button class="copy-btn" data-target="prompt-basic">Copy</button>
+      </div>
+
+      <p class="prompt-label">Advanced</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-advanced">/presentation-deck
+
+Narrative mode. Q3 marketplace priorities deck.
+
+Audience: Dana Park (VP Product) and Sam Rivera (Head of Engineering).
+Purpose: Exec Review / Strategy alignment.
+Objective: align on the recommended initiative sequence for the quarter after Android GA ships, and surface the Android GA timeline as a near-term constraint that shapes everything else.
+
+Narrative inputs (use these as source material for each slide — don't just summarize them, build takeaway-first headlines):
+
+1. From Day 8 data analysis: Instant Book shows a consistent ~31% conversion lift across all experience categories. Cancellation rate for Instant Book is 10.1% vs. 14% for request-to-book. But IB search volume is only 18% of total — the conversion benefit is reaching a small fraction of adventurers.
+
+2. From Day 10 business case: adventurer repeat rate is 38%, target 45%. A 7-point improvement = ~$1.1M GMV annually without new acquisition spend. No current re-engagement mechanism. This is the highest-ROI initiative given current CAC.
+
+3. From Day 11 prioritization: recommended Q3 sequence — (1) guide activation listing guidance (can start now, lower Android dependency), (2) adventurer repeat loop (starts post-Android GA), (3) Instant Book flexible mode (third, after repeat loop is in flight). Instant Book mandate debate is resolved: flexible mode is the direction.
+
+4. Android GA constraint: Android GA ships in 6 weeks and consumes the single Android engineer until then. No Android feature work starts before GA. This shapes everything.
+
+5. Post-Day 14 outcome: Dana approved flexible Instant Book as the direction after reviewing the Day 12 decision log and Day 14 meeting brief.
+
+Deck type: Strategy/Roadmap. Target: 8–10 slides. Include speaker notes.</pre>
+        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>How did the skill's headline framing differ from how you would have labeled the slides — and which version makes a stronger claim?</li>
+        <li>Which slide structure revealed a gap in the narrative — a claim you made that doesn't yet have a supporting slide?</li>
+        <li>What would you change about the Situation → Complication → Resolution arc the skill constructed?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-17.html">← Day 17</a>
+        <a href="day-19.html">Day 19 →</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

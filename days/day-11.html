@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 11 — Sequence Work and Name Trade-offs | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 11,
+    "week": 3,
+    "type": "skill",
+    "skill": "roadmap-prioritization",
+    "invocation": "/roadmap-prioritization",
+    "mode": null,
+    "title": "Sequence Work and Name Trade-offs",
+    "theme": "Strategy & Alignment",
+    "estimated_minutes": 25,
+    "required_inputs": "Candidate initiatives with at least a brief description of problem, evidence, and approximate cost/size. Goals or OKRs and capacity constraints improve output quality significantly.",
+    "prompts": {
+      "basic": "/roadmap-prioritization\n\nPrioritize these four initiatives for my team next quarter. We have capacity for about two of them:\n\n1. Add difficulty-level filtering to search\n2. Build a guide response-time SLA (guides must respond within 24 hours or the booking is auto-declined)\n3. Add post-experience share functionality (adventurers can share completed trips)\n4. Redesign the onboarding checklist for new guides\n\nWe care most about booking conversion and guide retention. Limited data on all four.",
+      "advanced": "/roadmap-prioritization\n\nCompare Terrain's four known product problems and recommend a sequence for the quarter after Android GA ships (Android GA target: 6 weeks from now).\n\nCandidate initiatives:\n1. Guide activation — listing setup guidance and pricing transparency (from Day 1 PRD). Evidence: Day 7 feedback synthesis confirmed setup friction and pricing uncertainty as recurring themes. Day 6 discovery plan mapped assumptions; structured research not yet complete.\n2. Adventurer repeat loop — personalized re-engagement (from Day 10 business case). Evidence: strong; Day 7 and Day 8 analysis support the claim. Sizing: ~$1.1M GMV uplift for 7-point improvement.\n3. Cancellation rate reduction — policy and tooling (problem: 14% cancellation rate, industry benchmark 7–9%). Evidence: Day 7 synthesis showed weather-related cancellation anxiety as a major theme. No discovery plan yet.\n4. Instant Book flexible mode — configurable advance-notice window for guides (from the pending Instant Book rollout decision context). Evidence: 22% opt-in among eligible guides despite 31% conversion lift. Guide concern is calendar risk.\n\nConstraints:\n- Android GA is non-negotiable and consumes the single Android engineer and significant backend bandwidth for the next 6 weeks\n- Instant Book rollout is already in-flight — any Instant Book work must coordinate with Jordan Lee's squad\n- Team capacity post-Android GA: approximately 18–22 story points per sprint\n- Dana Park's H1 OKRs: GMV growth, guide retention (71% → 80% 12-month retention), adventurer repeat rate (38% → 45%)\n\nInclude the full stress test."
+    },
+    "reflection_questions": [
+      "Did the skill sequence the initiatives the way you would have — and if not, where does your reasoning differ from its reasoning?",
+      "What did the 'What We're Not Doing' framing reveal about the opportunity cost you're accepting with this sequence?",
+      "What single piece of new information would flip the top priority to second place?"
+    ],
+    "expected_output_type": "candidate comparison table, recommended sequence with per-position reasoning, What We're Not Doing section per deferred initiative, stress test",
+    "saves_to_knowledge": "knowledge/roadmaps/",
+    "prerequisites": [
+      10
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 3: Strategy &amp; Alignment</span>
+      <p class="day-number">Day 11 of 20</p>
+      <h1>Sequence Work and Name Trade-offs</h1>
+
+      <h2>Skill Overview</h2>
+      <p><code>roadmap-prioritization</code> compares candidate initiatives on consistent dimensions — problem clarity, evidence quality, impact, cost, dependencies, reversibility, time sensitivity, and cost of waiting — then recommends a sequence with explicit reasoning for each position. It also produces a "What We're Not Doing" section for every deferred initiative: why not now, what would change the decision, and how to frame the deferral so it doesn't re-open every planning cycle.</p>
+      <p>Prioritization fails when it's implicit. When a PM can't explain in one sentence why Initiative A beats Initiative B, the rationale gets lost — and the next planning cycle starts from scratch. <code>roadmap-prioritization</code> forces the comparison to happen on the record, with the reasoning preserved and the trade-offs named. The deferred-initiative section is as important as the sequence: it converts "we decided not to do X" into "we decided not to do X yet, because Y, and Z would change that."</p>
+      <p>Day 11 opens the strategy week because it sequences the investments built across Weeks 1 and 2. The business cases, feedback syntheses, and data analyses from the past ten days are the inputs. This skill decides what gets executed in what order — and names what's being left behind and why.</p>
+
+      <h2>Sample Prompts</h2>
+
+      <p class="prompt-label">Basic</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-basic">/roadmap-prioritization
+
+Prioritize these four initiatives for my team next quarter. We have capacity for about two of them:
+
+1. Add difficulty-level filtering to search
+2. Build a guide response-time SLA (guides must respond within 24 hours or the booking is auto-declined)
+3. Add post-experience share functionality (adventurers can share completed trips)
+4. Redesign the onboarding checklist for new guides
+
+We care most about booking conversion and guide retention. Limited data on all four.</pre>
+        <button class="copy-btn" data-target="prompt-basic">Copy</button>
+      </div>
+
+      <p class="prompt-label">Advanced</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-advanced">/roadmap-prioritization
+
+Compare Terrain's four known product problems and recommend a sequence for the quarter after Android GA ships (Android GA target: 6 weeks from now).
+
+Candidate initiatives:
+1. Guide activation — listing setup guidance and pricing transparency (from Day 1 PRD). Evidence: Day 7 feedback synthesis confirmed setup friction and pricing uncertainty as recurring themes. Day 6 discovery plan mapped assumptions; structured research not yet complete.
+2. Adventurer repeat loop — personalized re-engagement (from Day 10 business case). Evidence: strong; Day 7 and Day 8 analysis support the claim. Sizing: ~$1.1M GMV uplift for 7-point improvement.
+3. Cancellation rate reduction — policy and tooling (problem: 14% cancellation rate, industry benchmark 7–9%). Evidence: Day 7 synthesis showed weather-related cancellation anxiety as a major theme. No discovery plan yet.
+4. Instant Book flexible mode — configurable advance-notice window for guides (from the pending Instant Book rollout decision context). Evidence: 22% opt-in among eligible guides despite 31% conversion lift. Guide concern is calendar risk.
+
+Constraints:
+- Android GA is non-negotiable and consumes the single Android engineer and significant backend bandwidth for the next 6 weeks
+- Instant Book rollout is already in-flight — any Instant Book work must coordinate with Jordan Lee's squad
+- Team capacity post-Android GA: approximately 18–22 story points per sprint
+- Dana Park's H1 OKRs: GMV growth, guide retention (71% → 80% 12-month retention), adventurer repeat rate (38% → 45%)
+
+Include the full stress test.</pre>
+        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>Did the skill sequence the initiatives the way you would have — and if not, where does your reasoning differ from its reasoning?</li>
+        <li>What did the "What We're Not Doing" framing reveal about the opportunity cost you're accepting with this sequence?</li>
+        <li>What single piece of new information would flip the top priority to second place?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-10.html">← Day 10</a>
+        <a href="day-12.html">Day 12 →</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 4 — Allocate Capacity and Set Goals | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 4,
+    "week": 1,
+    "type": "skill",
+    "skill": "sprint-plan",
+    "invocation": "/sprint-plan",
+    "mode": null,
+    "title": "Allocate Capacity and Set Goals",
+    "theme": "Writing & Thinking",
+    "estimated_minutes": 20,
+    "required_inputs": "Backlog items with story points, team capacity (with any constraints noted), sprint length, priority goal, and carryover items. The skill stops if capacity or priority input is too thin to plan against.",
+    "prompts": {
+      "basic": "/sprint-plan\n\nDraft a sprint plan for my team:\n\nTeam: 4 engineers, 2-week sprint, ~16 story points capacity.\nGoal: finish the user onboarding redesign and start work on search filters.\nBacklog: onboarding-01 (8 pts), onboarding-02 (5 pts), search-01 (5 pts), search-02 (3 pts), search-03 (3 pts), tech-debt-01 (2 pts).\nCarryover from last sprint: onboarding-01, 60% done.",
+      "advanced": "/sprint-plan\n\nRun Analyze mode on this backlog first, then Draft mode for the sprint plan.\n\nSprint context:\n- Sprint length: 2 weeks (Wed–Tue)\n- Team capacity: 6 engineers, but Omar L. is on PTO days 3–6 and Elena T. is on on-call rotation at 50% capacity. Effective capacity: approximately 18 points.\n- Priority goal: reduce risk for Android GA and instrument Instant Book adoption before rollout expansion.\n- Planning capacity rule: never commit above 85% of available points.\n\nCarryover from last sprint:\n- AND-142: Payment failure retry state — 80% complete, blocked on QA reproduction (owner: Nina W.). Required for Android GA.\n- IB-087: Guide opt-in analytics events — not started, was deprioritized last sprint, required for rollout decision (owner: Nina W.; Fernando Lopez to validate definitions). No estimate yet.\n\nCandidate backlog:\n- AND-151: Fix push notification reliability for booking reminders (5 pts) — Android, blocks Android GA\n- AND-152: Add payment edge-case regression tests (3 pts) — QA, unblocks AND-142 if QA can repro\n- IB-088: Add calendar conflict warning before guide opts into Instant Book (5 pts) — backend + iOS, depends on IB-087 being instrumented first [DEPENDENCY CONFLICT — IB-087 not started but IB-088 is scheduled this sprint]\n- IB-089: Add opt-in funnel dashboard events (3 pts) — backend, no Figma needed, this is IB-087's replacement ticket with a cleaner scope\n- IB-090: Guide-facing Instant Book education modal (2 pts) — iOS + Android [ANDROID WORK — serialized]\n- OPS-044: Support macro update for cancellation policy questions (1 pt) — no engineering, PM + support\n- DATA-027: Cancellation reason taxonomy cleanup (3 pts) — backend data, last touched 4 sprints ago [STALE — verify if still relevant]\n- DISC-019: Guide listing setup — pricing guidance UI (8 pts) — iOS + backend, no Figma attached yet [NOT READY — missing Figma, missing AC]\n- DISC-020: Guide listing setup — example listing preview (13 pts) — iOS + backend + Android [OVERSIZED — likely a multi-sprint epic, needs splitting]\n- DISC-021: Guide listing setup — milestone email trigger events (2 pts) — backend data story for DISC-019 [dependency: DISC-019 must ship first]\n- DISC-022: Guide listing setup — onboarding checklist UI (5 pts) — iOS only\n- AND-153: Datadog alert configuration for Android push reliability (2 pts) — infra, no product AC needed\n- RETRO-011: Add retro action item tracking to sprint retrospective template (1 pt) — process, no engineering\n- IB-091: Flexible Instant Book advance-notice window — backend schema design (3 pts) — exploratory, no acceptance criteria [NO AC — this is a discovery spike, not a story]\n- ARCH-007: Migrate booking service to updated payment SDK (5 pts) — tech debt, 3 sprints old, blocks future payment work [STALE-BUT-LOAD-BEARING — needs prioritization call]\n- PM-REQUEST-004: Add \"save for later\" wishlist feature — requested by Priya Anand (Marketing) mid-sprint, no estimate, no AC, no Figma [NOT READY — new request, not groomed]"
+    },
+    "reflection_questions": [
+      "What did the backlog health analysis surface that you would have discovered — or not discovered — in a planning meeting?",
+      "How did the sprint goals the skill wrote differ from how you would have framed them — and which framing would be more useful to an engineer reading it on Day 1 of the sprint?",
+      "Which backlog item did the skill defer that you would have tried to fit in — and was its reasoning right?"
+    ],
+    "expected_output_type": "backlog health report (Analyze mode) followed by sprint goals, capacity math, selected story set, and implementation sequence (Draft mode)",
+    "saves_to_knowledge": "knowledge/sprint-plans/",
+    "prerequisites": [
+      3
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 1: Writing &amp; Thinking</span>
+      <p class="day-number">Day 4 of 20</p>
+      <h1>Allocate Capacity and Set Goals</h1>
+
+      <h2>Skill Overview</h2>
+      <p><code>sprint-plan</code> has two modes. Analyze mode assesses backlog health — flagging stories that need splitting, stale tickets, missing data stories, dependency conflicts, and oversized items that have been miscategorized as single stories. Draft mode builds a sprint plan: it does the capacity math, selects stories against priorities and constraints, sequences them by dependency, and writes sprint goals as outcomes rather than task lists.</p>
+      <p>Sprint planning fails in predictable ways — too much scope relative to capacity, carryover items that crowd out new work, goals that describe activity instead of outcomes, and backlog items that never get the scrutiny they'd need to be sprint-ready. <code>sprint-plan</code> catches these before the sprint starts. The Analyze mode is especially useful before a planning meeting: it surfaces the backlog problems a team would otherwise spend 40 minutes discovering in the room.</p>
+      <p>Day 4 is the planning skill in Week 1 because by now you've produced artifacts (Day 1), reviewed them (Day 2), and broken them into stories (Day 3). Sprint planning is where you decide what actually gets built next — it's the moment when all the prior work either becomes committed scope or gets deferred. After this week you'll have run the full writing-to-planning cycle.</p>
+
+      <h2>Sample Prompts</h2>
+
+      <p class="prompt-label">Basic</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-basic">/sprint-plan
+
+Draft a sprint plan for my team:
+
+Team: 4 engineers, 2-week sprint, ~16 story points capacity.
+Goal: finish the user onboarding redesign and start work on search filters.
+Backlog: onboarding-01 (8 pts), onboarding-02 (5 pts), search-01 (5 pts), search-02 (3 pts), search-03 (3 pts), tech-debt-01 (2 pts).
+Carryover from last sprint: onboarding-01, 60% done.</pre>
+        <button class="copy-btn" data-target="prompt-basic">Copy</button>
+      </div>
+
+      <p class="prompt-label">Advanced</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-advanced">/sprint-plan
+
+Run Analyze mode on this backlog first, then Draft mode for the sprint plan.
+
+Sprint context:
+- Sprint length: 2 weeks (Wed–Tue)
+- Team capacity: 6 engineers, but Omar L. is on PTO days 3–6 and Elena T. is on on-call rotation at 50% capacity. Effective capacity: approximately 18 points.
+- Priority goal: reduce risk for Android GA and instrument Instant Book adoption before rollout expansion.
+- Planning capacity rule: never commit above 85% of available points.
+
+Carryover from last sprint:
+- AND-142: Payment failure retry state — 80% complete, blocked on QA reproduction (owner: Nina W.). Required for Android GA.
+- IB-087: Guide opt-in analytics events — not started, was deprioritized last sprint, required for rollout decision (owner: Nina W.; Fernando Lopez to validate definitions). No estimate yet.
+
+Candidate backlog:
+- AND-151: Fix push notification reliability for booking reminders (5 pts) — Android, blocks Android GA
+- AND-152: Add payment edge-case regression tests (3 pts) — QA, unblocks AND-142 if QA can repro
+- IB-088: Add calendar conflict warning before guide opts into Instant Book (5 pts) — backend + iOS, depends on IB-087 being instrumented first [DEPENDENCY CONFLICT — IB-087 not started but IB-088 is scheduled this sprint]
+- IB-089: Add opt-in funnel dashboard events (3 pts) — backend, no Figma needed, this is IB-087's replacement ticket with a cleaner scope
+- IB-090: Guide-facing Instant Book education modal (2 pts) — iOS + Android [ANDROID WORK — serialized]
+- OPS-044: Support macro update for cancellation policy questions (1 pt) — no engineering, PM + support
+- DATA-027: Cancellation reason taxonomy cleanup (3 pts) — backend data, last touched 4 sprints ago [STALE — verify if still relevant]
+- DISC-019: Guide listing setup — pricing guidance UI (8 pts) — iOS + backend, no Figma attached yet [NOT READY — missing Figma, missing AC]
+- DISC-020: Guide listing setup — example listing preview (13 pts) — iOS + backend + Android [OVERSIZED — likely a multi-sprint epic, needs splitting]
+- DISC-021: Guide listing setup — milestone email trigger events (2 pts) — backend data story for DISC-019 [dependency: DISC-019 must ship first]
+- DISC-022: Guide listing setup — onboarding checklist UI (5 pts) — iOS only
+- AND-153: Datadog alert configuration for Android push reliability (2 pts) — infra, no product AC needed
+- RETRO-011: Add retro action item tracking to sprint retrospective template (1 pt) — process, no engineering
+- IB-091: Flexible Instant Book advance-notice window — backend schema design (3 pts) — exploratory, no acceptance criteria [NO AC — this is a discovery spike, not a story]
+- ARCH-007: Migrate booking service to updated payment SDK (5 pts) — tech debt, 3 sprints old, blocks future payment work [STALE-BUT-LOAD-BEARING — needs prioritization call]
+- PM-REQUEST-004: Add "save for later" wishlist feature — requested by Priya Anand (Marketing) mid-sprint, no estimate, no AC, no Figma [NOT READY — new request, not groomed]</pre>
+        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>What did the backlog health analysis surface that you would have discovered — or not discovered — in a planning meeting?</li>
+        <li>How did the sprint goals the skill wrote differ from how you would have framed them — and which framing would be more useful to an engineer reading it on Day 1 of the sprint?</li>
+        <li>Which backlog item did the skill defer that you would have tried to fit in — and was its reasoning right?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-03.html">← Day 3</a>
+        <a href="day-05.html">Day 5 →</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

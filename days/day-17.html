@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 17 — Compress a Complex Argument | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 17,
+    "week": 4,
+    "type": "skill",
+    "skill": "one-pager",
+    "invocation": "/one-pager",
+    "mode": null,
+    "title": "Compress a Complex Argument",
+    "theme": "Communication & Integration",
+    "estimated_minutes": 20,
+    "required_inputs": "Audience (named person or role), ask type (approve/fund/prioritize/feedback/awareness), and a description of the initiative. Prior artifacts from the kit (business case, data analysis) can serve as source material.",
+    "prompts": {
+      "basic": "/one-pager\n\nAudience: our VP of Product.\nAsk: Prioritize — add this to our next quarter roadmap.\nInitiative: build a notification system that reminds adventurers about upcoming experiences 48 hours before the event, with weather information attached. We've had requests for this from users and it could reduce no-shows.",
+      "advanced": "/one-pager\n\nAudience: Dana Park (VP Product).\nAsk: Prioritize — add the adventurer repeat engagement loop to the post-Android-GA Q3 roadmap alongside guide activation and Instant Book flexible mode.\n\nContext: I need Dana to decide to add this to the Q3 roadmap at our quarterly planning meeting next week. She has 3 minutes for this doc, not 30.\n\nInitiative: build a personalized re-engagement loop for adventurers who have completed at least one booking. Core components: post-experience push notification 3 days after an experience (surface related listings), personalized \"you might like\" suggestions on app open based on past activity, and a booking history page that shows completed experiences with re-booking options.\n\nEvidence:\n- Current repeat rate: 38% (target: 45%)\n- CAC: ~$38 per adventurer\n- 7-point improvement × 47,000 MAU × $185 avg booking value = ~$1.1M additional GMV annually without new acquisition spend\n- Day 7 feedback synthesis: \"I forget to come back unless I'm planning a vacation\" appeared in 6 instances across NPS verbatims, adventurer interviews, and post-booking surveys\n- Day 8 data: no current cohort analysis on time-to-second-booking — this is a known gap, not a blocker for the decision\n\nEngineering estimate: 3–4 sprint weeks across iOS, Android, backend. Single Android engineer is the constraint — this work cannot start until Android GA ships in 6 weeks.\n\nCompeting priorities: guide activation listing setup guidance and Instant Book flexible mode are also legitimate Q3 investments. The Day 11 prioritization recommended this sequence: guide activation first (lower Android dependency), repeat loop second (can start post-Android GA), Instant Book flexible mode third.\n\nWhy now: we have the evidence, the engineering is available post-GA, and every month without a re-engagement loop is CAC spend we can't recover with repeat bookings."
+    },
+    "reflection_questions": [
+      "What did the one-pager cut from the business case that you thought was important — and was the cut right for this audience and ask?",
+      "Does the 'why now' argument hold up if Dana asks one follow-up question — and what is that question?",
+      "What would the equivalent one-pager look like for Sam Rivera (Head of Engineering) — and what would be different?"
+    ],
+    "expected_output_type": "single-page argument (400–600 words) structured as: ask, problem/opportunity, proposed approach, why now, impact sizing, cost/resource ask, key risks, next steps",
+    "saves_to_knowledge": "knowledge/one-pagers/",
+    "prerequisites": [10, 11]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 4: Communication &amp; Integration</span>
+      <p class="day-number">Day 17 of 20</p>
+      <h1>Compress a Complex Argument</h1>
+
+      <h2>Skill Overview</h2>
+      <p><code>one-pager</code> compresses any argument into a single page calibrated for a specific audience and ask type. Ask type is required: approve, fund, prioritize, feedback, or awareness. The output (400–600 words) leads with the ask, states the problem, proposes an approach, explains why now, sizes the impact, names the cost, lists key risks, and closes with next steps. The audience and ask determine what's included and what's cut — a "prioritize" one-pager for a VP Product is structured differently than a "fund" one-pager for a CPO.</p>
+      <p>A one-pager's job is not to explain everything — it's to make the reader capable of making one specific decision. Everything that doesn't serve that decision is cut. <code>one-pager</code> enforces that discipline by requiring the PM to name the ask before the argument is built. If you can't name what you're asking the reader to do, the skill will surface that before proceeding.</p>
+      <p>Day 17 follows the launch checklist because by now the PM has a fully formed initiative — a business case, a prioritization rationale, and a launch plan. The one-pager is what you hand a stakeholder when you need a decision in 3 minutes, not 30. It also forces a question that the business case doesn't: if you had to cut every word that doesn't serve the decision, what would you keep?</p>
+
+      <h2>Sample Prompts</h2>
+
+      <p class="prompt-label">Basic</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-basic">/one-pager
+
+Audience: our VP of Product.
+Ask: Prioritize — add this to our next quarter roadmap.
+Initiative: build a notification system that reminds adventurers about upcoming experiences 48 hours before the event, with weather information attached. We've had requests for this from users and it could reduce no-shows.</pre>
+        <button class="copy-btn" data-target="prompt-basic">Copy</button>
+      </div>
+
+      <p class="prompt-label">Advanced</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-advanced">/one-pager
+
+Audience: Dana Park (VP Product).
+Ask: Prioritize — add the adventurer repeat engagement loop to the post-Android-GA Q3 roadmap alongside guide activation and Instant Book flexible mode.
+
+Context: I need Dana to decide to add this to the Q3 roadmap at our quarterly planning meeting next week. She has 3 minutes for this doc, not 30.
+
+Initiative: build a personalized re-engagement loop for adventurers who have completed at least one booking. Core components: post-experience push notification 3 days after an experience (surface related listings), personalized "you might like" suggestions on app open based on past activity, and a booking history page that shows completed experiences with re-booking options.
+
+Evidence:
+- Current repeat rate: 38% (target: 45%)
+- CAC: ~$38 per adventurer
+- 7-point improvement × 47,000 MAU × $185 avg booking value = ~$1.1M additional GMV annually without new acquisition spend
+- Day 7 feedback synthesis: "I forget to come back unless I'm planning a vacation" appeared in 6 instances across NPS verbatims, adventurer interviews, and post-booking surveys
+- Day 8 data: no current cohort analysis on time-to-second-booking — this is a known gap, not a blocker for the decision
+
+Engineering estimate: 3–4 sprint weeks across iOS, Android, backend. Single Android engineer is the constraint — this work cannot start until Android GA ships in 6 weeks.
+
+Competing priorities: guide activation listing setup guidance and Instant Book flexible mode are also legitimate Q3 investments. The Day 11 prioritization recommended this sequence: guide activation first (lower Android dependency), repeat loop second (can start post-Android GA), Instant Book flexible mode third.
+
+Why now: we have the evidence, the engineering is available post-GA, and every month without a re-engagement loop is CAC spend we can't recover with repeat bookings.</pre>
+        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>What did the one-pager cut from the business case that you thought was important — and was the cut right for this audience and ask?</li>
+        <li>Does the "why now" argument hold up if Dana asks one follow-up question — and what is that question?</li>
+        <li>What would the equivalent one-pager look like for Sam Rivera (Head of Engineering) — and what would be different?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-16.html">← Day 16</a>
+        <a href="day-18.html">Day 18 →</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

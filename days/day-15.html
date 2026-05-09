@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 15 — Find Patterns Before They Become Permanent | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 15,
+    "week": 3,
+    "type": "skill",
+    "skill": "retro-synthesis",
+    "invocation": "/retro-synthesis",
+    "mode": null,
+    "title": "Find Patterns Before They Become Permanent",
+    "theme": "Strategy & Alignment",
+    "estimated_minutes": 20,
+    "required_inputs": "One or more retrospective notes. Volume matters: 1 retro produces themes; 4+ retros produce patterns and follow-through data. Include action item owner and status per sprint if available.",
+    "prompts": {
+      "basic": "/retro-synthesis\n\nHere are notes from two recent retrospectives. Find patterns and track action item follow-through:\n\nRetro 1 — Sprint 4: Went well: deployment pipeline is much faster. Didn't go well: we merged a PR without a review and it caused a production incident. Action: enforce required reviewers in GitHub. Owner: Dev Lead.\n\nRetro 2 — Sprint 5: Went well: no production incidents. Didn't go well: the required reviewers rule was set up but people are bypassing it for \"small\" changes. Action: team agreement on what counts as \"small.\" Owner: Dev Lead. Status: not started (same action as last sprint).",
+      "advanced": "/retro-synthesis\n\nSynthesize these five retrospectives. Find recurring patterns with trend classification (improving / stable / getting worse). Track action item follow-through across all five. Identify the 1–2 focus areas that most need attention next quarter.\n\n---\n\nRETRO: Instant Book Beta — Sprint 14\nWent well: conversion lift was clear in early data; guide interviews surfaced concrete adoption blockers.\nDidn't go well: analytics events were added after launch, so early funnel data is incomplete and we can't measure the first two weeks of the beta properly. Support team learned about the Instant Book rollout from customer tickets — not from us.\nAction items:\n- Define instrumentation requirements before beta launch, not after. Owner: Fernando Lopez (Data). Status: not started.\n- Create internal comms checklist for rollout coordination with support. Owner: PM (me). Status: in progress.\n\n---\n\nRETRO: Android GA — Sprint 15\nWent well: crash rate improved significantly; QA caught payment issues before public launch.\nDidn't go well: scope changed mid-sprint when leadership asked for push notification parity with iOS. We had to drop a planned story to accommodate. Payment edge cases were more complex than estimated — the team underestimated by roughly 4 points.\nAction items:\n- Create launch-readiness checklist for mobile releases. Owner: Chris Okafor (EM). Status: in progress.\n- Establish scope freeze protocol: no new scope in sprint after Day 3. Owner: Chris Okafor (EM). Status: not started.\n\n---\n\nRETRO: Expanded Guide Pro Analytics Dashboard — Sprint 16\nWent well: Guide Pro beta users liked the listing view data; no significant bugs in QA.\nDidn't go well: dashboard shipped with metrics but no recommendations, so guides don't know what action to take. PM and design disagreed late in the sprint on whether the analytics should be prescriptive — we should have resolved this in the PRD. Analytics events on the dashboard itself weren't instrumented at launch.\nAction items:\n- Define \"actionable analytics\" standard before adding new dashboard modules. Owner: Product. Status: not started.\n- Analytics instrumentation checklist: add dashboard event requirements to Definition of Done. Owner: Fernando Lopez (Data). Status: not started (Fernando now has two open instrumentation action items).\n\n---\n\nRETRO: Instant Book Rollout Expansion — Sprint 17\nWent well: guide education modal shipped on schedule; guide opt-in improved from 22% to 27% after modal launch. Data from the modal funnel was clean.\nDidn't go well: IB-089 (opt-in funnel analytics events) fired inconsistently on Android — the Android implementation had a timing bug that caused some events to drop. We didn't catch this in QA because Android test coverage for analytics events is thin. Pattern: analytics gaps appearing in every launch.\nAction items:\n- IB-087 (Guide opt-in analytics) — reopened; still unresolved from Sprint 14. Owner: Nina W. Status: reopened.\n- Add analytics event testing to Android QA checklist. Owner: Elena T. Status: not started.\n- AND-142 (Payment failure retry state) — closed. Resolved by Nina W. in Sprint 17.\n\n---\n\nRETRO: Android GA Prep — Sprint 18\nWent well: payment edge-case regression suite is green; push notification reliability at 98%; Android GA looks solid.\nDidn't go well: scope of Android GA grew mid-sprint when Priya Anand (Marketing) requested a push notification campaign flow not in the original GA spec. We accommodated it but dropped a monitoring improvement ticket. The launch-readiness checklist (action item from Sprint 15, owner Chris) was created but wasn't actually used during GA planning — the team didn't know it existed.\nAction items:\n- Launch checklist adoption: the artifact exists but isn't operationalized. Third sprint this pattern appears in some form. Owner: Product. Status: not started.\n- Scope intake process: mid-sprint additions from stakeholders need a triage step before acceptance. Owner: Chris Okafor. Status: not started (same as Sprint 15 scope freeze protocol — different framing, same underlying problem).\n- Priya Anand comms process: establish a pre-sprint window for marketing to surface launch requirements. Owner: PM + Priya. Status: not started."
+    },
+    "reflection_questions": [
+      "Which pattern did the skill classify as 'getting worse' — and do you agree with that read based on the evidence across all five sprints?",
+      "What unaddressed action item has the highest compounding cost if it goes unfixed another quarter — and why hasn't it been fixed?",
+      "Where in your real team's retro process would this synthesis change what gets prioritized — and what's getting in the way of doing it this way now?"
+    ],
+    "expected_output_type": "recurring pattern table with trend classification, pattern timeline, What's Improving / What's Getting Worse, action item follow-through tracker, unaddressed items flagged with sprint count, and recommended focus areas",
+    "saves_to_knowledge": "knowledge/retros/",
+    "prerequisites": []
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 3: Strategy &amp; Alignment</span>
+      <p class="day-number">Day 15 of 20</p>
+      <h1>Find Patterns Before They Become Permanent</h1>
+
+      <h2>Skill Overview</h2>
+      <p><code>retro-synthesis</code> processes retrospective notes — one or many — and produces a pattern analysis rather than a summary. Each recurring pattern is named, mapped to the sprints where it appeared, and classified as improving, stable, or getting worse. Action items are tracked across retros: resolved items are acknowledged; items that appear in multiple sprints without resolution are flagged with a count. With a single retro, the skill surfaces themes. With four or more, it surfaces systemic problems.</p>
+      <p>Individual retros produce action items that get written down and forgotten. <code>retro-synthesis</code> with multiple retros produces patterns — which are different in kind. A problem that appeared in three sprints isn't something to action-item; it's something to understand as a structural failure. The skill forces that distinction, and the follow-through tracker makes it impossible to pretend that repeated inaction is just an oversight.</p>
+      <p>Day 15 closes the strategy week because strategy is only as good as the process that executes it. The PM spent a week prioritizing, deciding, and aligning. Today they look back at what their team's process is actually producing and what it keeps failing to fix.</p>
+
+      <h2>Sample Prompts</h2>
+
+      <p class="prompt-label">Basic</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-basic">/retro-synthesis
+
+Here are notes from two recent retrospectives. Find patterns and track action item follow-through:
+
+Retro 1 — Sprint 4: Went well: deployment pipeline is much faster. Didn't go well: we merged a PR without a review and it caused a production incident. Action: enforce required reviewers in GitHub. Owner: Dev Lead.
+
+Retro 2 — Sprint 5: Went well: no production incidents. Didn't go well: the required reviewers rule was set up but people are bypassing it for "small" changes. Action: team agreement on what counts as "small." Owner: Dev Lead. Status: not started (same action as last sprint).</pre>
+        <button class="copy-btn" data-target="prompt-basic">Copy</button>
+      </div>
+
+      <p class="prompt-label">Advanced</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-advanced">/retro-synthesis
+
+Synthesize these five retrospectives. Find recurring patterns with trend classification (improving / stable / getting worse). Track action item follow-through across all five. Identify the 1–2 focus areas that most need attention next quarter.
+
+---
+
+RETRO: Instant Book Beta — Sprint 14
+Went well: conversion lift was clear in early data; guide interviews surfaced concrete adoption blockers.
+Didn't go well: analytics events were added after launch, so early funnel data is incomplete and we can't measure the first two weeks of the beta properly. Support team learned about the Instant Book rollout from customer tickets — not from us.
+Action items:
+- Define instrumentation requirements before beta launch, not after. Owner: Fernando Lopez (Data). Status: not started.
+- Create internal comms checklist for rollout coordination with support. Owner: PM (me). Status: in progress.
+
+---
+
+RETRO: Android GA — Sprint 15
+Went well: crash rate improved significantly; QA caught payment issues before public launch.
+Didn't go well: scope changed mid-sprint when leadership asked for push notification parity with iOS. We had to drop a planned story to accommodate. Payment edge cases were more complex than estimated — the team underestimated by roughly 4 points.
+Action items:
+- Create launch-readiness checklist for mobile releases. Owner: Chris Okafor (EM). Status: in progress.
+- Establish scope freeze protocol: no new scope in sprint after Day 3. Owner: Chris Okafor (EM). Status: not started.
+
+---
+
+RETRO: Expanded Guide Pro Analytics Dashboard — Sprint 16
+Went well: Guide Pro beta users liked the listing view data; no significant bugs in QA.
+Didn't go well: dashboard shipped with metrics but no recommendations, so guides don't know what action to take. PM and design disagreed late in the sprint on whether the analytics should be prescriptive — we should have resolved this in the PRD. Analytics events on the dashboard itself weren't instrumented at launch.
+Action items:
+- Define "actionable analytics" standard before adding new dashboard modules. Owner: Product. Status: not started.
+- Analytics instrumentation checklist: add dashboard event requirements to Definition of Done. Owner: Fernando Lopez (Data). Status: not started (Fernando now has two open instrumentation action items).
+
+---
+
+RETRO: Instant Book Rollout Expansion — Sprint 17
+Went well: guide education modal shipped on schedule; guide opt-in improved from 22% to 27% after modal launch. Data from the modal funnel was clean.
+Didn't go well: IB-089 (opt-in funnel analytics events) fired inconsistently on Android — the Android implementation had a timing bug that caused some events to drop. We didn't catch this in QA because Android test coverage for analytics events is thin. Pattern: analytics gaps appearing in every launch.
+Action items:
+- IB-087 (Guide opt-in analytics) — reopened; still unresolved from Sprint 14. Owner: Nina W. Status: reopened.
+- Add analytics event testing to Android QA checklist. Owner: Elena T. Status: not started.
+- AND-142 (Payment failure retry state) — closed. Resolved by Nina W. in Sprint 17.
+
+---
+
+RETRO: Android GA Prep — Sprint 18
+Went well: payment edge-case regression suite is green; push notification reliability at 98%; Android GA looks solid.
+Didn't go well: scope of Android GA grew mid-sprint when Priya Anand (Marketing) requested a push notification campaign flow not in the original GA spec. We accommodated it but dropped a monitoring improvement ticket. The launch-readiness checklist (action item from Sprint 15, owner Chris) was created but wasn't actually used during GA planning — the team didn't know it existed.
+Action items:
+- Launch checklist adoption: the artifact exists but isn't operationalized. Third sprint this pattern appears in some form. Owner: Product. Status: not started.
+- Scope intake process: mid-sprint additions from stakeholders need a triage step before acceptance. Owner: Chris Okafor. Status: not started (same as Sprint 15 scope freeze protocol — different framing, same underlying problem).
+- Priya Anand comms process: establish a pre-sprint window for marketing to surface launch requirements. Owner: PM + Priya. Status: not started.</pre>
+        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>Which pattern did the skill classify as "getting worse" — and do you agree with that read based on the evidence across all five sprints?</li>
+        <li>What unaddressed action item has the highest compounding cost if it goes unfixed another quarter — and why hasn't it been fixed?</li>
+        <li>Where in your real team's retro process would this synthesis change what gets prioritized — and what's getting in the way of doing it this way now?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-14.html">← Day 14</a>
+        <a href="day-16.html">Day 16 →</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

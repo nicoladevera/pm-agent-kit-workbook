@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 14 — Arrive Ready to Decide | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 14,
+    "week": 3,
+    "type": "skill",
+    "skill": "meeting-brief",
+    "invocation": "/meeting-brief",
+    "mode": null,
+    "title": "Arrive Ready to Decide",
+    "theme": "Strategy & Alignment",
+    "estimated_minutes": 20,
+    "required_inputs": "Meeting name and objective, attendee list, decision to be made, current state of the topic, and any pre-reads or prior artifacts. The skill requires a clear decision question — if the meeting doesn't have one, it will surface that first.",
+    "prompts": {
+      "basic": "/meeting-brief\n\nPrepare a brief for this meeting:\n\nMeeting: Product team weekly sync, 45 minutes\nAttendees: VP Product (Dana), 2 PMs (me + Jordan), Head of Engineering (Sam), Head of Design (Mia)\nGoal: decide whether to pause the current sprint to address a critical bug in the payment flow, or keep the sprint going and address it next sprint\nContext: the bug causes some users to see a duplicate charge. It's rare (0.1% of transactions) but affects real users. The fix is about 3 days of engineering work.",
+      "advanced": "/meeting-brief\n\nPrepare a pre-meeting brief for this leadership decision meeting.\n\nMeeting name: Instant Book Rollout Strategy — Decision Meeting\nDate: This Thursday, 45 minutes\nObjective: Leave with a decision on whether to mandate Instant Book for eligible guides, introduce flexible Instant Book, or continue voluntary opt-in. Dana Park makes the call.\n\nAttendees and stakes:\n- Dana Park (VP Product) — decision-maker; cares about GMV growth and guide retention; has seen the opt-in data but not the Day 8 funnel analysis\n- Sam Rivera (Head of Engineering) — technical risk; needs to understand build complexity for flexible Instant Book vs. mandate enforcement logic\n- Jordan Lee (PM, Guide Experience) — guide-side advocate; strongly favors the mandate; has direct relationships with the guides raising concerns\n- Priya Anand (Head of Marketing) — launch timing; needs 2 weeks lead time for any GA announcement; faster decision = more runway\n\nCurrent state (as of this morning):\n- 22% of eligible guides opted into Instant Book despite targeting 45%\n- 31% conversion lift on Instant Book listings (confirmed in Day 8 analysis)\n- Guide concerns: calendar risk, double-booking private clients, no advance-notice minimum\n- Day 12 decision log has the full options comparison and stakeholder positions\n\nPre-reads available: Day 12 decision log (Notion), Day 8 data analysis summary, Day 13 alignment memo draft\n\nDecision question: Mandate vs. Flexible Instant Book vs. Continue voluntary opt-in\nDecider: Dana Park\nNot a decision in this meeting: the rollout timeline, which is downstream of the option chosen"
+    },
+    "reflection_questions": [
+      "What did the stakeholder stakes section surface about the meeting that you hadn't explicitly considered when you scheduled it?",
+      "Is the decision framing the skill produced the right one — or is there a prior decision that hasn't been made that's actually blocking this one?",
+      "Would the brief as written make each attendee actually read the pre-reads? What would make it more compelling to do so?"
+    ],
+    "expected_output_type": "pre-meeting brief with objective, attendee stakes table, structured agenda with current status and open questions, decisions section with named decider and options, and pre-reads list",
+    "saves_to_knowledge": "knowledge/meeting-briefs/",
+    "prerequisites": [
+      12,
+      13
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 3: Strategy &amp; Alignment</span>
+      <p class="day-number">Day 14 of 20</p>
+      <h1>Arrive Ready to Decide</h1>
+
+      <h2>Skill Overview</h2>
+      <p><code>meeting-brief</code> prepares a pre-meeting document by first confirming the objective (what should be true after this meeting that isn't true before it), then mapping each attendee's stake in the outcome, structuring the agenda with current status and open questions per item, and making decisions explicit: the question being decided, the options, and the named decider. Pre-reads are linked or named, not summarized in the brief itself.</p>
+      <p>Meetings fail when attendees arrive with different mental models of what the meeting is for. A brief that names the decision, states who makes it, and surfaces the context needed to make it converts a discussion into a decision. The attendee stakes table is the part PMs most often skip — it forces the PM to think about what each person needs from the meeting before the meeting starts, which changes both how the brief is written and who should actually be in the room.</p>
+      <p>Day 14 follows the alignment memo because the PM has now written the operating principle (Day 13) and structured the pending decision (Day 12). Today they prepare for the leadership meeting where the decision gets made. The brief is the pre-read.</p>
+
+      <h2>Sample Prompts</h2>
+
+      <p class="prompt-label">Basic</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-basic">/meeting-brief
+
+Prepare a brief for this meeting:
+
+Meeting: Product team weekly sync, 45 minutes
+Attendees: VP Product (Dana), 2 PMs (me + Jordan), Head of Engineering (Sam), Head of Design (Mia)
+Goal: decide whether to pause the current sprint to address a critical bug in the payment flow, or keep the sprint going and address it next sprint
+Context: the bug causes some users to see a duplicate charge. It's rare (0.1% of transactions) but affects real users. The fix is about 3 days of engineering work.</pre>
+        <button class="copy-btn" data-target="prompt-basic">Copy</button>
+      </div>
+
+      <p class="prompt-label">Advanced</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-advanced">/meeting-brief
+
+Prepare a pre-meeting brief for this leadership decision meeting.
+
+Meeting name: Instant Book Rollout Strategy — Decision Meeting
+Date: This Thursday, 45 minutes
+Objective: Leave with a decision on whether to mandate Instant Book for eligible guides, introduce flexible Instant Book, or continue voluntary opt-in. Dana Park makes the call.
+
+Attendees and stakes:
+- Dana Park (VP Product) — decision-maker; cares about GMV growth and guide retention; has seen the opt-in data but not the Day 8 funnel analysis
+- Sam Rivera (Head of Engineering) — technical risk; needs to understand build complexity for flexible Instant Book vs. mandate enforcement logic
+- Jordan Lee (PM, Guide Experience) — guide-side advocate; strongly favors the mandate; has direct relationships with the guides raising concerns
+- Priya Anand (Head of Marketing) — launch timing; needs 2 weeks lead time for any GA announcement; faster decision = more runway
+
+Current state (as of this morning):
+- 22% of eligible guides opted into Instant Book despite targeting 45%
+- 31% conversion lift on Instant Book listings (confirmed in Day 8 analysis)
+- Guide concerns: calendar risk, double-booking private clients, no advance-notice minimum
+- Day 12 decision log has the full options comparison and stakeholder positions
+
+Pre-reads available: Day 12 decision log (Notion), Day 8 data analysis summary, Day 13 alignment memo draft
+
+Decision question: Mandate vs. Flexible Instant Book vs. Continue voluntary opt-in
+Decider: Dana Park
+Not a decision in this meeting: the rollout timeline, which is downstream of the option chosen</pre>
+        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>What did the stakeholder stakes section surface about the meeting that you hadn't explicitly considered when you scheduled it?</li>
+        <li>Is the decision framing the skill produced the right one — or is there a prior decision that hasn't been made that's actually blocking this one?</li>
+        <li>Would the brief as written make each attendee actually read the pre-reads? What would make it more compelling to do so?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-13.html">← Day 13</a>
+        <a href="day-15.html">Day 15 →</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
