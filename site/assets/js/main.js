@@ -8,10 +8,37 @@
     var btn = document.getElementById('themeToggle');
     if (!btn) return;
     btn.addEventListener('click', function () {
-      var current = document.documentElement.getAttribute('data-theme') || 'dark';
+      var current = document.documentElement.getAttribute('data-theme') || 'light';
       var next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       try { localStorage.setItem('pmakw-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ── Mobile sidebar toggle ── */
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebarToggle');
+    if (!btn) return;
+
+    var overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    document.body.appendChild(overlay);
+
+    function openSidebar() { document.body.classList.add('sidebar-open'); }
+    function closeSidebar() { document.body.classList.remove('sidebar-open'); }
+
+    btn.addEventListener('click', function () {
+      if (document.body.classList.contains('sidebar-open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+
+    overlay.addEventListener('click', closeSidebar);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeSidebar();
     });
   }
 
@@ -81,6 +108,7 @@
   /* ── Init ── */
   function init() {
     initThemeToggle();
+    initSidebarToggle();
     initCopyButtons();
     initActiveNav();
   }
