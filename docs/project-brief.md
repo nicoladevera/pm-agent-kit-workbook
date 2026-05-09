@@ -19,7 +19,7 @@ PM Agent Kit Workbook
 
 Product managers recognize that AI tools like Claude Code are powerful, but they can't carve out intentional time to learn them — there's always a sprint, a stakeholder, a fire. The result is passive awareness with no real fluency. PMs end up with vague enthusiasm and zero reps.
 
-The PM Agent Kit solves the *what* — a full suite of PM skills encoded in a portable, agentic system. The Workbook solves the *how* — a structured, low-friction daily practice that builds fluency one skill at a time. Twenty minutes a day, Monday through Friday, for four weeks.
+The PM Agent Kit solves the *what* — a full suite of PM skills encoded in a portable, agentic system. The Workbook solves the *how* — a structured, self-paced, low-friction daily practice that builds fluency one skill at a time. Twenty minutes a day, Monday through Friday, for four weeks.
 
 ### Intended Outcome
 
@@ -45,6 +45,22 @@ After 20 days, a PM has:
 pm-agent-kit-workbook/
   docs/
     project-brief.md
+  company/                # Pre-filled Terrain context files — copy into pm-agent-kit clone
+    facts/
+      product.md
+      customers.md
+      team.md
+      competitors.md
+      glossary.md
+    norms/
+      team-process.md
+      communication.md
+      decisions.md
+      launch-process.md
+    interfaces/
+      branding.md
+      data-sources.md
+      tools.md
   index.html              # Landing page: challenge overview, how it works, start CTA
   setup.html              # Day 0: environment setup (not counted in 20 days)
   terrain.html            # Company context: fictional Terrain scenario used throughout the challenge
@@ -73,9 +89,15 @@ pm-agent-kit-workbook/
 - Secondary CTA: "Jump to Day 1" (for users who already have the kit installed)
 
 #### Setup Page (`setup.html`) — Day 0, not counted in 20 days
-- What you need: a Mac or Linux machine, a Claude account, a terminal
-- Step-by-step: install Claude Code, clone the pm-agent-kit repo (`https://github.com/nicoladevera/pm-agent-kit`), open Claude Code in the repo directory, run a smoke-test prompt (`/doc-review`) to confirm the kit is working
-- What to expect: a note on how the kit works (skills, context files, draft-confirm outputs)
+- What you need: a Mac or Linux machine, a Claude account, a terminal or IDE
+- Step-by-step:
+  1. Install Claude Code
+  2. Clone the pm-agent-kit repo: `git clone https://github.com/nicoladevera/pm-agent-kit`
+  3. Clone this workbook repo: `git clone https://github.com/nicoladevera/pm-agent-kit-workbook`
+  4. Copy the Terrain company context files: `cp -r pm-agent-kit-workbook/company pm-agent-kit/company` — this replaces the stub placeholders with pre-filled Terrain context so every skill runs at full capacity
+  5. Open Claude Code in the pm-agent-kit directory
+  6. Run a smoke-test prompt (`/doc-review`) to confirm the kit is working
+- What to expect: a note on how the kit works (skills, context files, draft-confirm outputs); a note explaining why the company files matter — skills produce more specific, credible output when the agent has product, team, customer, and process context loaded
 - Link to pm-agent-kit README: `https://github.com/nicoladevera/pm-agent-kit`
 - **Dependency matrix by skill:** Not all skills are available immediately after cloning. The setup page must include this table so PMs know what to install before reaching that day:
 
@@ -274,6 +296,31 @@ A root-level JSON file that describes the full 20-day curriculum. An agent that 
   "prerequisites": [6, 2, 3]
 }
 ```
+
+### Terrain Company Context Files (`company/`)
+
+The workbook ships 12 pre-filled company context files for Terrain, stored in `company/` and mirroring the pm-agent-kit's `company/` directory structure exactly. Users copy this folder into their pm-agent-kit clone during Day 0 setup. This replaces the kit's stub placeholders with substantive Terrain context, enabling every skill to run at full output quality rather than degraded mode.
+
+**Why this matters:** The pm-agent-kit's CLAUDE.md treats stub files (comment-only templates) as unavailable context. Skills that read `facts/product.md`, `facts/customers.md`, `facts/team.md`, `norms/team-process.md`, and `norms/communication.md` are listed as "active runtime input" in the kit's ONBOARDING.md — these five files alone affect output quality for nearly every skill. Pre-filling them for Terrain means challenge participants experience the kit at full capability from Day 1, not a watered-down version.
+
+**The files and their consumption priority:**
+
+| File | Priority | Skills affected |
+|------|----------|----------------|
+| `facts/product.md` | Active runtime input | doc-review, prd-draft, generate-tasks, status-update, sprint-plan, business-case, and more |
+| `facts/customers.md` | Active runtime input | user-feedback, prd-draft, business-case, competitive-intel, data-analysis |
+| `facts/team.md` | Active runtime input | status-update, sprint-plan, meeting-brief, decision-log, launch-checklist |
+| `norms/team-process.md` | Active runtime input | doc-review, prd-draft, generate-tasks, status-update, sprint-plan, retro-synthesis |
+| `norms/communication.md` | Active runtime input | status-update, meeting-brief, presentation-deck |
+| `norms/decisions.md` | Conditional | decision-log, business-case, roadmap-prioritization |
+| `facts/competitors.md` | Conditional | competitive-intel, user-feedback |
+| `interfaces/data-sources.md` | Conditional | data-analysis, user-feedback, discovery-plan |
+| `norms/launch-process.md` | Conditional | launch-checklist |
+| `interfaces/branding.md` | Conditional | presentation-deck (Slides mode only) |
+| `facts/glossary.md` | Future-facing | Not consumed by shipped skills today |
+| `interfaces/tools.md` | Future-facing | Not consumed by shipped skills today |
+
+**Secondary benefit:** These files serve as a reference implementation. Challenge participants who later want to configure the kit for their own company can see exactly what "substantive" context looks like versus a stub — and use the Terrain files as a template to replace.
 
 ---
 
@@ -535,13 +582,14 @@ Use these named stakeholders in `meeting-brief`, `status-update`, `presentation-
 
 | Stakeholder | Role | What they care about |
 |-------------|------|----------------------|
-| **Leah Chen** | CEO | Marketplace liquidity, investor narrative, durable growth, category leadership |
-| **Amir Patel** | Head of Supply / Guide Ops | Guide activation, guide retention, operational burden, policy fairness |
-| **Rina Morales** | Head of Growth | Booking conversion, repeat rate, CAC payback, lifecycle marketing |
-| **Theo Brooks** | Engineering Manager, Marketplace Squad | Scope clarity, platform reliability, payment edge cases, sprint predictability |
-| **Maya Singh** | Design Lead | Trust cues, booking confidence, mobile UX, reducing guide setup friction |
-| **Owen Hart** | Support Lead | Cancellation disputes, refund confusion, guide/adventurer escalations |
-| **Nora Kim** | Trust & Safety Owner | Guide verification, incident reporting, insurance exposure, risky experience categories |
+| **Dana Park** | VP Product | OKR progress, booking conversion, guide retention, GMV growth |
+| **Sam Rivera** | Head of Engineering | Technical risk, system reliability, engineering velocity |
+| **Priya Anand** | Head of Marketing | Launch timing, app store positioning, external messaging, CAC payback |
+| **Chris Okafor** | EM, Adventurer Experience | Scope clarity, platform reliability, sprint predictability, payment edge cases |
+| **Jordan Lee** | PM, Guide Experience | Guide activation, guide retention, payout reliability, policy fairness |
+| **Mia Santos** | Designer | Trust cues, booking confidence, mobile UX, reducing guide setup friction |
+| **Riley Chen** | PM, Trust & Safety | Guide verification, incident reporting, insurance exposure, cancellation disputes |
+| **Marcus Webb** | Legal | Regulatory exposure, policy changes, liability, new data collection |
 
 ---
 
@@ -555,7 +603,7 @@ These constraints should appear in advanced prompts where relevant. They keep Te
 - Instant Book is currently available to 15% of guides in beta. Eligibility requires rating above 4.7, at least 10 completed bookings, and no safety incidents in the past 12 months.
 - Only 22% of beta-eligible guides have opted into Instant Book.
 - Instant Book listings convert 31% higher than request-to-book listings, but guides worry about over-committed calendars and no-shows.
-- Guide Pro costs $29/month and includes analytics, priority search placement, and early access to guide tooling.
+- Guide Pro costs $29/month and includes analytics dashboard, priority search placement, and bulk availability management.
 - Android GA is planned in 6 weeks. Remaining blockers are payment edge cases and push notification reliability.
 - Terrain operates only in the US today, with guide supply across 38 states.
 - Outdoor experiences have weather, safety, and skill-level matching constraints that generic activity marketplaces do not handle well.
@@ -751,7 +799,7 @@ Candidate backlog:
 Use for `status-update`, `meeting-brief`, and Day 20 capstone.
 
 ```text
-Audience: Leah Chen (CEO), Amir Patel (Head of Supply), Rina Morales (Head of Growth)
+Audience: Dana Park (VP Product), Jordan Lee (PM, Guide Experience), Priya Anand (Head of Marketing)
 Timeframe: This week
 Instant Book rollout: eligible guide opt-in remains low at 22%; conversion lift still strong at +31% on opted-in listings; guide concern is calendar risk.
 Android GA: still targeting launch in 6 weeks; payment edge-case bug remains open; push notification reliability improved from 91% to 97% in latest beta build.
