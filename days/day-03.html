@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 3 — Break a Spec Into Shippable Stories | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 3,
+    "week": 1,
+    "type": "skill",
+    "skill": "generate-tasks",
+    "invocation": "/generate-tasks",
+    "mode": null,
+    "title": "Break a Spec Into Shippable Stories",
+    "theme": "Writing & Thinking",
+    "estimated_minutes": 20,
+    "required_inputs": "A PRD, spec, or feature description. The Day 1 PRD is the natural input. The skill also works from meeting notes or rough feature descriptions.",
+    "prompts": {
+      "basic": "/generate-tasks\n\nBreak this feature description into shippable stories:\n\nWe want to add a difficulty rating system so adventurers can filter search results by skill level. Guides set the difficulty level on their listing (beginner, intermediate, advanced). Adventurers can filter by difficulty on search. The filter should persist across sessions.",
+      "advanced": "/generate-tasks\n\nUse the guide listing setup guidance PRD from Day 1 as input. Decompose it into sprint-ready stories.\n\nTeam context:\n- 6 engineers: 2 iOS, 1 Android, 2 backend, 1 QA\n- 18–22 story points per sprint\n- Single Android engineer — Android work must be sequenced serially, it cannot run in parallel with other Android tickets\n- Listing object is owned by Jordan Lee's Guide Experience squad; any changes to listing schema require cross-squad coordination and a separate backend ticket owned by that squad\n- Definition of ready requires: AC in Given/When/Then, Figma link for user-facing changes, named analytics events, no unresolved dependencies, estimated\n\nFlag:\n- Any story that requires a data tracking counterpart that isn't explicit in the PRD\n- Any story where the AC requires a PM decision not yet resolved in the spec\n- Any story that touches the shared listing object (needs Jordan's squad coordination)\n- Any Android-specific story (serialized, plan accordingly)\n\n[paste the Day 1 PRD here, or describe the guide listing setup guidance feature in detail]"
+    },
+    "reflection_questions": [
+      "Which stories were split differently than you would have split them — and do you agree with the dependency ordering the skill produced?",
+      "What data stories did the skill add that weren't explicit in the PRD — and would you have remembered them before launch?",
+      "Where did the skill flag PM input needed, and were those the right calls to escalate?"
+    ],
+    "expected_output_type": "ordered story set in Given/When/Then format, dependency graph, implementation sequence, and flagged items requiring PM input",
+    "saves_to_knowledge": "knowledge/tasks/",
+    "prerequisites": [
+      1,
+      2
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 1: Writing &amp; Thinking</span>
+      <p class="day-number">Day 3 of 20</p>
+      <h1>Break a Spec Into Shippable Stories</h1>
+
+      <h2>Skill Overview</h2>
+      <p><code>generate-tasks</code> decomposes a PRD or spec into shippable stories, each scoped to a single deployable unit with Given/When/Then acceptance criteria. It produces an ordered story set, a dependency graph, and an implementation sequence — plus a list of items flagged for PM input: edge cases the spec didn't resolve, data requirements that need explicit instrumentation, and product decisions embedded in acceptance criteria that only the PM can make.</p>
+      <p>The transition from spec to backlog is where scope and quality erode. Stories get written without acceptance criteria, data requirements get forgotten until after launch, and engineers make product decisions because the spec didn't make them. <code>generate-tasks</code> closes that gap systematically — and is explicit about what remains unresolved. Every flag it raises is a conversation you'd otherwise have mid-sprint.</p>
+      <p>Day 3 follows Day 2 because the PRD you wrote and reviewed is the natural input. You'll see how a document you authored translates into implementation units — and where the spec's gaps become story-level ambiguities. The stories you generate today are what a sprint plan would draw from on Day 4.</p>
+
+      <h2>Sample Prompts</h2>
+
+      <p class="prompt-label">Basic</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-basic">/generate-tasks
+
+Break this feature description into shippable stories:
+
+We want to add a difficulty rating system so adventurers can filter search results by skill level. Guides set the difficulty level on their listing (beginner, intermediate, advanced). Adventurers can filter by difficulty on search. The filter should persist across sessions.</pre>
+        <button class="copy-btn" data-target="prompt-basic">Copy</button>
+      </div>
+
+      <p class="prompt-label">Advanced</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-advanced">/generate-tasks
+
+Use the guide listing setup guidance PRD from Day 1 as input. Decompose it into sprint-ready stories.
+
+Team context:
+- 6 engineers: 2 iOS, 1 Android, 2 backend, 1 QA
+- 18–22 story points per sprint
+- Single Android engineer — Android work must be sequenced serially, it cannot run in parallel with other Android tickets
+- Listing object is owned by Jordan Lee's Guide Experience squad; any changes to listing schema require cross-squad coordination and a separate backend ticket owned by that squad
+- Definition of ready requires: AC in Given/When/Then, Figma link for user-facing changes, named analytics events, no unresolved dependencies, estimated
+
+Flag:
+- Any story that requires a data tracking counterpart that isn't explicit in the PRD
+- Any story where the AC requires a PM decision not yet resolved in the spec
+- Any story that touches the shared listing object (needs Jordan's squad coordination)
+- Any Android-specific story (serialized, plan accordingly)
+
+[paste the Day 1 PRD here, or describe the guide listing setup guidance feature in detail]</pre>
+        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>Which stories were split differently than you would have split them — and do you agree with the dependency ordering the skill produced?</li>
+        <li>What data stories did the skill add that weren't explicit in the PRD — and would you have remembered them before launch?</li>
+        <li>Where did the skill flag PM input needed, and were those the right calls to escalate?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-02.html">← Day 2</a>
+        <a href="day-04.html">Day 4 →</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

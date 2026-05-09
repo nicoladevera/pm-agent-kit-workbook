@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 8 — Interpret Metrics in Context | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 8,
+    "week": 2,
+    "type": "skill",
+    "skill": "data-analysis",
+    "invocation": "/data-analysis",
+    "mode": null,
+    "title": "Interpret Metrics in Context",
+    "theme": "Evidence &amp; Discovery",
+    "estimated_minutes": 25,
+    "required_inputs": "A data question plus tabular data (CSV, table, or dashboard export). Requires matplotlib installed: python3 -m pip install matplotlib. See setup page.",
+    "prompts": {
+      "basic": "/data-analysis\n\nHere's a simple data table. Tell me what's happening in the booking funnel:\n\nlisting_type,search_sessions,detail_views,booking_starts,completed_bookings,cancellations\nrequest_to_book,1200,408,53,46,7\ninstant_book,300,111,19,17,2\n\nWhat is the Instant Book conversion lift compared to request-to-book?",
+      "advanced": "/data-analysis\n\nI have two tables from Fernando Lopez (Data Lead). He exported these from Amplitude + Looker last Tuesday. Please analyze both.\n\nQuestions I need answered:\n1. What is the Instant Book conversion lift relative to request-to-book? Is it consistent across the 16-week period, or is it changing over time?\n2. There appears to be a cancellation anomaly somewhere in the weekly data. Identify which weeks it occurs, estimate the magnitude, and surface any hypotheses about cause.\n3. Which experience category has the highest cancellation rate — and does Instant Book reduce cancellations consistently across all categories or only some?\n4. Are there any data quality issues I should flag before taking this to a leadership deck?\n\nPlease generate visualizations where they add clarity. Cite all calculations.\n\n---\n\nTABLE 1: Weekly Booking Funnel by Listing Type (16 weeks)\n\nweek,listing_type,search_sessions,detail_views,booking_starts,completed_bookings,cancellations\n1,request_to_book,5200,1768,229,198,27\n1,guide_pro_request_to_book,1600,624,90,79,11\n2,request_to_book,5350,1819,236,204,28\n2,guide_pro_request_to_book,1650,644,93,82,11\n3,request_to_book,5500,1870,243,210,29\n3,guide_pro_request_to_book,1680,655,95,84,11\n4,request_to_book,5600,1904,247,214,30\n4,guide_pro_request_to_book,1720,671,97,85,12\n5,request_to_book,5750,1955,254,220,30\n5,guide_pro_request_to_book,1750,683,99,87,12\n6,request_to_book,5900,2006,261,226,31\n6,guide_pro_request_to_book,1800,702,102,90,12\n7,request_to_book,6050,2057,267,231,32\n7,guide_pro_request_to_book,1850,722,105,92,13\n8,request_to_book,6200,2108,274,238,33\n8,guide_pro_request_to_book,1900,741,107,94,13\n9,request_to_book,6000,2040,265,230,32\n9,guide_pro_request_to_book,1900,741,107,94,13\n9,instant_book,750,278,47,42,4\n9,guide_pro_instant_book,270,111,20,18,2\n10,request_to_book,5900,2006,261,226,31\n10,guide_pro_request_to_book,1880,733,106,93,13\n10,instant_book,1100,407,69,62,6\n10,guide_pro_instant_book,390,160,29,26,3\n11,request_to_book,5800,1972,256,211,37\n11,guide_pro_request_to_book,1870,729,106,87,14\n11,instant_book,1350,500,85,70,14\n11,guide_pro_instant_book,480,197,35,29,6\n12,request_to_book,5700,1938,252,208,37\n12,guide_pro_request_to_book,1860,725,105,86,15\n12,instant_book,1500,555,94,78,14\n12,guide_pro_instant_book,530,217,39,32,6\n13,request_to_book,5600,1904,247,215,29\n13,guide_pro_request_to_book,1850,722,104,92,12\n13,instant_book,1800,666,113,102,10\n13,guide_pro_instant_book,620,254,46,41,4\n14,request_to_book,5400,1836,238,207,28\n14,guide_pro_request_to_book,1830,714,103,91,12\n14,instant_book,2100,777,132,119,12\n14,guide_pro_instant_book,730,299,54,49,5\n15,request_to_book,5200,1768,230,200,27\n15,guide_pro_request_to_book,1800,702,102,90,12\n15,instant_book,2500,925,157,141,15\n15,guide_pro_instant_book,880,361,65,58,6\n16,request_to_book,5000,1700,221,192,26\n16,guide_pro_request_to_book,1780,694,100,88,12\n16,instant_book,2900,1073,182,163,18\n16,guide_pro_instant_book,1040,426,77,69,7\n\n---\n\nTABLE 2: Booking Funnel by Experience Category (weeks 9–16, beta period only)\n\ncategory,listing_type,detail_views,booking_starts,completed_bookings,cancellations,avg_booking_value\nsurf_lessons,request_to_book,4800,682,559,123,95\nsurf_lessons,instant_book,1800,306,266,35,95\nalpine_climbing,request_to_book,2400,312,287,26,420\nalpine_climbing,instant_book,900,135,127,8,420\nkayaking_tours,request_to_book,3800,494,432,60,140\nkayaking_tours,instant_book,1400,238,214,22,140\nforaging_walks,request_to_book,1600,192,175,17,75\nforaging_walks,instant_book,600,90,84,6,75\nfly_fishing,request_to_book,2200,286,243,43,220\nfly_fishing,instant_book,750,120,107,13,220"
+    },
+    "reflection_questions": [
+      "Which finding did the skill surface that you would have missed scrolling through a dashboard — and how would that finding change a decision you're currently facing?",
+      "Where did the skill note a data quality limitation — and would that limitation matter enough to delay a leadership presentation?",
+      "How would you use this analysis as evidence in the business case you'll build on Day 10 — what claim does it support, and what would make that claim stronger?"
+    ],
+    "expected_output_type": "classified analysis with cited findings, 1–3 programmatic visualizations, hypotheses ranked by likelihood, limitations, reproducibility bundle",
+    "saves_to_knowledge": "knowledge/data-analyses/",
+    "prerequisites": []
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 2: Evidence &amp; Discovery</span>
+      <p class="day-number">Day 8 of 20</p>
+      <h1>Interpret Metrics in Context</h1>
+
+      <h2>Skill Overview</h2>
+      <p><code>data-analysis</code> classifies the analysis type (metric interpretation, funnel analysis, cohort analysis, or anomaly investigation), produces verified insights with cited calculations, and generates 1–3 programmatic visualizations. Every numeric claim references a calculation ID that traces back to a reproducibility bundle — a replayable Python script, raw inputs, derived outputs, and a verification log. The math is checked before the output is delivered, not assumed.</p>
+      <p>The problem with product data isn't access — most teams have dashboards. The problem is interpretation: a number without context is noise, and context without a number is speculation. <code>data-analysis</code> connects them. It also surfaces what the data can't tell you — limitations, confidence intervals, and the hypotheses the data supports without proving. That distinction matters more than the findings themselves.</p>
+      <p>Day 8 adds the quantitative layer to the evidence week. Day 7 told you what users said; Day 8 tells you what the numbers show. Together they make a defensible claim. The analysis you produce today will become the evidence base for the business case on Day 10.</p>
+
+      <p class="setup-note"><strong>Setup note:</strong> This skill requires <code>matplotlib</code>. Run <code>python3 -m pip install matplotlib</code> before this day if you haven't already (see the <a href="../setup.html">setup page</a>).</p>
+
+      <h2>Sample Prompts</h2>
+
+      <p class="prompt-label">Basic</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-basic">/data-analysis
+
+Here's a simple data table. Tell me what's happening in the booking funnel:
+
+listing_type,search_sessions,detail_views,booking_starts,completed_bookings,cancellations
+request_to_book,1200,408,53,46,7
+instant_book,300,111,19,17,2
+
+What is the Instant Book conversion lift compared to request-to-book?</pre>
+        <button class="copy-btn" data-target="prompt-basic">Copy</button>
+      </div>
+
+      <p class="prompt-label">Advanced</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-advanced">/data-analysis
+
+I have two tables from Fernando Lopez (Data Lead). He exported these from Amplitude + Looker last Tuesday. Please analyze both.
+
+Questions I need answered:
+1. What is the Instant Book conversion lift relative to request-to-book? Is it consistent across the 16-week period, or is it changing over time?
+2. There appears to be a cancellation anomaly somewhere in the weekly data. Identify which weeks it occurs, estimate the magnitude, and surface any hypotheses about cause.
+3. Which experience category has the highest cancellation rate — and does Instant Book reduce cancellations consistently across all categories or only some?
+4. Are there any data quality issues I should flag before taking this to a leadership deck?
+
+Please generate visualizations where they add clarity. Cite all calculations.
+
+---
+
+TABLE 1: Weekly Booking Funnel by Listing Type (16 weeks)
+
+week,listing_type,search_sessions,detail_views,booking_starts,completed_bookings,cancellations
+1,request_to_book,5200,1768,229,198,27
+1,guide_pro_request_to_book,1600,624,90,79,11
+2,request_to_book,5350,1819,236,204,28
+2,guide_pro_request_to_book,1650,644,93,82,11
+3,request_to_book,5500,1870,243,210,29
+3,guide_pro_request_to_book,1680,655,95,84,11
+4,request_to_book,5600,1904,247,214,30
+4,guide_pro_request_to_book,1720,671,97,85,12
+5,request_to_book,5750,1955,254,220,30
+5,guide_pro_request_to_book,1750,683,99,87,12
+6,request_to_book,5900,2006,261,226,31
+6,guide_pro_request_to_book,1800,702,102,90,12
+7,request_to_book,6050,2057,267,231,32
+7,guide_pro_request_to_book,1850,722,105,92,13
+8,request_to_book,6200,2108,274,238,33
+8,guide_pro_request_to_book,1900,741,107,94,13
+9,request_to_book,6000,2040,265,230,32
+9,guide_pro_request_to_book,1900,741,107,94,13
+9,instant_book,750,278,47,42,4
+9,guide_pro_instant_book,270,111,20,18,2
+10,request_to_book,5900,2006,261,226,31
+10,guide_pro_request_to_book,1880,733,106,93,13
+10,instant_book,1100,407,69,62,6
+10,guide_pro_instant_book,390,160,29,26,3
+11,request_to_book,5800,1972,256,211,37
+11,guide_pro_request_to_book,1870,729,106,87,14
+11,instant_book,1350,500,85,70,14
+11,guide_pro_instant_book,480,197,35,29,6
+12,request_to_book,5700,1938,252,208,37
+12,guide_pro_request_to_book,1860,725,105,86,15
+12,instant_book,1500,555,94,78,14
+12,guide_pro_instant_book,530,217,39,32,6
+13,request_to_book,5600,1904,247,215,29
+13,guide_pro_request_to_book,1850,722,104,92,12
+13,instant_book,1800,666,113,102,10
+13,guide_pro_instant_book,620,254,46,41,4
+14,request_to_book,5400,1836,238,207,28
+14,guide_pro_request_to_book,1830,714,103,91,12
+14,instant_book,2100,777,132,119,12
+14,guide_pro_instant_book,730,299,54,49,5
+15,request_to_book,5200,1768,230,200,27
+15,guide_pro_request_to_book,1800,702,102,90,12
+15,instant_book,2500,925,157,141,15
+15,guide_pro_instant_book,880,361,65,58,6
+16,request_to_book,5000,1700,221,192,26
+16,guide_pro_request_to_book,1780,694,100,88,12
+16,instant_book,2900,1073,182,163,18
+16,guide_pro_instant_book,1040,426,77,69,7
+
+---
+
+TABLE 2: Booking Funnel by Experience Category (weeks 9–16, beta period only)
+
+category,listing_type,detail_views,booking_starts,completed_bookings,cancellations,avg_booking_value
+surf_lessons,request_to_book,4800,682,559,123,95
+surf_lessons,instant_book,1800,306,266,35,95
+alpine_climbing,request_to_book,2400,312,287,26,420
+alpine_climbing,instant_book,900,135,127,8,420
+kayaking_tours,request_to_book,3800,494,432,60,140
+kayaking_tours,instant_book,1400,238,214,22,140
+foraging_walks,request_to_book,1600,192,175,17,75
+foraging_walks,instant_book,600,90,84,6,75
+fly_fishing,request_to_book,2200,286,243,43,220
+fly_fishing,instant_book,750,120,107,13,220</pre>
+        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>Which finding did the skill surface that you would have missed scrolling through a dashboard — and how would that finding change a decision you're currently facing?</li>
+        <li>Where did the skill note a data quality limitation — and would that limitation matter enough to delay a leadership presentation?</li>
+        <li>How would you use this analysis as evidence in the business case you'll build on Day 10 — what claim does it support, and what would make that claim stronger?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-07.html">&larr; Day 7</a>
+        <a href="day-09.html">Day 9 &rarr;</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

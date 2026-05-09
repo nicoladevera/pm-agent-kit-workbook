@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 20 — Capstone II: Full Strategy Cycle | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 20,
+    "week": 4,
+    "type": "capstone",
+    "title": "Capstone II: Full Strategy Cycle",
+    "theme": "Integration",
+    "estimated_minutes": 60,
+    "skills_chained": ["business-case", "roadmap-prioritization", "presentation-deck", "status-update"],
+    "steps": [
+      {
+        "step": 1,
+        "skill": "business-case",
+        "invocation": "/business-case",
+        "prompt": "Adventurer repeat loop. 38% repeat rate, target 45%, no current re-engagement mechanism. Evidence from Days 7+8. Sizing: ~$1.1M GMV annually for 7-point improvement. Alternatives: Do Nothing, promotional campaigns, full social layer. Android constraint: repeat loop Android work starts post-GA. Run full stress test."
+      },
+      {
+        "step": 2,
+        "skill": "roadmap-prioritization",
+        "invocation": "/roadmap-prioritization",
+        "prompt": "Sequence four candidates for quarter after Android GA: (1) adventurer repeat loop (Step 1 business case), (2) guide activation listing guidance (Day 19), (3) cancellation rate reduction (Day 7 signal, no discovery plan), (4) Instant Book flexible mode (approved after Day 14 decision meeting). Constraints: Android GA in 6 weeks, single Android engineer, H1 OKRs: GMV, guide retention 71%→80%, repeat rate 38%→45%. Include stress test."
+      },
+      {
+        "step": 3,
+        "skill": "presentation-deck",
+        "invocation": "/presentation-deck",
+        "prompt": "Narrative mode. Q3 priorities deck. Audience: Dana Park + Sam Rivera. Purpose: Exec Review. Align on guide activation first / repeat loop second / IB flexible third / cancellation deferred. Asks: sequence alignment, Sam sign-off on engineering sequencing. Source: Steps 1+2 outputs, Android GA constraint, and post-Day 14 Instant Book decision. 8 slides, speaker notes."
+      },
+      {
+        "step": 4,
+        "skill": "status-update",
+        "invocation": "/status-update",
+        "prompt": "Draft mode. Audience: squad (Chris Okafor, 6 engineers, Mia Santos). Communicate Q3 decision: guide activation first post-GA, repeat loop second, IB flexible third, cancellation deferred. Per-role implications. Lead with decision and reasoning. Name what's not happening and why."
+      }
+    ],
+    "reflection_questions": [
+      "Where did compounding context improve the output quality most as the chain progressed — and where did earlier outputs add noise rather than signal to later steps?",
+      "At which step did the skill's framing diverge most from your own judgment — and would you have caught that divergence without running the full chain?",
+      "What would you do differently when you run this cycle at your real company — what input would you invest more time in, and what step would you skip or compress?"
+    ],
+    "prerequisites": [10, 11, 18, 5]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 4: Communication &amp; Integration</span>
+      <p class="day-number">Day 20 of 20</p>
+      <span class="capstone-badge">Capstone</span>
+      <h1>Capstone II: Full Strategy Cycle</h1>
+
+      <p>This capstone chains four skills in sequence — <code>/business-case</code> → <code>/roadmap-prioritization</code> → <code>/presentation-deck</code> → <code>/status-update</code> — threading a single initiative from investment argument to team communication. The scenario: making the case for the adventurer repeat engagement loop, sequencing it against competing priorities, presenting it to leadership, and communicating the outcome to the team.</p>
+
+      <h2>Overview</h2>
+      <p>The full strategy cycle is the PM's highest-leverage mode. Done well, it produces a decision that is funded, sequenced, understood by leadership, and communicated to the people building it — all in one session. Done poorly, it produces slides that don't connect to decisions and status updates that don't say what was decided. The gap between the two versions is usually not effort — it's whether context compounds correctly from step to step.</p>
+      <p>Day 20 is the final challenge because it integrates everything: user evidence, data analysis, business case, prioritization rationale, narrative, communication. It is also the cycle you'll repeat every quarter at your real company. The goal today isn't perfect outputs — it's running the cycle end-to-end once and knowing where you'd invest more time in a real context.</p>
+
+      <h2>Steps</h2>
+
+      <div class="step-block">
+        <h3>Step 1: /business-case</h3>
+        <div class="prompt-block-wrapper">
+          <pre class="prompt-block" id="prompt-step-1">/business-case
+
+Build the case for the adventurer repeat engagement loop at Terrain.
+
+Problem: 38% of adventurers complete 2+ bookings in a 12-month window (target: 45%). Once an adventurer completes their first booking, Terrain has no structured re-engagement mechanism — no post-experience notifications, no personalized suggestions, no booking history page with re-booking options. Return traffic is entirely organic.
+
+Evidence:
+- Day 7 feedback synthesis: "I forget to come back unless I'm planning a vacation" — 6 instances across NPS verbatims, adventurer interviews, and post-booking surveys. Distinct and recurring.
+- Day 8 data: adventurer repeat rate is the only major funnel metric without a corresponding product intervention. The data analysis flagged no second-booking cohort analysis as a gap.
+- Sizing: CAC ~$38 per adventurer. A 7-point improvement in repeat rate (38% → 45%) × 47,000 MAU × $185 average booking value = ~$1.1M additional GMV annually without incremental acquisition spend.
+
+Alternatives:
+- Do Nothing: organic repeat stays at 38%. Every new adventurer costs $38 to acquire.
+- Promotional campaigns only: email and push campaigns, no product changes. Low build cost, historically low lift for activity platforms (users opt out quickly).
+- Full social layer: trip sharing, friend graph, public wishlists. High build cost (~6+ months), not committed, not in this business case.
+
+Context: Android GA ships in 6 weeks. The repeat loop work cannot start on Android until after GA. Backend and iOS work can start sooner.
+
+Run the full stress test.</pre>
+          <button class="copy-btn" data-target="prompt-step-1">Copy</button>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <h3>Step 2: /roadmap-prioritization</h3>
+        <div class="prompt-block-wrapper">
+          <pre class="prompt-block" id="prompt-step-2">/roadmap-prioritization
+
+Use the business case above as one candidate initiative. Sequence it against the other three known Terrain product problems for the quarter after Android GA ships.
+
+Candidates:
+1. Adventurer repeat loop (from Step 1 business case)
+2. Guide activation — listing setup guidance and pricing transparency (from Day 19 PRD and Day 6 discovery plan; structured research not yet complete but direction is clear)
+3. Cancellation rate reduction — 14% current, benchmark 7–9% (problem confirmed in Day 7; no discovery plan yet; most complex to solve)
+4. Instant Book flexible mode — configurable advance-notice window (structured in Day 12 and approved by Dana after the Day 14 decision meeting; build not yet started)
+
+Constraints:
+- Android GA is non-negotiable and ships in 6 weeks
+- Single Android engineer is the binding constraint on all mobile work until GA
+- Instant Book flexible mode requires backend + iOS + Android; cross-squad with Jordan Lee
+- H1 OKRs: GMV growth, guide 12-month retention (71% → 80%), adventurer repeat rate (38% → 45%)
+- Team capacity post-GA: 18–22 story points per sprint
+
+Include stress test.</pre>
+          <button class="copy-btn" data-target="prompt-step-2">Copy</button>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <h3>Step 3: /presentation-deck</h3>
+        <div class="prompt-block-wrapper">
+          <pre class="prompt-block" id="prompt-step-3">/presentation-deck
+
+Narrative mode. Build the leadership alignment deck for Q3 priorities.
+
+Audience: Dana Park (VP Product) and Sam Rivera (Head of Engineering).
+Purpose: Strategy / Exec Review.
+Objective: align on the post-Android-GA initiative sequence and get explicit sign-off on the repeat loop as Priority 2 (after guide activation).
+
+Source material for slides:
+- Step 1 business case: repeat loop sizing ($1.1M GMV), conviction level, stress test results
+- Step 2 prioritization: recommended sequence with per-position reasoning and deferred initiative framing
+- Android GA constraint: 6 weeks, single Android engineer, no Android feature work until GA ships
+- Post-Day 14 outcome: Instant Book flexible mode direction approved; this is already decided
+
+Key asks for the deck:
+1. Alignment on post-GA sequence (guide activation first, repeat loop second)
+2. Explicit acknowledgment that cancellation rate work is deferred and why
+3. Sam Rivera's sign-off on the engineering sequencing implication (backend for guide activation can start during GA sprint; Android repeat loop work starts post-GA)
+
+8 slides. Include speaker notes.</pre>
+          <button class="copy-btn" data-target="prompt-step-3">Copy</button>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <h3>Step 4: /status-update</h3>
+        <div class="prompt-block-wrapper">
+          <pre class="prompt-block" id="prompt-step-4">/status-update
+
+Draft mode. Team communication for the Adventurer Experience squad.
+
+Audience: the team — Chris Okafor (EM), 6 engineers, Mia Santos (designer).
+Purpose: communicate the Q3 strategy decision that just came out of the leadership meeting.
+
+What was decided:
+- Post-Android GA, the squad's focus shifts to guide activation listing guidance first, then adventurer repeat loop.
+- Instant Book flexible mode is third in sequence, starting after the repeat loop is in flight.
+- Cancellation rate reduction is deferred — not this quarter. The underlying problem is real but the solution complexity is highest and we don't have a discovery plan yet.
+- Android GA remains on track. Nothing changes for the next 6 weeks.
+
+What this means for the team:
+- Backend engineers: guide activation backend work (listing schema changes with Jordan's squad) can begin scoping during the current sprint, before GA ships.
+- iOS engineers: guide activation iOS work starts sprint 1 post-GA.
+- Android engineer: Android-specific work for guide activation and repeat loop starts sprint 2 post-GA (sprint 1 post-GA is decompression and infra catch-up).
+- Mia: design for guide activation listing guidance starts now. Repeat loop design starts in 6 weeks.
+
+Lead with the decision and the reasoning. Tell the team what's not happening and why — don't leave that unsaid. Keep it tight.</pre>
+          <button class="copy-btn" data-target="prompt-step-4">Copy</button>
+        </div>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>Where did compounding context improve the output quality most as the chain progressed — and where did earlier outputs add noise rather than signal to later steps?</li>
+        <li>At which step did the skill's framing diverge most from your own judgment — and would you have caught that divergence without running the full chain?</li>
+        <li>What would you do differently when you run this cycle at your real company — what input would you invest more time in, and what step would you skip or compress?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-19.html">← Day 19</a>
+        <span></span>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

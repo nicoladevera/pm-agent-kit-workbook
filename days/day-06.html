@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 6 — Map Assumptions Before Committing | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 6,
+    "week": 2,
+    "type": "skill",
+    "skill": "discovery-plan",
+    "invocation": "/discovery-plan",
+    "mode": null,
+    "title": "Map Assumptions Before Committing",
+    "theme": "Evidence &amp; Discovery",
+    "estimated_minutes": 20,
+    "required_inputs": "A problem area, what is known vs. assumed, the decision the discovery work is meant to inform, and any timeline or resource constraints. The skill works from narrative input — no structured data required.",
+    "prompts": {
+      "basic": "/discovery-plan\n\nI want to understand why users abandon our checkout flow. We have data showing drop-off at the payment step but we don't know if it's a trust issue, a price-sensitivity issue, or a UX problem. Help me plan what to learn before we start building solutions.",
+      "advanced": "/discovery-plan\n\nProblem: guide activation drop-off. 38% of guides who register never publish an experience within 30 days of signup. We don't know if the root cause is setup friction (listing form is too complex), uncertainty about time-to-first-booking (guides don't know if anyone will book them), pricing anxiety (guides don't know what to charge), or something we haven't identified yet.\n\nDecision to inform: whether and how to invest in listing setup guidance, pricing transparency tooling, or a milestone email sequence. These are the three candidate solutions the team is considering. I need to know which problem is actually load-bearing before committing engineering resources.\n\nWhat's known:\n- Exit survey verbatims point to listing setup friction and pricing uncertainty (anecdotal, n≈40 over 6 months)\n- Zendesk tickets from guides who never published show \"didn't know what to put\" as a common theme\n- No activation funnel data exists — we don't know where in the listing setup process guides abandon\n- Jordan Lee's squad owns the listing object; discovery findings will need to be shared with them before any build decision\n\nWhat's unknown but assumed:\n- The relative weight of friction vs. uncertainty vs. pricing anxiety\n- Whether guides who abandon early are qualitatively different from those who complete setup\n- Whether the problem is worse in specific experience categories (e.g., guides listing high-risk activities like alpine climbing vs. surf lessons)\n\nTimeline: decision needed before Q3 planning in 6 weeks. Research budget: 4 interviews/week, no paid research panels. Quantitative data requests through Fernando Lopez (Data Lead) take 2–3 days.\n\nPlease produce a discovery plan: map assumptions, rank by cost-of-being-wrong, select research methods with pre-defined evidence thresholds, and sequence the work."
+    },
+    "reflection_questions": [
+      "Which assumption did the skill rank as highest risk — and do you agree that being wrong about that one would be the most expensive mistake?",
+      "What evidence threshold did it set for 'validated' — is that bar high enough to justify a build decision, or is it too easy to clear?",
+      "What research method did the skill recommend that you wouldn't have reached for — and what would it tell you that your default method wouldn't?"
+    ],
+    "expected_output_type": "assumption map ranked by risk, research plan with pre-defined evidence thresholds per study, sequenced work plan with dependencies and resource requirements",
+    "saves_to_knowledge": "knowledge/discovery-plans/",
+    "prerequisites": []
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 2: Evidence &amp; Discovery</span>
+      <p class="day-number">Day 6 of 20</p>
+      <h1>Map Assumptions Before Committing</h1>
+
+      <h2>Skill Overview</h2>
+      <p><code>discovery-plan</code> maps the assumptions behind a problem, ranks them by cost-of-being-wrong, selects the right research method for each assumption, defines evidence thresholds before any research begins (what "validated" and "invalidated" look like in practice), and sequences the work with explicit dependencies. The output is not a solution — it's a map of what you need to learn before you're ready to commit to one.</p>
+      <p>PMs skip discovery when they feel they already know the answer, or when the schedule doesn't leave room for it. <code>discovery-plan</code> is designed for exactly that situation: it makes the assumptions explicit, surfaces which ones are load-bearing, and sizes the research investment against the cost of being wrong. The pre-defined evidence threshold is the most important output — you decide what "good enough to proceed" means before you run the study, not after the data comes back and you're tempted to rationalize.</p>
+      <p>Day 6 opens Week 2 because evidence comes before analysis. Before synthesizing feedback (Day 7), interpreting data (Day 8), or mapping the competitive landscape (Day 9), you need a framework for what you're trying to learn. The discovery plan defines the question; the rest of the week builds the answer.</p>
+
+      <h2>Sample Prompts</h2>
+
+      <p class="prompt-label">Basic</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-basic">/discovery-plan
+
+I want to understand why users abandon our checkout flow. We have data showing drop-off at the payment step but we don't know if it's a trust issue, a price-sensitivity issue, or a UX problem. Help me plan what to learn before we start building solutions.</pre>
+        <button class="copy-btn" data-target="prompt-basic">Copy</button>
+      </div>
+
+      <p class="prompt-label">Advanced</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-advanced">/discovery-plan
+
+Problem: guide activation drop-off. 38% of guides who register never publish an experience within 30 days of signup. We don't know if the root cause is setup friction (listing form is too complex), uncertainty about time-to-first-booking (guides don't know if anyone will book them), pricing anxiety (guides don't know what to charge), or something we haven't identified yet.
+
+Decision to inform: whether and how to invest in listing setup guidance, pricing transparency tooling, or a milestone email sequence. These are the three candidate solutions the team is considering. I need to know which problem is actually load-bearing before committing engineering resources.
+
+What's known:
+- Exit survey verbatims point to listing setup friction and pricing uncertainty (anecdotal, n≈40 over 6 months)
+- Zendesk tickets from guides who never published show "didn't know what to put" as a common theme
+- No activation funnel data exists — we don't know where in the listing setup process guides abandon
+- Jordan Lee's squad owns the listing object; discovery findings will need to be shared with them before any build decision
+
+What's unknown but assumed:
+- The relative weight of friction vs. uncertainty vs. pricing anxiety
+- Whether guides who abandon early are qualitatively different from those who complete setup
+- Whether the problem is worse in specific experience categories (e.g., guides listing high-risk activities like alpine climbing vs. surf lessons)
+
+Timeline: decision needed before Q3 planning in 6 weeks. Research budget: 4 interviews/week, no paid research panels. Quantitative data requests through Fernando Lopez (Data Lead) take 2–3 days.
+
+Please produce a discovery plan: map assumptions, rank by cost-of-being-wrong, select research methods with pre-defined evidence thresholds, and sequence the work.</pre>
+        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>Which assumption did the skill rank as highest risk — and do you agree that being wrong about that one would be the most expensive mistake?</li>
+        <li>What evidence threshold did it set for "validated" — is that bar high enough to justify a build decision, or is it too easy to clear?</li>
+        <li>What research method did the skill recommend that you wouldn't have reached for — and what would it tell you that your default method wouldn't?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-05.html">&larr; Day 5</a>
+        <a href="day-07.html">Day 7 &rarr;</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

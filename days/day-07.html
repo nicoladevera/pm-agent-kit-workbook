@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 7 — Extract Signal from Customer Voices | PM Agent Kit Workbook</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/json" id="day-metadata">
+  {
+    "day": 7,
+    "week": 2,
+    "type": "skill",
+    "skill": "user-feedback",
+    "invocation": "/user-feedback",
+    "mode": null,
+    "title": "Extract Signal from Customer Voices",
+    "theme": "Evidence &amp; Discovery",
+    "estimated_minutes": 20,
+    "required_inputs": "Any batch of customer feedback — support tickets, NPS verbatims, app store reviews, interview notes, survey responses. Volume matters: 30+ items produces meaningfully better clustering than 10.",
+    "prompts": {
+      "basic": "/user-feedback\n\nHere are recent support tickets and reviews. Find the themes and tell me what to do about them:\n\n[paste any batch of customer feedback here]",
+      "advanced": "/user-feedback\n\nSynthesize this batch of recent Terrain customer feedback. I'm investigating two areas: guide activation drop-off and adventurer repeat behavior. Find themes prioritized by frequency and severity. For each theme, show source distribution (what % came from each channel) and trend direction if the data supports it. Flag anything you classify as noise and explain why.\n\n---\n\nZENDESK SUPPORT TICKETS (last 45 days):\n\n[ZD-4821 | Guide | 18 days ago] \"I've been trying to set up my listing for two weeks. Every time I get to the pricing section I don't know what to put. There's no reference for what other surf instructors charge. I just guessed and I'm worried I'm way off.\"\n\n[ZD-4834 | Guide | 17 days ago] \"My listing went live 3 weeks ago and I haven't had a single booking. I don't know if my photos are bad or if nobody is finding me. There's no way to see how many people viewed my listing.\"\n\n[ZD-4852 | Adventurer | 16 days ago] \"I requested a booking 3 days ago and the guide still hasn't responded. I already booked something else. Please cancel.\"\n\n[ZD-4901 | Guide | 14 days ago] \"I opted into Instant Book and now I'm getting bookings I didn't plan for. A client texted me a private lesson for the same day and I had to cancel a Terrain booking. There should be a way to set a minimum notice period.\"\n\n[ZD-4923 | Adventurer | 13 days ago] \"I booked a foraging walk and the guide cancelled two days before because of weather. I got a refund but I had already made travel plans. Why can't the guide tell earlier if weather is going to be a problem?\"\n\n[ZD-4956 | Guide | 12 days ago] \"I want to cancel my Guide Pro subscription. The analytics showed me my listing views went up but I still don't know what to do differently to get more bookings. The data is there but it doesn't tell me anything actionable.\"\n\n[ZD-4978 | Adventurer | 11 days ago] \"The difficulty rating on this kayaking tour said intermediate. I'm an intermediate paddler but the description assumed I knew how to read river currents. I didn't. It was a bad experience.\"\n\n[ZD-5001 | Guide | 9 days ago] \"Getting payouts 3 days after the experience is hard when I'm counting on that income week to week. Other platforms pay faster. Is there any way to speed this up?\"\n\n[ZD-5034 | Adventurer | 7 days ago] \"I did a really amazing alpine climb last month and I want to go back but I can't find the guide again. I didn't save the listing. Is there a way to see my booking history?\"\n\n[ZD-5067 | Guide | 5 days ago] \"I got a cancellation from an adventurer 4 hours before our session. I was already at the beach. I got nothing. The 72-hour window feels unfair when I've already committed to the day.\"\n\n[ZD-5089 | Adventurer | 3 days ago] \"I had a great experience last week with a surf lesson. I want to book another one but I'm not sure who to try next. There's no way to see guides similar to the one I used.\"\n\n[ZD-5102 | Guide | 2 days ago] \"My listing has been live for a month. I've had 3 views. I don't know if that's normal or terrible. No benchmarks anywhere.\"\n\n---\n\nNPS VERBATIMS (last quarterly survey, detractors and passives only):\n\n[NPS 4 | Adventurer] \"The experience itself was great but the booking process is stressful. I waited almost 2 days for confirmation. I was comparing options and the guide who confirmed first got my booking — that wasn't even my first choice.\"\n\n[NPS 3 | Guide] \"I like the platform concept but I'm not getting enough bookings to make it worth the 18% fee. I'm starting to use other platforms more.\"\n\n[NPS 5 | Adventurer] \"Good selection of activities but I wish it was easier to tell whether a guide is right for my level. The reviews mention how good the guide is, but not whether a beginner would struggle.\"\n\n[NPS 4 | Adventurer] \"I used Terrain once last year. Good experience. I just forget it exists between trips. I wish it pushed me recommendations based on what I've done.\"\n\n[NPS 2 | Guide] \"The analytics dashboard in Guide Pro is not useful. It shows me views and bookings but doesn't tell me what I should change. I'm canceling after this month.\"\n\n[NPS 6 | Adventurer] \"It's fine. I'd use it again if I remembered it.\"\n\n[NPS 3 | Guide] \"Setup was confusing. I still don't know if my listing looks good compared to others. There's no way to preview how it appears in search.\"\n\n[NPS 5 | Adventurer] \"Would be better if I could see what my friends have booked. I found out a colleague did the same alpine climb I'm considering — that would have been useful to know.\"\n\n---\n\nAPP STORE REVIEWS (iOS + Android, last 30 days, 3 stars and below):\n\n[iOS, 2 stars, 22 days ago] \"Great concept but I requested a booking and waited 36 hours. The guide eventually declined. I'd already moved on. Instant Book is the right direction but most guides aren't on it.\"\n\n[Android, 3 stars, 20 days ago] \"App crashes when I try to view my booking history on Android. This is a known issue apparently. Frustrating.\"\n\n[iOS, 2 stars, 18 days ago] \"Why is there no wishlist? I find listings I like and then can't find them again. Basic feature.\"\n\n[iOS, 3 stars, 15 days ago] \"The guide was amazing. The app is a little clunky on the booking confirmation screen. Minor but it feels unfinished.\"\n\n[Android, 2 stars, 12 days ago] \"Push notifications are not reliable on Android. I missed a booking confirmation because the notification never came. Found out when I logged in manually.\"\n\n[iOS, 1 star, 8 days ago] \"I cancelled a booking 60 hours before the experience and didn't get a refund. The policy says 72 hours. This should be clearer — it says '72 hours before' but doesn't specify what timezone.\"\n\n[iOS, 3 stars, 4 days ago] \"Selection is good. Prices are reasonable. App needs some polish but works.\"\n\n---\n\nPOST-BOOKING SURVEYS (last 30 days, adventurers):\n\n[Survey, 3 days post-experience] \"The surf lesson was perfect for a beginner. The guide was patient. I'd book again. One thing: I had no idea what to expect before showing up — like what to wear, what to bring. That info wasn't on the listing.\"\n\n[Survey, 3 days post-experience] \"I almost didn't book because I wasn't sure the difficulty level matched me. I emailed the guide through the app to ask and he was helpful, but that felt like extra work.\"\n\n[Survey, 3 days post-experience] \"Really enjoyed it. Shared it on Instagram. Would be cool if Terrain had a way to share directly from the app or tag the guide.\"\n\n[Survey, 3 days post-experience] \"Good experience. I want to come back and do a harder route. Is there a way to see progression options from the same guide?\"\n\n[Survey, 3 days post-experience] \"Guide cancelled day-of because of weather. Understood, but I had already driven 45 minutes. Some advance warning would help. The guide knew the forecast was uncertain two days before.\"\n\n[Survey, 3 days post-experience] \"Great time. Already recommended Terrain to two friends. Nothing to add.\"\n\n---\n\nINTERVIEW NOTES AND SUPPORT OBSERVATIONS:\n\n[Guide interview, 3 weeks ago] \"I've been on the platform for 8 months. The first two months were really slow. I almost quit. Once I got my first five reviews, bookings picked up a lot. I wish someone had told me that when I signed up.\"\n\n[Support macro observation, ongoing] \"Cancellation contacts spike on Thursday and Friday afternoons before weekend trips, specifically asking about weather and whether the experience will still happen. Guides and adventurers both initiate these contacts.\"\n\n[Guide interview, 5 weeks ago] \"I don't list on Guide Pro because I can't tell if the analytics would actually help me get more bookings. The feature is unclear. What does 'priority search placement' actually mean in practice?\"\n\n[Adventurer interview, 2 weeks ago] \"I book about 5–6 experiences a year. Terrain is one of three apps I use. I'd use it more if it remembered my preferences and suggested things. Right now I only come back when I'm actively planning a trip.\"\n\n[Support observation, last 60 days] \"Guides who signed up in the last 90 days and haven't published are the source of roughly 30% of 'how do I set up my listing' contacts. Most questions are about pricing and photos.\""
+    },
+    "reflection_questions": [
+      "Which theme did the skill surface that you would have classified as noise — and was the skill's read right?",
+      "What did the source distribution per theme reveal about where signal comes from at Terrain — and how would that change which feedback channels you prioritize?",
+      "How would you use this synthesis to update the discovery plan from Day 6 — does it confirm the hypotheses, contradict them, or surface a new one?"
+    ],
+    "expected_output_type": "clustered feedback themes with frequency, severity, trend, source distribution, and representative quotes; signal vs. noise classification; prioritized recommended actions",
+    "saves_to_knowledge": "knowledge/user-feedback/",
+    "prerequisites": [
+      6
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
+      </div>
+      <div class="sidebar-top-links">
+        <a href="../setup.html">Setup</a>
+        <a href="../terrain.html">Terrain</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 1</div>
+        <a href="day-01.html">D1</a>
+        <a href="day-02.html">D2</a>
+        <a href="day-03.html">D3</a>
+        <a href="day-04.html">D4</a>
+        <a href="day-05.html">D5</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 2</div>
+        <a href="day-06.html">D6</a>
+        <a href="day-07.html">D7</a>
+        <a href="day-08.html">D8</a>
+        <a href="day-09.html">D9</a>
+        <a href="day-10.html">D10</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 3</div>
+        <a href="day-11.html">D11</a>
+        <a href="day-12.html">D12</a>
+        <a href="day-13.html">D13</a>
+        <a href="day-14.html">D14</a>
+        <a href="day-15.html">D15</a>
+      </div>
+      <div class="week-group">
+        <div class="week-group-label">Week 4</div>
+        <a href="day-16.html">D16</a>
+        <a href="day-17.html">D17</a>
+        <a href="day-18.html">D18</a>
+        <a href="day-19.html">D19</a>
+        <a href="day-20.html">D20</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <span class="week-badge">Week 2: Evidence &amp; Discovery</span>
+      <p class="day-number">Day 7 of 20</p>
+      <h1>Extract Signal from Customer Voices</h1>
+
+      <h2>Skill Overview</h2>
+      <p><code>user-feedback</code> clusters a pile of customer feedback into themes — each with a frequency count, severity rating, trend direction, source distribution, and 2–3 representative quotes. It separates signal (actionable, recurring, cross-source) from noise (one-time complaints, vague frustrations, off-topic requests), and produces a prioritized list of recommended actions ranked by frequency &times; severity &times; trend.</p>
+      <p>The problem isn't collecting feedback — most product teams have more than they can read. The problem is that unstructured feedback doesn't tell you what to do next. A pile of Zendesk tickets, NPS verbatims, and app reviews looks like chaos until it's clustered. Running this skill on a real feedback corpus once shows you how much signal was sitting in plain sight. The noise call is equally instructive: the skill will tell you what not to act on, and why.</p>
+      <p>Day 7 follows the discovery plan because the PM now has a framework for what they're looking for. Running user-feedback without that frame produces themes; running it with that frame tests assumptions. Today's exercise does both — and the synthesis you produce here will feed the business case on Day 10.</p>
+
+      <h2>Sample Prompts</h2>
+
+      <p class="prompt-label">Basic</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-basic">/user-feedback
+
+Here are recent support tickets and reviews. Find the themes and tell me what to do about them:
+
+[paste any batch of customer feedback here]</pre>
+        <button class="copy-btn" data-target="prompt-basic">Copy</button>
+      </div>
+
+      <p class="prompt-label">Advanced</p>
+      <div class="prompt-block-wrapper">
+        <pre class="prompt-block" id="prompt-advanced">/user-feedback
+
+Synthesize this batch of recent Terrain customer feedback. I'm investigating two areas: guide activation drop-off and adventurer repeat behavior. Find themes prioritized by frequency and severity. For each theme, show source distribution (what % came from each channel) and trend direction if the data supports it. Flag anything you classify as noise and explain why.
+
+---
+
+ZENDESK SUPPORT TICKETS (last 45 days):
+
+[ZD-4821 | Guide | 18 days ago] "I've been trying to set up my listing for two weeks. Every time I get to the pricing section I don't know what to put. There's no reference for what other surf instructors charge. I just guessed and I'm worried I'm way off."
+
+[ZD-4834 | Guide | 17 days ago] "My listing went live 3 weeks ago and I haven't had a single booking. I don't know if my photos are bad or if nobody is finding me. There's no way to see how many people viewed my listing."
+
+[ZD-4852 | Adventurer | 16 days ago] "I requested a booking 3 days ago and the guide still hasn't responded. I already booked something else. Please cancel."
+
+[ZD-4901 | Guide | 14 days ago] "I opted into Instant Book and now I'm getting bookings I didn't plan for. A client texted me a private lesson for the same day and I had to cancel a Terrain booking. There should be a way to set a minimum notice period."
+
+[ZD-4923 | Adventurer | 13 days ago] "I booked a foraging walk and the guide cancelled two days before because of weather. I got a refund but I had already made travel plans. Why can't the guide tell earlier if weather is going to be a problem?"
+
+[ZD-4956 | Guide | 12 days ago] "I want to cancel my Guide Pro subscription. The analytics showed me my listing views went up but I still don't know what to do differently to get more bookings. The data is there but it doesn't tell me anything actionable."
+
+[ZD-4978 | Adventurer | 11 days ago] "The difficulty rating on this kayaking tour said intermediate. I'm an intermediate paddler but the description assumed I knew how to read river currents. I didn't. It was a bad experience."
+
+[ZD-5001 | Guide | 9 days ago] "Getting payouts 3 days after the experience is hard when I'm counting on that income week to week. Other platforms pay faster. Is there any way to speed this up?"
+
+[ZD-5034 | Adventurer | 7 days ago] "I did a really amazing alpine climb last month and I want to go back but I can't find the guide again. I didn't save the listing. Is there a way to see my booking history?"
+
+[ZD-5067 | Guide | 5 days ago] "I got a cancellation from an adventurer 4 hours before our session. I was already at the beach. I got nothing. The 72-hour window feels unfair when I've already committed to the day."
+
+[ZD-5089 | Adventurer | 3 days ago] "I had a great experience last week with a surf lesson. I want to book another one but I'm not sure who to try next. There's no way to see guides similar to the one I used."
+
+[ZD-5102 | Guide | 2 days ago] "My listing has been live for a month. I've had 3 views. I don't know if that's normal or terrible. No benchmarks anywhere."
+
+---
+
+NPS VERBATIMS (last quarterly survey, detractors and passives only):
+
+[NPS 4 | Adventurer] "The experience itself was great but the booking process is stressful. I waited almost 2 days for confirmation. I was comparing options and the guide who confirmed first got my booking — that wasn't even my first choice."
+
+[NPS 3 | Guide] "I like the platform concept but I'm not getting enough bookings to make it worth the 18% fee. I'm starting to use other platforms more."
+
+[NPS 5 | Adventurer] "Good selection of activities but I wish it was easier to tell whether a guide is right for my level. The reviews mention how good the guide is, but not whether a beginner would struggle."
+
+[NPS 4 | Adventurer] "I used Terrain once last year. Good experience. I just forget it exists between trips. I wish it pushed me recommendations based on what I've done."
+
+[NPS 2 | Guide] "The analytics dashboard in Guide Pro is not useful. It shows me views and bookings but doesn't tell me what I should change. I'm canceling after this month."
+
+[NPS 6 | Adventurer] "It's fine. I'd use it again if I remembered it."
+
+[NPS 3 | Guide] "Setup was confusing. I still don't know if my listing looks good compared to others. There's no way to preview how it appears in search."
+
+[NPS 5 | Adventurer] "Would be better if I could see what my friends have booked. I found out a colleague did the same alpine climb I'm considering — that would have been useful to know."
+
+---
+
+APP STORE REVIEWS (iOS + Android, last 30 days, 3 stars and below):
+
+[iOS, 2 stars, 22 days ago] "Great concept but I requested a booking and waited 36 hours. The guide eventually declined. I'd already moved on. Instant Book is the right direction but most guides aren't on it."
+
+[Android, 3 stars, 20 days ago] "App crashes when I try to view my booking history on Android. This is a known issue apparently. Frustrating."
+
+[iOS, 2 stars, 18 days ago] "Why is there no wishlist? I find listings I like and then can't find them again. Basic feature."
+
+[iOS, 3 stars, 15 days ago] "The guide was amazing. The app is a little clunky on the booking confirmation screen. Minor but it feels unfinished."
+
+[Android, 2 stars, 12 days ago] "Push notifications are not reliable on Android. I missed a booking confirmation because the notification never came. Found out when I logged in manually."
+
+[iOS, 1 star, 8 days ago] "I cancelled a booking 60 hours before the experience and didn't get a refund. The policy says 72 hours. This should be clearer — it says '72 hours before' but doesn't specify what timezone."
+
+[iOS, 3 stars, 4 days ago] "Selection is good. Prices are reasonable. App needs some polish but works."
+
+---
+
+POST-BOOKING SURVEYS (last 30 days, adventurers):
+
+[Survey, 3 days post-experience] "The surf lesson was perfect for a beginner. The guide was patient. I'd book again. One thing: I had no idea what to expect before showing up — like what to wear, what to bring. That info wasn't on the listing."
+
+[Survey, 3 days post-experience] "I almost didn't book because I wasn't sure the difficulty level matched me. I emailed the guide through the app to ask and he was helpful, but that felt like extra work."
+
+[Survey, 3 days post-experience] "Really enjoyed it. Shared it on Instagram. Would be cool if Terrain had a way to share directly from the app or tag the guide."
+
+[Survey, 3 days post-experience] "Good experience. I want to come back and do a harder route. Is there a way to see progression options from the same guide?"
+
+[Survey, 3 days post-experience] "Guide cancelled day-of because of weather. Understood, but I had already driven 45 minutes. Some advance warning would help. The guide knew the forecast was uncertain two days before."
+
+[Survey, 3 days post-experience] "Great time. Already recommended Terrain to two friends. Nothing to add."
+
+---
+
+INTERVIEW NOTES AND SUPPORT OBSERVATIONS:
+
+[Guide interview, 3 weeks ago] "I've been on the platform for 8 months. The first two months were really slow. I almost quit. Once I got my first five reviews, bookings picked up a lot. I wish someone had told me that when I signed up."
+
+[Support macro observation, ongoing] "Cancellation contacts spike on Thursday and Friday afternoons before weekend trips, specifically asking about weather and whether the experience will still happen. Guides and adventurers both initiate these contacts."
+
+[Guide interview, 5 weeks ago] "I don't list on Guide Pro because I can't tell if the analytics would actually help me get more bookings. The feature is unclear. What does 'priority search placement' actually mean in practice?"
+
+[Adventurer interview, 2 weeks ago] "I book about 5–6 experiences a year. Terrain is one of three apps I use. I'd use it more if it remembered my preferences and suggested things. Right now I only come back when I'm actively planning a trip."
+
+[Support observation, last 60 days] "Guides who signed up in the last 90 days and haven't published are the source of roughly 30% of 'how do I set up my listing' contacts. Most questions are about pricing and photos."</pre>
+        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+      </div>
+
+      <h2>Reflection</h2>
+      <ol>
+        <li>Which theme did the skill surface that you would have classified as noise — and was the skill's read right?</li>
+        <li>What did the source distribution per theme reveal about where signal comes from at Terrain — and how would that change which feedback channels you prioritize?</li>
+        <li>How would you use this synthesis to update the discovery plan from Day 6 — does it confirm the hypotheses, contradict them, or surface a new one?</li>
+      </ol>
+
+      <nav class="day-footer-nav">
+        <a href="day-06.html">&larr; Day 6</a>
+        <a href="day-08.html">Day 8 &rarr;</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
