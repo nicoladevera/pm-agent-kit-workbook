@@ -29,7 +29,7 @@
 | Metric | Current value | Trend |
 |--------|--------------|-------|
 | GMV (annualized) | $18M | Growing |
-| Revenue (annualized) | ~$3.2M | Growing |
+| Take-rate revenue (annualized, excluding platform fee and Guide Pro) | ~$3.2M | Growing |
 | Average booking value | $185 | Stable |
 | Active guides | 2,400 (38 US states) | Growing |
 | Monthly active adventurers | 47,000 | Growing |
@@ -46,6 +46,20 @@
 | Guide 12-month retention | 71% | Target: 80% |
 | Adventurer repeat rate (2+ bookings / 12 months) | 38% | Target: 50% |
 | Cancellation rate | 14% | Industry: 7-9% |
+
+---
+
+## Current H1 Priorities
+
+These are the priorities the PM team uses when evaluating trade-offs. They should shape PRDs, prioritization, business cases, launch plans, and status updates.
+
+| Priority | Current state | Target / desired outcome | Primary owner |
+|----------|---------------|--------------------------|---------------|
+| Improve guide activation | 62% of registered guides publish a listing within 30 days | Reach 75% without lowering guide quality standards | Guide Experience, with Adventurer Experience input on listing quality |
+| Expand Instant Book safely | Beta is live with 15% of guides; 22% of eligible guides have opted in | Increase eligible-guide opt-in to 45% while maintaining cancellation rate guardrails | Shared: Guide Experience owns opt-in, Adventurer Experience owns booking flow |
+| Ship Android GA | Public beta is live; payment edge cases and push reliability remain open | GA in 6 weeks with no open P0/P1 payment or notification blockers | Adventurer Experience + Platform |
+| Improve adventurer repeat behavior | 38% of adventurers complete 2+ bookings in 12 months | Reach 45% through better re-engagement and post-experience loops | Adventurer Experience |
+| Reduce avoidable cancellations | 14% booking cancellation rate; industry benchmark is 7-9% | Reduce to 10% without creating unfair policy outcomes for guides or adventurers | Trust & Safety + both product squads |
 
 ---
 

@@ -16,7 +16,7 @@
 
 - **GMV (Gross Merchandise Value)** — Total dollar value of bookings processed through Terrain before the take rate is applied. Current annualized GMV: $18M. The primary top-line marketplace metric.
 
-- **Take rate** — Terrain's 18% commission on each completed booking. Applied to the guide's listed price. Revenue = GMV × 18%.
+- **Take rate** — Terrain's 18% commission on each completed booking. Applied to the guide's listed price. Take-rate revenue = GMV × 18%. This excludes the 3% adventurer platform fee and Guide Pro subscription revenue.
 
 - **Platform fee** — The 3% fee charged to adventurers at checkout, on top of the guide's listed price. Separate from the take rate; both are Terrain revenue.
 

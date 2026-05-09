@@ -46,6 +46,7 @@ pm-agent-kit-workbook/
   docs/
     project-brief.md
   company/                # Pre-filled Terrain context files — copy into pm-agent-kit clone
+    ONBOARDING.md
     facts/
       product.md
       customers.md
@@ -60,6 +61,7 @@ pm-agent-kit-workbook/
     interfaces/
       branding.md
       data-sources.md
+      templates.md
       tools.md
   index.html              # Landing page: challenge overview, how it works, start CTA
   setup.html              # Day 0: environment setup (not counted in 20 days)
@@ -94,7 +96,7 @@ pm-agent-kit-workbook/
   1. Install Claude Code
   2. Clone the pm-agent-kit repo: `git clone https://github.com/nicoladevera/pm-agent-kit`
   3. Clone this workbook repo: `git clone https://github.com/nicoladevera/pm-agent-kit-workbook`
-  4. Copy the Terrain company context files: `cp -r pm-agent-kit-workbook/company pm-agent-kit/company` — this replaces the stub placeholders with pre-filled Terrain context so every skill runs at full capacity
+  4. Copy the Terrain company context files: `cp -R pm-agent-kit-workbook/company/. pm-agent-kit/company/` — this replaces the kit's stub placeholders with pre-filled Terrain context so every skill runs at full capacity. If you have already added real company context to `pm-agent-kit/company`, back it up before copying Terrain over it.
   5. Open Claude Code in the pm-agent-kit directory
   6. Run a smoke-test prompt (`/doc-review`) to confirm the kit is working
 - What to expect: a note on how the kit works (skills, context files, draft-confirm outputs); a note explaining why the company files matter — skills produce more specific, credible output when the agent has product, team, customer, and process context loaded
@@ -120,7 +122,7 @@ The page should include:
 - **Why this exists:** A short explanation that real PM agent work improves when the agent has durable product, customer, business, and team context. Terrain gives every day a consistent practice environment without requiring the PM to expose real company data.
 - **What Terrain is:** Two-sided marketplace for bookable outdoor experiences; guides list surf lessons, alpine climbs, foraging walks, kayaking tours, and similar experiences; adventurers discover and book them; Terrain earns an 18% take rate plus a 3% adventurer platform fee.
 - **Who the users are:** Short summaries of Marco (guide) and Jamie (adventurer), with their core goals and pain points.
-- **The business snapshot:** GMV, revenue, active guides, monthly active adventurers, average booking value, Guide Pro attach rate.
+- **The business snapshot:** GMV, take-rate revenue, active guides, monthly active adventurers, average booking value, Guide Pro attach rate.
 - **The product context:** Current strategic work, especially Instant Book rollout, Android GA, Guide analytics dashboard, and under-consideration bets.
 - **The four active product problems:** Guide activation drop-off, high cancellation rate, low adventurer repeat rate, and Instant Book guide adoption.
 - **How to use this context:** Tell users they do not need to memorize Terrain. Relevant details will be embedded in advanced prompts. The point is to notice how richer context changes agent output, then apply the same pattern to their own company later.
@@ -182,14 +184,14 @@ A root-level JSON file that describes the full 20-day curriculum. An agent that 
   "description": "A 20-day challenge for product managers to build fluency with the PM Agent Kit, one skill at a time.",
   "scenario": {
     "company": "Terrain",
-    "description": "A two-sided marketplace for bookable outdoor experiences. Guides list surf lessons, alpine climbs, foraging walks, and more. Adventurers discover and book them. Terrain takes an 18% cut of each booking.",
+    "description": "A two-sided marketplace for bookable outdoor experiences. Guides list surf lessons, alpine climbs, foraging walks, and more. Adventurers discover and book them. Terrain takes an 18% cut of each booking and charges adventurers a 3% platform fee at checkout.",
     "users": ["Guides (supply side)", "Adventurers (demand side)"],
     "product_area": "Marketplace",
-    "persona": "You are a PM at Terrain. Your team is 6 engineers, 1 designer, and 1 EM. You ship in 2-week sprints. Your current focus is improving guide retention and booking conversion.",
+    "persona": "You are the Adventurer Experience PM at Terrain. Your team is 6 engineers, 1 designer, and 1 EM. You ship in 2-week sprints. Your current focus is booking conversion, repeat engagement, Android GA, and marketplace-wide work with the Guide Experience PM on Instant Book adoption.",
     "scenario_context": {
       "metrics": {
         "gmv_annualized": "$18M",
-        "revenue_annualized": "~$3.2M",
+        "take_rate_revenue_annualized": "~$3.2M excluding platform fee and Guide Pro",
         "average_booking_value": "$185",
         "active_guides": 2400,
         "monthly_active_adventurers": 47000,
@@ -299,7 +301,7 @@ A root-level JSON file that describes the full 20-day curriculum. An agent that 
 
 ### Terrain Company Context Files (`company/`)
 
-The workbook ships 12 pre-filled company context files for Terrain, stored in `company/` and mirroring the pm-agent-kit's `company/` directory structure exactly. Users copy this folder into their pm-agent-kit clone during Day 0 setup. This replaces the kit's stub placeholders with substantive Terrain context, enabling every skill to run at full output quality rather than degraded mode.
+The workbook ships pre-filled company context files for Terrain, stored in `company/` and aligned to the pm-agent-kit's `company/` directory structure. Users copy this folder into their pm-agent-kit clone during Day 0 setup. This replaces the kit's stub placeholders with substantive Terrain context, enabling every skill to run at full output quality rather than degraded mode. Users who have already configured the kit for a real company should back up their existing `pm-agent-kit/company` directory before copying Terrain over it.
 
 **Why this matters:** The pm-agent-kit's CLAUDE.md treats stub files (comment-only templates) as unavailable context. Skills that read `facts/product.md`, `facts/customers.md`, `facts/team.md`, `norms/team-process.md`, and `norms/communication.md` are listed as "active runtime input" in the kit's ONBOARDING.md — these five files alone affect output quality for nearly every skill. Pre-filling them for Terrain means challenge participants experience the kit at full capability from Day 1, not a watered-down version.
 
@@ -317,8 +319,9 @@ The workbook ships 12 pre-filled company context files for Terrain, stored in `c
 | `interfaces/data-sources.md` | Conditional | data-analysis, user-feedback, discovery-plan |
 | `norms/launch-process.md` | Conditional | launch-checklist |
 | `interfaces/branding.md` | Conditional | presentation-deck (Slides mode only) |
-| `facts/glossary.md` | Future-facing | Not consumed by shipped skills today |
+| `facts/glossary.md` | Conditional | Terminology calibration for doc-review, prd-draft, generate-tasks, status-update, meeting-brief, data-analysis, competitive-intel |
 | `interfaces/tools.md` | Future-facing | Not consumed by shipped skills today |
+| `interfaces/templates.md` | Future-facing | Not consumed by shipped skills today |
 
 **Secondary benefit:** These files serve as a reference implementation. Challenge participants who later want to configure the kit for their own company can see exactly what "substantive" context looks like versus a stub — and use the Terrain files as a template to replace.
 
@@ -481,6 +484,7 @@ Before the workbook is considered implementation-complete, the implementing agen
 **Content completeness**
 - [ ] No day page contains placeholder text (`...`, `TODO`, `[insert]`, `[TBD]`)
 - [ ] `terrain.html` renders the Terrain scenario from Appendix B / `workbook.json.scenario` without contradicting either source
+- [ ] Core Terrain facts match across `company/`, `terrain.html`, `workbook.json`, and day prompts: take rate, platform fee, GMV, take-rate revenue definition, active guides, monthly active adventurers, Instant Book adoption, cancellation rate, repeat rate, and PM persona
 - [ ] Every advanced prompt uses at least one specific Terrain detail from Appendix B: metric, persona, roadmap item, competitor, stakeholder, or product rule
 - [ ] Every day page has exactly 2–3 reflection questions
 - [ ] Every day page has a machine-readable `<script type="application/json" id="day-metadata">` block whose content matches `workbook.json` for that day
@@ -563,10 +567,11 @@ This appendix is the authoritative source of truth for the Terrain scenario. All
 | **HQ** | Denver, CO |
 | **Total headcount** | ~85 |
 | **Product org** | 3 PMs, 2 designers, 14 engineers (2 squads) |
+| **Workbook PM persona** | Adventurer Experience PM partnering with Guide Experience on marketplace-wide work |
 | **Business model** | 18% take rate on each booking + optional Guide Pro subscription ($29/month) |
 | **Adventurer platform fee** | 3% added at checkout (on top of listed price) |
 | **GMV (annualized)** | $18M |
-| **Revenue (annualized)** | ~$3.2M |
+| **Take-rate revenue (annualized)** | ~$3.2M, excluding platform fee and Guide Pro |
 | **Average booking value** | $185 |
 | **Active guides** | 2,400 (across 38 US states) |
 | **Monthly active adventurers** | 47,000 |
@@ -655,7 +660,21 @@ These are the numbers the Terrain PM team tracks. Use these in `data-analysis`, 
 | Guide Pro attach rate | 14% | Active guides who subscribe to Guide Pro |
 | Average booking value | $185 | Across all categories; varies from $95 (2-hr kayak tour) to $420 (full-day alpine climb) |
 | GMV (annualized) | $18M | |
-| Revenue (annualized) | ~$3.2M | 18% take rate applied to GMV |
+| Take-rate revenue (annualized) | ~$3.2M | 18% take rate applied to GMV; excludes platform fee and Guide Pro |
+
+---
+
+### Current H1 Priorities
+
+Use these priorities when writing advanced prompts for `roadmap-prioritization`, `business-case`, `one-pager`, `presentation-deck`, `status-update`, and capstone days.
+
+| Priority | Current state | Target / desired outcome |
+|----------|---------------|--------------------------|
+| Improve guide activation | 62% of registered guides publish a listing within 30 days | Reach 75% without lowering guide quality standards |
+| Expand Instant Book safely | Beta is live with 15% of guides; 22% of eligible guides have opted in | Increase eligible-guide opt-in to 45% while maintaining cancellation rate guardrails |
+| Ship Android GA | Public beta is live; payment edge cases and push reliability remain open | GA in 6 weeks with no open P0/P1 payment or notification blockers |
+| Improve adventurer repeat behavior | 38% of adventurers complete 2+ bookings in 12 months | Reach 45% through better re-engagement and post-experience loops |
+| Reduce avoidable cancellations | 14% booking cancellation rate; industry benchmark is 7-9% | Reduce to 10% without creating unfair policy outcomes for guides or adventurers |
 
 ---
 

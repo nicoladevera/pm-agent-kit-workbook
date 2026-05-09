@@ -4,6 +4,8 @@
 
 The workbook's PM persona is a PM on the Adventurer Experience squad. This squad owns the demand side of the marketplace: how adventurers discover, evaluate, book, and return to Terrain.
 
+Many workbook scenarios involve marketplace-wide problems, including guide activation, guide retention, Instant Book adoption, and cancellation policy. In those cases, assume you are the Adventurer Experience PM partnering with Jordan Lee on the Guide Experience squad, not unilaterally owning the guide-side roadmap.
+
 **Squad composition:**
 - PM: (you)
 - Engineering Manager: Chris Okafor
@@ -78,3 +80,15 @@ The workbook's PM persona is a PM on the Adventurer Experience squad. This squad
 **Legal review (Marcus Webb):** Required for any feature touching cancellation policy, guide liability, new data collection, or copy that could be read as a guarantee or advice.
 
 **Design system changes:** Mia owns. Changes affecting both squads require a sync with the Guide Experience designer before implementation.
+
+---
+
+## On-Call / Support
+
+**Engineering on-call:** One Adventurer Experience engineer is on reduced capacity (~50%) each sprint for on-call rotation. Chris Okafor owns the rotation and confirms the on-call engineer during sprint planning.
+
+**Incident channels:** P0/P1 production issues are coordinated in `#incidents`. Product and engineering follow-up happens in `#terrain-product`. Payment-related issues also require a heads-up in `#terrain-dev` because Platform may need to respond.
+
+**PM role during incidents:** The PM does not direct the technical response. The PM confirms user impact, coordinates stakeholder communication, decides whether user-facing messaging is needed, and drafts the follow-up update after the incident is stabilized.
+
+**Support handoff:** Support owns first-line guide and adventurer responses. PM briefs support before beta or GA launches, provides FAQ / known limitations docs, and monitors escalated tickets for product signal. Guide-side support escalations involving payout timing, availability management, or cancellation disputes should include Jordan Lee.
