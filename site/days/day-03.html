@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 3 — Break a Spec Into Shippable Stories | PM Agent Kit Workbook</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmakw-theme');
+        var pref = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
   <script type="application/json" id="day-metadata">
   {
     "day": 3,
@@ -28,81 +37,135 @@
     ],
     "expected_output_type": "ordered story set in Given/When/Then format, dependency graph, implementation sequence, and flagged items requiring PM input",
     "saves_to_knowledge": "knowledge/tasks/",
-    "prerequisites": [
-      1,
-      2
-    ]
+    "prerequisites": [1, 2]
   }
   </script>
 </head>
 <body>
-  <div class="page-layout">
-    <nav class="sidebar">
-      <div class="sidebar-header">
-        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
-      </div>
-      <div class="sidebar-top-links">
-        <a href="../setup.html">Setup</a>
-        <a href="../terrain.html">Terrain</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 1</div>
-        <a href="day-01.html">D1</a>
-        <a href="day-02.html">D2</a>
-        <a href="day-03.html">D3</a>
-        <a href="day-04.html">D4</a>
-        <a href="day-05.html">D5</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 2</div>
-        <a href="day-06.html">D6</a>
-        <a href="day-07.html">D7</a>
-        <a href="day-08.html">D8</a>
-        <a href="day-09.html">D9</a>
-        <a href="day-10.html">D10</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 3</div>
-        <a href="day-11.html">D11</a>
-        <a href="day-12.html">D12</a>
-        <a href="day-13.html">D13</a>
-        <a href="day-14.html">D14</a>
-        <a href="day-15.html">D15</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 4</div>
-        <a href="day-16.html">D16</a>
-        <a href="day-17.html">D17</a>
-        <a href="day-18.html">D18</a>
-        <a href="day-19.html">D19</a>
-        <a href="day-20.html">D20</a>
-      </div>
-    </nav>
-    <main class="main-content">
-      <span class="week-badge">Week 1: Writing &amp; Thinking</span>
-      <p class="day-number">Day 3 of 20</p>
-      <h1>Break a Spec Into Shippable Stories</h1>
+<div class="layer">
 
-      <h2>Skill Overview</h2>
-      <p><code>generate-tasks</code> decomposes a PRD or spec into shippable stories, each scoped to a single deployable unit with Given/When/Then acceptance criteria. It produces an ordered story set, a dependency graph, and an implementation sequence — plus a list of items flagged for PM input: edge cases the spec didn't resolve, data requirements that need explicit instrumentation, and product decisions embedded in acceptance criteria that only the PM can make.</p>
-      <p>The transition from spec to backlog is where scope and quality erode. Stories get written without acceptance criteria, data requirements get forgotten until after launch, and engineers make product decisions because the spec didn't make them. <code>generate-tasks</code> closes that gap systematically — and is explicit about what remains unresolved. Every flag it raises is a conversation you'd otherwise have mid-sprint.</p>
-      <p>Day 3 follows Day 2 because the PRD you wrote and reviewed is the natural input. You'll see how a document you authored translates into implementation units — and where the spec's gaps become story-level ambiguities. The stories you generate today are what a sprint plan would draw from on Day 4.</p>
+  <header class="chrome">
+    <div class="chrome-inner">
+      <div class="dots" aria-hidden="true">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      </div>
+      <div class="breadcrumb">
+        <span class="path"><a href="../index.html">~/pm-agent-kit-workbook</a></span>
+        <span class="sep">›</span>
+        <span class="path">days</span>
+        <span class="sep">›</span>
+        <span class="path">day-03.md</span>
+      </div>
+      <div class="chrome-meta">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light or dark mode">
+          <span class="seg seg-dark">night</span>
+          <span class="sep">/</span>
+          <span class="seg seg-light">day</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-      <h2>Sample Prompts</h2>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-path"><span class="path-root">~/workbook</span></div>
+      <div class="sidebar-section">
+        <a href="../index.html">index.md</a>
+        <a href="../setup.html">setup.md</a>
+        <a href="../terrain.html">terrain.md</a>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 01</div>
+        <div class="sidebar-days">
+          <a href="day-01.html"><span class="day-n">01</span><span class="day-s">/prd-draft</span></a>
+          <a href="day-02.html"><span class="day-n">02</span><span class="day-s">/doc-review</span></a>
+          <a href="day-03.html" aria-current="page"><span class="day-n">03</span><span class="day-s">/generate-tasks</span></a>
+          <a href="day-04.html"><span class="day-n">04</span><span class="day-s">/sprint-plan</span></a>
+          <a href="day-05.html"><span class="day-n">05</span><span class="day-s">/status-update</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 02</div>
+        <div class="sidebar-days">
+          <a href="day-06.html"><span class="day-n">06</span><span class="day-s">/discovery-plan</span></a>
+          <a href="day-07.html"><span class="day-n">07</span><span class="day-s">/user-feedback</span></a>
+          <a href="day-08.html"><span class="day-n">08</span><span class="day-s">/data-analysis</span></a>
+          <a href="day-09.html"><span class="day-n">09</span><span class="day-s">/competitive-intel</span></a>
+          <a href="day-10.html"><span class="day-n">10</span><span class="day-s">/business-case</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 03</div>
+        <div class="sidebar-days">
+          <a href="day-11.html"><span class="day-n">11</span><span class="day-s">/roadmap-pri…</span></a>
+          <a href="day-12.html"><span class="day-n">12</span><span class="day-s">/decision-log</span></a>
+          <a href="day-13.html"><span class="day-n">13</span><span class="day-s">/alignment-memo</span></a>
+          <a href="day-14.html"><span class="day-n">14</span><span class="day-s">/meeting-brief</span></a>
+          <a href="day-15.html"><span class="day-n">15</span><span class="day-s">/retro-synthesis</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 04</div>
+        <div class="sidebar-days">
+          <a href="day-16.html"><span class="day-n">16</span><span class="day-s">/launch-checklist</span></a>
+          <a href="day-17.html"><span class="day-n">17</span><span class="day-s">/one-pager</span></a>
+          <a href="day-18.html"><span class="day-n">18</span><span class="day-s">/presentation-deck</span></a>
+          <a href="day-19.html" class="capstone"><span class="day-n">19</span><span class="day-s">capstone-i</span></a>
+          <a href="day-20.html" class="capstone"><span class="day-n">20</span><span class="day-s">capstone-ii</span></a>
+        </div>
+      </div>
+    </aside>
 
-      <p class="prompt-label">Basic</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-basic">/generate-tasks
+    <main class="main">
+      <div class="page-header">
+        <div class="page-eyebrow">// week 01 · day 03 · wed</div>
+        <h1 class="page-title">Break a Spec Into Shippable Stories.</h1>
+        <div class="page-sub"><span class="glyph">$</span><code>/generate-tasks · ~20 min</code></div>
+      </div>
+
+      <div class="section">
+        <div class="about-grid">
+          <div>
+            <div class="sec-label">// 01 · what it does</div>
+            <h2 class="sec-headline">Spec to <span class="accent">backlog-ready stories.</span></h2>
+          </div>
+          <div class="body-text">
+            <p><code>generate-tasks</code> decomposes a PRD or spec into shippable stories, each scoped to a single deployable unit with Given/When/Then acceptance criteria. It produces an ordered story set, a dependency graph, and an implementation sequence — plus a list of items flagged for PM input: edge cases the spec didn't resolve, data requirements that need explicit instrumentation, and product decisions embedded in acceptance criteria that only the PM can make.</p>
+            <p>The transition from spec to backlog is where scope and quality erode. Stories get written without acceptance criteria, data requirements get forgotten until after launch, and engineers make product decisions because the spec didn't make them. <code>generate-tasks</code> closes that gap systematically — and is explicit about what remains unresolved. Every flag it raises is a conversation you'd otherwise have mid-sprint.</p>
+            <p>Day 3 follows Day 2 because the PRD you wrote and reviewed is the natural input. You'll see how a document you authored translates into implementation units — and where the spec's gaps become story-level ambiguities. The stories you generate today are what a sprint plan would draw from on Day 4.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-label">// 02 · sample prompts</div>
+        <h2 class="sec-headline">Two ways in.</h2>
+
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.basic.txt</span>
+              <button class="copy-btn" data-target="prompt-basic">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-basic">/generate-tasks
 
 Break this feature description into shippable stories:
 
 We want to add a difficulty rating system so adventurers can filter search results by skill level. Guides set the difficulty level on their listing (beginner, intermediate, advanced). Adventurers can filter by difficulty on search. The filter should persist across sessions.</pre>
-        <button class="copy-btn" data-target="prompt-basic">Copy</button>
-      </div>
+            </div>
+          </div>
+        </div>
 
-      <p class="prompt-label">Advanced</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-advanced">/generate-tasks
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.advanced.txt</span>
+              <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-advanced">/generate-tasks
 
 Use the guide listing setup guidance PRD from Day 1 as input. Decompose it into sprint-ready stories.
 
@@ -120,22 +183,35 @@ Flag:
 - Any Android-specific story (serialized, plan accordingly)
 
 [paste the Day 1 PRD here, or describe the guide listing setup guidance feature in detail]</pre>
-        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <h2>Reflection</h2>
-      <ol>
-        <li>Which stories were split differently than you would have split them — and do you agree with the dependency ordering the skill produced?</li>
-        <li>What data stories did the skill add that weren't explicit in the PRD — and would you have remembered them before launch?</li>
-        <li>Where did the skill flag PM input needed, and were those the right calls to escalate?</li>
-      </ol>
+      <div class="section">
+        <div class="sec-label">// 03 · reflection</div>
+        <h2 class="sec-headline">Three questions.</h2>
+        <ol class="reflection-list">
+          <li><span class="r-num">01</span>Which stories were split differently than you would have split them — and do you agree with the dependency ordering the skill produced?</li>
+          <li><span class="r-num">02</span>What data stories did the skill add that weren't explicit in the PRD — and would you have remembered them before launch?</li>
+          <li><span class="r-num">03</span>Where did the skill flag PM input needed, and were those the right calls to escalate?</li>
+        </ol>
+      </div>
 
-      <nav class="day-footer-nav">
-        <a href="day-02.html">← Day 2</a>
-        <a href="day-04.html">Day 4 →</a>
-      </nav>
+      <div class="day-nav">
+        <a href="day-02.html" class="nav-prev"><span class="arr">←</span> Day 2</a>
+        <a href="day-04.html" class="nav-next">Day 4 <span class="arr">→</span></a>
+      </div>
     </main>
   </div>
-  <script src="../assets/js/main.js" defer></script>
+
+  <footer class="page-footer">
+    <div class="left"><span class="pulse-mini"></span><span>PM AGENT KIT WORKBOOK · v1.0</span></div>
+    <div>BUILT FOR CLAUDE CODE · OFFLINE-FIRST</div>
+    <div><a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github</a> · <a href="../../workbook.json">workbook.json</a></div>
+  </footer>
+
+</div>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>

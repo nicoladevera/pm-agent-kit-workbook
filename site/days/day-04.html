@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 4 — Allocate Capacity and Set Goals | PM Agent Kit Workbook</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmakw-theme');
+        var pref = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
   <script type="application/json" id="day-metadata">
   {
     "day": 4,
@@ -28,70 +37,119 @@
     ],
     "expected_output_type": "backlog health report (Analyze mode) followed by sprint goals, capacity math, selected story set, and implementation sequence (Draft mode)",
     "saves_to_knowledge": "knowledge/sprint-plans/",
-    "prerequisites": [
-      3
-    ]
+    "prerequisites": [3]
   }
   </script>
 </head>
 <body>
-  <div class="page-layout">
-    <nav class="sidebar">
-      <div class="sidebar-header">
-        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
-      </div>
-      <div class="sidebar-top-links">
-        <a href="../setup.html">Setup</a>
-        <a href="../terrain.html">Terrain</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 1</div>
-        <a href="day-01.html">D1</a>
-        <a href="day-02.html">D2</a>
-        <a href="day-03.html">D3</a>
-        <a href="day-04.html">D4</a>
-        <a href="day-05.html">D5</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 2</div>
-        <a href="day-06.html">D6</a>
-        <a href="day-07.html">D7</a>
-        <a href="day-08.html">D8</a>
-        <a href="day-09.html">D9</a>
-        <a href="day-10.html">D10</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 3</div>
-        <a href="day-11.html">D11</a>
-        <a href="day-12.html">D12</a>
-        <a href="day-13.html">D13</a>
-        <a href="day-14.html">D14</a>
-        <a href="day-15.html">D15</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 4</div>
-        <a href="day-16.html">D16</a>
-        <a href="day-17.html">D17</a>
-        <a href="day-18.html">D18</a>
-        <a href="day-19.html">D19</a>
-        <a href="day-20.html">D20</a>
-      </div>
-    </nav>
-    <main class="main-content">
-      <span class="week-badge">Week 1: Writing &amp; Thinking</span>
-      <p class="day-number">Day 4 of 20</p>
-      <h1>Allocate Capacity and Set Goals</h1>
+<div class="layer">
 
-      <h2>Skill Overview</h2>
-      <p><code>sprint-plan</code> has two modes. Analyze mode assesses backlog health — flagging stories that need splitting, stale tickets, missing data stories, dependency conflicts, and oversized items that have been miscategorized as single stories. Draft mode builds a sprint plan: it does the capacity math, selects stories against priorities and constraints, sequences them by dependency, and writes sprint goals as outcomes rather than task lists.</p>
-      <p>Sprint planning fails in predictable ways — too much scope relative to capacity, carryover items that crowd out new work, goals that describe activity instead of outcomes, and backlog items that never get the scrutiny they'd need to be sprint-ready. <code>sprint-plan</code> catches these before the sprint starts. The Analyze mode is especially useful before a planning meeting: it surfaces the backlog problems a team would otherwise spend 40 minutes discovering in the room.</p>
-      <p>Day 4 is the planning skill in Week 1 because by now you've produced artifacts (Day 1), reviewed them (Day 2), and broken them into stories (Day 3). Sprint planning is where you decide what actually gets built next — it's the moment when all the prior work either becomes committed scope or gets deferred. After this week you'll have run the full writing-to-planning cycle.</p>
+  <header class="chrome">
+    <div class="chrome-inner">
+      <div class="dots" aria-hidden="true">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      </div>
+      <div class="breadcrumb">
+        <span class="path"><a href="../index.html">~/pm-agent-kit-workbook</a></span>
+        <span class="sep">›</span>
+        <span class="path">days</span>
+        <span class="sep">›</span>
+        <span class="path">day-04.md</span>
+      </div>
+      <div class="chrome-meta">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light or dark mode">
+          <span class="seg seg-dark">night</span>
+          <span class="sep">/</span>
+          <span class="seg seg-light">day</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-      <h2>Sample Prompts</h2>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-path"><span class="path-root">~/workbook</span></div>
+      <div class="sidebar-section">
+        <a href="../index.html">index.md</a>
+        <a href="../setup.html">setup.md</a>
+        <a href="../terrain.html">terrain.md</a>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 01</div>
+        <div class="sidebar-days">
+          <a href="day-01.html"><span class="day-n">01</span><span class="day-s">/prd-draft</span></a>
+          <a href="day-02.html"><span class="day-n">02</span><span class="day-s">/doc-review</span></a>
+          <a href="day-03.html"><span class="day-n">03</span><span class="day-s">/generate-tasks</span></a>
+          <a href="day-04.html" aria-current="page"><span class="day-n">04</span><span class="day-s">/sprint-plan</span></a>
+          <a href="day-05.html"><span class="day-n">05</span><span class="day-s">/status-update</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 02</div>
+        <div class="sidebar-days">
+          <a href="day-06.html"><span class="day-n">06</span><span class="day-s">/discovery-plan</span></a>
+          <a href="day-07.html"><span class="day-n">07</span><span class="day-s">/user-feedback</span></a>
+          <a href="day-08.html"><span class="day-n">08</span><span class="day-s">/data-analysis</span></a>
+          <a href="day-09.html"><span class="day-n">09</span><span class="day-s">/competitive-intel</span></a>
+          <a href="day-10.html"><span class="day-n">10</span><span class="day-s">/business-case</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 03</div>
+        <div class="sidebar-days">
+          <a href="day-11.html"><span class="day-n">11</span><span class="day-s">/roadmap-pri…</span></a>
+          <a href="day-12.html"><span class="day-n">12</span><span class="day-s">/decision-log</span></a>
+          <a href="day-13.html"><span class="day-n">13</span><span class="day-s">/alignment-memo</span></a>
+          <a href="day-14.html"><span class="day-n">14</span><span class="day-s">/meeting-brief</span></a>
+          <a href="day-15.html"><span class="day-n">15</span><span class="day-s">/retro-synthesis</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 04</div>
+        <div class="sidebar-days">
+          <a href="day-16.html"><span class="day-n">16</span><span class="day-s">/launch-checklist</span></a>
+          <a href="day-17.html"><span class="day-n">17</span><span class="day-s">/one-pager</span></a>
+          <a href="day-18.html"><span class="day-n">18</span><span class="day-s">/presentation-deck</span></a>
+          <a href="day-19.html" class="capstone"><span class="day-n">19</span><span class="day-s">capstone-i</span></a>
+          <a href="day-20.html" class="capstone"><span class="day-n">20</span><span class="day-s">capstone-ii</span></a>
+        </div>
+      </div>
+    </aside>
 
-      <p class="prompt-label">Basic</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-basic">/sprint-plan
+    <main class="main">
+      <div class="page-header">
+        <div class="page-eyebrow">// week 01 · day 04 · thu</div>
+        <h1 class="page-title">Allocate Capacity and Set Goals.</h1>
+        <div class="page-sub"><span class="glyph">$</span><code>/sprint-plan · ~20 min</code></div>
+      </div>
+
+      <div class="section">
+        <div class="about-grid">
+          <div>
+            <div class="sec-label">// 01 · what it does</div>
+            <h2 class="sec-headline">Plan before <span class="accent">the sprint starts.</span></h2>
+          </div>
+          <div class="body-text">
+            <p><code>sprint-plan</code> has two modes. Analyze mode assesses backlog health — flagging stories that need splitting, stale tickets, missing data stories, dependency conflicts, and oversized items that have been miscategorized as single stories. Draft mode builds a sprint plan: it does the capacity math, selects stories against priorities and constraints, sequences them by dependency, and writes sprint goals as outcomes rather than task lists.</p>
+            <p>Sprint planning fails in predictable ways — too much scope relative to capacity, carryover items that crowd out new work, goals that describe activity instead of outcomes, and backlog items that never get the scrutiny they'd need to be sprint-ready. <code>sprint-plan</code> catches these before the sprint starts. The Analyze mode is especially useful before a planning meeting: it surfaces the backlog problems a team would otherwise spend 40 minutes discovering in the room.</p>
+            <p>Day 4 is the planning skill in Week 1 because by now you've produced artifacts (Day 1), reviewed them (Day 2), and broken them into stories (Day 3). Sprint planning is where you decide what actually gets built next — it's the moment when all the prior work either becomes committed scope or gets deferred. After this week you'll have run the full writing-to-planning cycle.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-label">// 02 · sample prompts</div>
+        <h2 class="sec-headline">Two ways in.</h2>
+
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.basic.txt</span>
+              <button class="copy-btn" data-target="prompt-basic">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-basic">/sprint-plan
 
 Draft a sprint plan for my team:
 
@@ -99,12 +157,18 @@ Team: 4 engineers, 2-week sprint, ~16 story points capacity.
 Goal: finish the user onboarding redesign and start work on search filters.
 Backlog: onboarding-01 (8 pts), onboarding-02 (5 pts), search-01 (5 pts), search-02 (3 pts), search-03 (3 pts), tech-debt-01 (2 pts).
 Carryover from last sprint: onboarding-01, 60% done.</pre>
-        <button class="copy-btn" data-target="prompt-basic">Copy</button>
-      </div>
+            </div>
+          </div>
+        </div>
 
-      <p class="prompt-label">Advanced</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-advanced">/sprint-plan
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.advanced.txt</span>
+              <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-advanced">/sprint-plan
 
 Run Analyze mode on this backlog first, then Draft mode for the sprint plan.
 
@@ -135,22 +199,35 @@ Candidate backlog:
 - IB-091: Flexible Instant Book advance-notice window — backend schema design (3 pts) — exploratory, no acceptance criteria [NO AC — this is a discovery spike, not a story]
 - ARCH-007: Migrate booking service to updated payment SDK (5 pts) — tech debt, 3 sprints old, blocks future payment work [STALE-BUT-LOAD-BEARING — needs prioritization call]
 - PM-REQUEST-004: Add "save for later" wishlist feature — requested by Priya Anand (Marketing) mid-sprint, no estimate, no AC, no Figma [NOT READY — new request, not groomed]</pre>
-        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <h2>Reflection</h2>
-      <ol>
-        <li>What did the backlog health analysis surface that you would have discovered — or not discovered — in a planning meeting?</li>
-        <li>How did the sprint goals the skill wrote differ from how you would have framed them — and which framing would be more useful to an engineer reading it on Day 1 of the sprint?</li>
-        <li>Which backlog item did the skill defer that you would have tried to fit in — and was its reasoning right?</li>
-      </ol>
+      <div class="section">
+        <div class="sec-label">// 03 · reflection</div>
+        <h2 class="sec-headline">Three questions.</h2>
+        <ol class="reflection-list">
+          <li><span class="r-num">01</span>What did the backlog health analysis surface that you would have discovered — or not discovered — in a planning meeting?</li>
+          <li><span class="r-num">02</span>How did the sprint goals the skill wrote differ from how you would have framed them — and which framing would be more useful to an engineer reading it on Day 1 of the sprint?</li>
+          <li><span class="r-num">03</span>Which backlog item did the skill defer that you would have tried to fit in — and was its reasoning right?</li>
+        </ol>
+      </div>
 
-      <nav class="day-footer-nav">
-        <a href="day-03.html">← Day 3</a>
-        <a href="day-05.html">Day 5 →</a>
-      </nav>
+      <div class="day-nav">
+        <a href="day-03.html" class="nav-prev"><span class="arr">←</span> Day 3</a>
+        <a href="day-05.html" class="nav-next">Day 5 <span class="arr">→</span></a>
+      </div>
     </main>
   </div>
-  <script src="../assets/js/main.js" defer></script>
+
+  <footer class="page-footer">
+    <div class="left"><span class="pulse-mini"></span><span>PM AGENT KIT WORKBOOK · v1.0</span></div>
+    <div>BUILT FOR CLAUDE CODE · OFFLINE-FIRST</div>
+    <div><a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github</a> · <a href="../../workbook.json">workbook.json</a></div>
+  </footer>
+
+</div>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>

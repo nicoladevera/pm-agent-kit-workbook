@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 20 — Capstone II: Full Strategy Cycle | PM Agent Kit Workbook</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmakw-theme');
+        var pref = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
   <script type="application/json" id="day-metadata">
   {
     "day": 20,
@@ -50,66 +59,113 @@
   </script>
 </head>
 <body>
-  <div class="page-layout">
-    <nav class="sidebar">
-      <div class="sidebar-header">
-        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
-      </div>
-      <div class="sidebar-top-links">
-        <a href="../setup.html">Setup</a>
-        <a href="../terrain.html">Terrain</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 1</div>
-        <a href="day-01.html">D1</a>
-        <a href="day-02.html">D2</a>
-        <a href="day-03.html">D3</a>
-        <a href="day-04.html">D4</a>
-        <a href="day-05.html">D5</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 2</div>
-        <a href="day-06.html">D6</a>
-        <a href="day-07.html">D7</a>
-        <a href="day-08.html">D8</a>
-        <a href="day-09.html">D9</a>
-        <a href="day-10.html">D10</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 3</div>
-        <a href="day-11.html">D11</a>
-        <a href="day-12.html">D12</a>
-        <a href="day-13.html">D13</a>
-        <a href="day-14.html">D14</a>
-        <a href="day-15.html">D15</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 4</div>
-        <a href="day-16.html">D16</a>
-        <a href="day-17.html">D17</a>
-        <a href="day-18.html">D18</a>
-        <a href="day-19.html">D19</a>
-        <a href="day-20.html">D20</a>
-      </div>
-    </nav>
-    <main class="main-content">
-      <span class="week-badge">Week 4: Communication &amp; Integration</span>
-      <p class="day-number">Day 20 of 20</p>
-      <span class="capstone-badge">Capstone</span>
-      <h1>Capstone II: Full Strategy Cycle</h1>
+<div class="layer">
 
-      <p>This capstone chains four skills in sequence — <code>/business-case</code> → <code>/roadmap-prioritization</code> → <code>/presentation-deck</code> → <code>/status-update</code> — threading a single initiative from investment argument to team communication. The scenario: making the case for the adventurer repeat engagement loop, sequencing it against competing priorities, presenting it to leadership, and communicating the outcome to the team.</p>
+  <header class="chrome">
+    <div class="chrome-inner">
+      <div class="dots" aria-hidden="true">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      </div>
+      <div class="breadcrumb">
+        <span class="path"><a href="../index.html">~/pm-agent-kit-workbook</a></span>
+        <span class="sep">›</span>
+        <span class="path">days</span>
+        <span class="sep">›</span>
+        <span class="path">day-20.md</span>
+      </div>
+      <div class="chrome-meta">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light or dark mode">
+          <span class="seg seg-dark">night</span>
+          <span class="sep">/</span>
+          <span class="seg seg-light">day</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-      <h2>Overview</h2>
-      <p>The full strategy cycle is the PM's highest-leverage mode. Done well, it produces a decision that is funded, sequenced, understood by leadership, and communicated to the people building it — all in one session. Done poorly, it produces slides that don't connect to decisions and status updates that don't say what was decided. The gap between the two versions is usually not effort — it's whether context compounds correctly from step to step.</p>
-      <p>Day 20 is the final challenge because it integrates everything: user evidence, data analysis, business case, prioritization rationale, narrative, communication. It is also the cycle you'll repeat every quarter at your real company. The goal today isn't perfect outputs — it's running the cycle end-to-end once and knowing where you'd invest more time in a real context.</p>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-path"><span class="path-root">~/workbook</span></div>
+      <div class="sidebar-section">
+        <a href="../index.html">index.md</a>
+        <a href="../setup.html">setup.md</a>
+        <a href="../terrain.html">terrain.md</a>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 01</div>
+        <div class="sidebar-days">
+          <a href="day-01.html"><span class="day-n">01</span><span class="day-s">/prd-draft</span></a>
+          <a href="day-02.html"><span class="day-n">02</span><span class="day-s">/doc-review</span></a>
+          <a href="day-03.html"><span class="day-n">03</span><span class="day-s">/generate-tasks</span></a>
+          <a href="day-04.html"><span class="day-n">04</span><span class="day-s">/sprint-plan</span></a>
+          <a href="day-05.html"><span class="day-n">05</span><span class="day-s">/status-update</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 02</div>
+        <div class="sidebar-days">
+          <a href="day-06.html"><span class="day-n">06</span><span class="day-s">/discovery-plan</span></a>
+          <a href="day-07.html"><span class="day-n">07</span><span class="day-s">/user-feedback</span></a>
+          <a href="day-08.html"><span class="day-n">08</span><span class="day-s">/data-analysis</span></a>
+          <a href="day-09.html"><span class="day-n">09</span><span class="day-s">/competitive-intel</span></a>
+          <a href="day-10.html"><span class="day-n">10</span><span class="day-s">/business-case</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 03</div>
+        <div class="sidebar-days">
+          <a href="day-11.html"><span class="day-n">11</span><span class="day-s">/roadmap-pri…</span></a>
+          <a href="day-12.html"><span class="day-n">12</span><span class="day-s">/decision-log</span></a>
+          <a href="day-13.html"><span class="day-n">13</span><span class="day-s">/alignment-memo</span></a>
+          <a href="day-14.html"><span class="day-n">14</span><span class="day-s">/meeting-brief</span></a>
+          <a href="day-15.html"><span class="day-n">15</span><span class="day-s">/retro-synthesis</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 04</div>
+        <div class="sidebar-days">
+          <a href="day-16.html"><span class="day-n">16</span><span class="day-s">/launch-checklist</span></a>
+          <a href="day-17.html"><span class="day-n">17</span><span class="day-s">/one-pager</span></a>
+          <a href="day-18.html"><span class="day-n">18</span><span class="day-s">/presentation-deck</span></a>
+          <a href="day-19.html" class="capstone"><span class="day-n">19</span><span class="day-s">capstone-i</span></a>
+          <a href="day-20.html" class="capstone" aria-current="page"><span class="day-n">20</span><span class="day-s">capstone-ii</span></a>
+        </div>
+      </div>
+    </aside>
 
-      <h2>Steps</h2>
+    <main class="main">
+      <div class="page-header">
+        <div class="page-eyebrow capstone-eyebrow">// week 04 · day 20 · capstone ii</div>
+        <h1 class="page-title">Capstone II: Full Strategy Cycle.</h1>
+        <div class="page-sub"><span class="glyph">$</span><code>/business-case → /roadmap-prioritization → /presentation-deck → /status-update · ~60 min</code></div>
+      </div>
 
-      <div class="step-block">
-        <h3>Step 1: /business-case</h3>
-        <div class="prompt-block-wrapper">
-          <pre class="prompt-block" id="prompt-step-1">/business-case
+      <div class="section">
+        <div class="about-grid">
+          <div>
+            <div class="sec-label">// 00 · overview</div>
+            <h2 class="sec-headline">Four skills, <span class="accent">one cycle.</span></h2>
+          </div>
+          <div class="body-text">
+            <p>This capstone chains four skills in sequence — <code>/business-case</code> → <code>/roadmap-prioritization</code> → <code>/presentation-deck</code> → <code>/status-update</code> — threading a single initiative from investment argument to team communication. The scenario: making the case for the adventurer repeat engagement loop, sequencing it against competing priorities, presenting it to leadership, and communicating the outcome to the team.</p>
+            <p>The full strategy cycle is the PM's highest-leverage mode. Done well, it produces a decision that is funded, sequenced, understood by leadership, and communicated to the people building it — all in one session. Done poorly, it produces slides that don't connect to decisions and status updates that don't say what was decided. The gap between the two versions is usually not effort — it's whether context compounds correctly from step to step.</p>
+            <p>Day 20 is the final challenge because it integrates everything: user evidence, data analysis, business case, prioritization rationale, narrative, communication. It is also the cycle you'll repeat every quarter at your real company. The goal today isn't perfect outputs — it's running the cycle end-to-end once and knowing where you'd invest more time in a real context.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-label">// 01 · steps</div>
+        <h2 class="sec-headline">Run in sequence.</h2>
+
+        <div class="step-pane">
+          <div class="step-pane-bar">
+            <span class="pane-tag">step.01 → business-case</span>
+            <button class="copy-btn" data-target="prompt-step-1">Copy</button>
+          </div>
+          <div class="step-pane-body">
+            <pre class="prompt-block" id="prompt-step-1">/business-case
 
 Build the case for the adventurer repeat engagement loop at Terrain.
 
@@ -128,14 +184,16 @@ Alternatives:
 Context: Android GA ships in 6 weeks. The repeat loop work cannot start on Android until after GA. Backend and iOS work can start sooner.
 
 Run the full stress test.</pre>
-          <button class="copy-btn" data-target="prompt-step-1">Copy</button>
+          </div>
         </div>
-      </div>
 
-      <div class="step-block">
-        <h3>Step 2: /roadmap-prioritization</h3>
-        <div class="prompt-block-wrapper">
-          <pre class="prompt-block" id="prompt-step-2">/roadmap-prioritization
+        <div class="step-pane">
+          <div class="step-pane-bar">
+            <span class="pane-tag">step.02 → roadmap-prioritization</span>
+            <button class="copy-btn" data-target="prompt-step-2">Copy</button>
+          </div>
+          <div class="step-pane-body">
+            <pre class="prompt-block" id="prompt-step-2">/roadmap-prioritization
 
 Use the business case above as one candidate initiative. Sequence it against the other three known Terrain product problems for the quarter after Android GA ships.
 
@@ -153,14 +211,16 @@ Constraints:
 - Team capacity post-GA: 18–22 story points per sprint
 
 Include stress test.</pre>
-          <button class="copy-btn" data-target="prompt-step-2">Copy</button>
+          </div>
         </div>
-      </div>
 
-      <div class="step-block">
-        <h3>Step 3: /presentation-deck</h3>
-        <div class="prompt-block-wrapper">
-          <pre class="prompt-block" id="prompt-step-3">/presentation-deck
+        <div class="step-pane">
+          <div class="step-pane-bar">
+            <span class="pane-tag">step.03 → presentation-deck</span>
+            <button class="copy-btn" data-target="prompt-step-3">Copy</button>
+          </div>
+          <div class="step-pane-body">
+            <pre class="prompt-block" id="prompt-step-3">/presentation-deck
 
 Narrative mode. Build the leadership alignment deck for Q3 priorities.
 
@@ -180,14 +240,16 @@ Key asks for the deck:
 3. Sam Rivera's sign-off on the engineering sequencing implication (backend for guide activation can start during GA sprint; Android repeat loop work starts post-GA)
 
 8 slides. Include speaker notes.</pre>
-          <button class="copy-btn" data-target="prompt-step-3">Copy</button>
+          </div>
         </div>
-      </div>
 
-      <div class="step-block">
-        <h3>Step 4: /status-update</h3>
-        <div class="prompt-block-wrapper">
-          <pre class="prompt-block" id="prompt-step-4">/status-update
+        <div class="step-pane">
+          <div class="step-pane-bar">
+            <span class="pane-tag">step.04 → status-update</span>
+            <button class="copy-btn" data-target="prompt-step-4">Copy</button>
+          </div>
+          <div class="step-pane-body">
+            <pre class="prompt-block" id="prompt-step-4">/status-update
 
 Draft mode. Team communication for the Adventurer Experience squad.
 
@@ -207,23 +269,33 @@ What this means for the team:
 - Mia: design for guide activation listing guidance starts now. Repeat loop design starts in 6 weeks.
 
 Lead with the decision and the reasoning. Tell the team what's not happening and why — don't leave that unsaid. Keep it tight.</pre>
-          <button class="copy-btn" data-target="prompt-step-4">Copy</button>
+          </div>
         </div>
       </div>
 
-      <h2>Reflection</h2>
-      <ol>
-        <li>Where did compounding context improve the output quality most as the chain progressed — and where did earlier outputs add noise rather than signal to later steps?</li>
-        <li>At which step did the skill's framing diverge most from your own judgment — and would you have caught that divergence without running the full chain?</li>
-        <li>What would you do differently when you run this cycle at your real company — what input would you invest more time in, and what step would you skip or compress?</li>
-      </ol>
+      <div class="section">
+        <div class="sec-label">// 02 · reflection</div>
+        <h2 class="sec-headline">Three questions.</h2>
+        <ol class="reflection-list">
+          <li><span class="r-num">01</span>Where did compounding context improve the output quality most as the chain progressed — and where did earlier outputs add noise rather than signal to later steps?</li>
+          <li><span class="r-num">02</span>At which step did the skill's framing diverge most from your own judgment — and would you have caught that divergence without running the full chain?</li>
+          <li><span class="r-num">03</span>What would you do differently when you run this cycle at your real company — what input would you invest more time in, and what step would you skip or compress?</li>
+        </ol>
+      </div>
 
-      <nav class="day-footer-nav">
-        <a href="day-19.html">← Day 19</a>
-        <span></span>
-      </nav>
+      <div class="day-nav">
+        <a href="day-19.html" class="nav-prev"><span class="arr">←</span> Day 19</a>
+      </div>
     </main>
   </div>
-  <script src="../assets/js/main.js" defer></script>
+
+  <footer class="page-footer">
+    <div class="left"><span class="pulse-mini"></span><span>PM AGENT KIT WORKBOOK · v1.0</span></div>
+    <div>BUILT FOR CLAUDE CODE · OFFLINE-FIRST</div>
+    <div><a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github</a> · <a href="../../workbook.json">workbook.json</a></div>
+  </footer>
+
+</div>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>

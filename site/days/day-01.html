@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 1 — Turn a Rough Idea Into a Spec | PM Agent Kit Workbook</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmakw-theme');
+        var pref = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
   <script type="application/json" id="day-metadata">
   {
     "day": 1,
@@ -33,71 +42,128 @@
   </script>
 </head>
 <body>
-  <div class="page-layout">
-    <nav class="sidebar">
-      <div class="sidebar-header">
-        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
-      </div>
-      <div class="sidebar-top-links">
-        <a href="../setup.html">Setup</a>
-        <a href="../terrain.html">Terrain</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 1</div>
-        <a href="day-01.html">D1</a>
-        <a href="day-02.html">D2</a>
-        <a href="day-03.html">D3</a>
-        <a href="day-04.html">D4</a>
-        <a href="day-05.html">D5</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 2</div>
-        <a href="day-06.html">D6</a>
-        <a href="day-07.html">D7</a>
-        <a href="day-08.html">D8</a>
-        <a href="day-09.html">D9</a>
-        <a href="day-10.html">D10</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 3</div>
-        <a href="day-11.html">D11</a>
-        <a href="day-12.html">D12</a>
-        <a href="day-13.html">D13</a>
-        <a href="day-14.html">D14</a>
-        <a href="day-15.html">D15</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 4</div>
-        <a href="day-16.html">D16</a>
-        <a href="day-17.html">D17</a>
-        <a href="day-18.html">D18</a>
-        <a href="day-19.html">D19</a>
-        <a href="day-20.html">D20</a>
-      </div>
-    </nav>
-    <main class="main-content">
-      <span class="week-badge">Week 1: Writing &amp; Thinking</span>
-      <p class="day-number">Day 1 of 20</p>
-      <h1>Turn a Rough Idea Into a Spec</h1>
+<div class="layer">
 
-      <h2>Skill Overview</h2>
-      <p><code>prd-draft</code> takes rough input — a problem statement, notes from a stakeholder conversation, a handful of data points, bullet fragments — and drafts a complete PRD. It imposes structure without requiring structured input. You show up with whatever you have; the skill produces a full spec with context, problem statement, objectives, proposed solution, happy and sad paths, acceptance criteria, data requirements, open questions, and assumptions. The output is a working draft, not a final document — but it's a draft you can actually walk into a room with.</p>
-      <p>PMs reach for this skill when they have a feature direction but not the discipline to structure it, when a stakeholder conversation produced a clear ask but no artifact, or when a deadline is forcing a spec to exist before the PM has had time to think it through properly. It's also useful as a pressure-test for rough ideas — if the skill can't produce a coherent PRD from your notes, the idea probably isn't ready to take to engineering.</p>
-      <p>Day 1 is <code>prd-draft</code> rather than <code>doc-review</code> because creating comes before evaluating. On Day 2, you'll review the PRD you produce today — that sequence is more instructive than reviewing a pre-built artifact cold. Starting with production also makes the kit's value immediately tangible: you arrive with notes and leave with a draft spec.</p>
+  <header class="chrome">
+    <div class="chrome-inner">
+      <div class="dots" aria-hidden="true">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      </div>
+      <div class="breadcrumb">
+        <span class="path"><a href="../index.html">~/pm-agent-kit-workbook</a></span>
+        <span class="sep">›</span>
+        <span class="path">days</span>
+        <span class="sep">›</span>
+        <span class="path">day-01.md</span>
+      </div>
+      <div class="chrome-meta">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light or dark mode">
+          <span class="seg seg-dark">night</span>
+          <span class="sep">/</span>
+          <span class="seg seg-light">day</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-      <h2>Sample Prompts</h2>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-path"><span class="path-root">~/workbook</span></div>
+      <div class="sidebar-section">
+        <a href="../index.html">index.md</a>
+        <a href="../setup.html">setup.md</a>
+        <a href="../terrain.html">terrain.md</a>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 01</div>
+        <div class="sidebar-days">
+          <a href="day-01.html" aria-current="page"><span class="day-n">01</span><span class="day-s">/prd-draft</span></a>
+          <a href="day-02.html"><span class="day-n">02</span><span class="day-s">/doc-review</span></a>
+          <a href="day-03.html"><span class="day-n">03</span><span class="day-s">/generate-tasks</span></a>
+          <a href="day-04.html"><span class="day-n">04</span><span class="day-s">/sprint-plan</span></a>
+          <a href="day-05.html"><span class="day-n">05</span><span class="day-s">/status-update</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 02</div>
+        <div class="sidebar-days">
+          <a href="day-06.html"><span class="day-n">06</span><span class="day-s">/discovery-plan</span></a>
+          <a href="day-07.html"><span class="day-n">07</span><span class="day-s">/user-feedback</span></a>
+          <a href="day-08.html"><span class="day-n">08</span><span class="day-s">/data-analysis</span></a>
+          <a href="day-09.html"><span class="day-n">09</span><span class="day-s">/competitive-intel</span></a>
+          <a href="day-10.html"><span class="day-n">10</span><span class="day-s">/business-case</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 03</div>
+        <div class="sidebar-days">
+          <a href="day-11.html"><span class="day-n">11</span><span class="day-s">/roadmap-pri…</span></a>
+          <a href="day-12.html"><span class="day-n">12</span><span class="day-s">/decision-log</span></a>
+          <a href="day-13.html"><span class="day-n">13</span><span class="day-s">/alignment-memo</span></a>
+          <a href="day-14.html"><span class="day-n">14</span><span class="day-s">/meeting-brief</span></a>
+          <a href="day-15.html"><span class="day-n">15</span><span class="day-s">/retro-synthesis</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 04</div>
+        <div class="sidebar-days">
+          <a href="day-16.html"><span class="day-n">16</span><span class="day-s">/launch-checklist</span></a>
+          <a href="day-17.html"><span class="day-n">17</span><span class="day-s">/one-pager</span></a>
+          <a href="day-18.html"><span class="day-n">18</span><span class="day-s">/presentation-deck</span></a>
+          <a href="day-19.html" class="capstone"><span class="day-n">19</span><span class="day-s">capstone-i</span></a>
+          <a href="day-20.html" class="capstone"><span class="day-n">20</span><span class="day-s">capstone-ii</span></a>
+        </div>
+      </div>
+    </aside>
 
-      <p class="prompt-label">Basic</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-basic">/prd-draft
+    <main class="main">
+      <div class="page-header">
+        <div class="page-eyebrow">// week 01 · day 01 · mon</div>
+        <h1 class="page-title">Turn a Rough Idea Into a Spec.</h1>
+        <div class="page-sub"><span class="glyph">$</span><code>/prd-draft · ~20 min</code></div>
+      </div>
+
+      <div class="section">
+        <div class="about-grid">
+          <div>
+            <div class="sec-label">// 01 · what it does</div>
+            <h2 class="sec-headline">Structure without <span class="accent">structured input.</span></h2>
+          </div>
+          <div class="body-text">
+            <p><code>prd-draft</code> takes rough input — a problem statement, notes from a stakeholder conversation, a handful of data points, bullet fragments — and drafts a complete PRD. It imposes structure without requiring structured input. You show up with whatever you have; the skill produces a full spec with context, problem statement, objectives, proposed solution, happy and sad paths, acceptance criteria, data requirements, open questions, and assumptions. The output is a working draft, not a final document — but it's a draft you can actually walk into a room with.</p>
+            <p>PMs reach for this skill when they have a feature direction but not the discipline to structure it, when a stakeholder conversation produced a clear ask but no artifact, or when a deadline is forcing a spec to exist before the PM has had time to think it through properly. It's also useful as a pressure-test for rough ideas — if the skill can't produce a coherent PRD from your notes, the idea probably isn't ready to take to engineering.</p>
+            <p>Day 1 is <code>prd-draft</code> rather than <code>doc-review</code> because creating comes before evaluating. On Day 2, you'll review the PRD you produce today — that sequence is more instructive than reviewing a pre-built artifact cold. Starting with production also makes the kit's value immediately tangible: you arrive with notes and leave with a draft spec.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-label">// 02 · sample prompts</div>
+        <h2 class="sec-headline">Two ways in.</h2>
+
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.basic.txt</span>
+              <button class="copy-btn" data-target="prompt-basic">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-basic">/prd-draft
 
 I want to add a feature that lets users filter search results by difficulty level. Here's what I know: users are complaining they can't find activities that match their skill level. Some use "beginner" and some use "intermediate" and the terms mean different things. We want to make search results more relevant.</pre>
-        <button class="copy-btn" data-target="prompt-basic">Copy</button>
-      </div>
+            </div>
+          </div>
+        </div>
 
-      <p class="prompt-label">Advanced</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-advanced">/prd-draft
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.advanced.txt</span>
+              <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-advanced">/prd-draft
 
 Here's everything I have on the guide listing setup problem. Please draft a full PRD from this.
 
@@ -122,22 +188,35 @@ Prior investigation (no formal output):
 Constraint: Jordan's squad owns the listing object and the guide onboarding flow. Any changes to the listing setup form need their buy-in and coordination on the shared listing object schema.
 
 My ask: draft a PRD targeting the listing setup guidance problem. The audience for this PRD is Jordan Lee (Guide Experience PM), Aisha Nkomo (Guide Experience EM), Chris Okafor (Adventurer Experience EM), and the cross-squad engineering group. I need something I can walk them through next week.</pre>
-        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <h2>Reflection</h2>
-      <ol>
-        <li>Which sections of the PRD did the skill fill in that you hadn't thought about when you started — and do you agree with how it framed them?</li>
-        <li>Where did the skill make assumptions you'd want to revisit before walking engineering through this?</li>
-        <li>What would the PRD have looked like if you had written it yourself from scratch, without the skill? What's different?</li>
-      </ol>
+      <div class="section">
+        <div class="sec-label">// 03 · reflection</div>
+        <h2 class="sec-headline">Three questions.</h2>
+        <ol class="reflection-list">
+          <li><span class="r-num">01</span>Which sections of the PRD did the skill fill in that you hadn't thought about when you started — and do you agree with how it framed them?</li>
+          <li><span class="r-num">02</span>Where did the skill make assumptions you'd want to revisit before walking engineering through this?</li>
+          <li><span class="r-num">03</span>What would the PRD have looked like if you had written it yourself from scratch, without the skill? What's different?</li>
+        </ol>
+      </div>
 
-      <nav class="day-footer-nav">
-        <span></span>
-        <a href="day-02.html">Day 2 →</a>
-      </nav>
+      <div class="day-nav">
+        <span class="nav-spacer"></span>
+        <a href="day-02.html" class="nav-next">Day 2 <span class="arr">→</span></a>
+      </div>
     </main>
   </div>
-  <script src="../assets/js/main.js" defer></script>
+
+  <footer class="page-footer">
+    <div class="left"><span class="pulse-mini"></span><span>PM AGENT KIT WORKBOOK · v1.0</span></div>
+    <div>BUILT FOR CLAUDE CODE · OFFLINE-FIRST</div>
+    <div><a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github</a> · <a href="../../workbook.json">workbook.json</a></div>
+  </footer>
+
+</div>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>

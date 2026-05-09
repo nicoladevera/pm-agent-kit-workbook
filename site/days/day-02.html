@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 2 — Evaluate Like a Senior PM | PM Agent Kit Workbook</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmakw-theme');
+        var pref = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
   <script type="application/json" id="day-metadata">
   {
     "day": 2,
@@ -28,102 +37,170 @@
     ],
     "expected_output_type": "structured document review with severity-rated feedback, a smell test, and open questions",
     "saves_to_knowledge": null,
-    "prerequisites": [
-      1
-    ]
+    "prerequisites": [1]
   }
   </script>
 </head>
 <body>
-  <div class="page-layout">
-    <nav class="sidebar">
-      <div class="sidebar-header">
-        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
-      </div>
-      <div class="sidebar-top-links">
-        <a href="../setup.html">Setup</a>
-        <a href="../terrain.html">Terrain</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 1</div>
-        <a href="day-01.html">D1</a>
-        <a href="day-02.html">D2</a>
-        <a href="day-03.html">D3</a>
-        <a href="day-04.html">D4</a>
-        <a href="day-05.html">D5</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 2</div>
-        <a href="day-06.html">D6</a>
-        <a href="day-07.html">D7</a>
-        <a href="day-08.html">D8</a>
-        <a href="day-09.html">D9</a>
-        <a href="day-10.html">D10</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 3</div>
-        <a href="day-11.html">D11</a>
-        <a href="day-12.html">D12</a>
-        <a href="day-13.html">D13</a>
-        <a href="day-14.html">D14</a>
-        <a href="day-15.html">D15</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 4</div>
-        <a href="day-16.html">D16</a>
-        <a href="day-17.html">D17</a>
-        <a href="day-18.html">D18</a>
-        <a href="day-19.html">D19</a>
-        <a href="day-20.html">D20</a>
-      </div>
-    </nav>
-    <main class="main-content">
-      <span class="week-badge">Week 1: Writing &amp; Thinking</span>
-      <p class="day-number">Day 2 of 20</p>
-      <h1>Evaluate Like a Senior PM</h1>
+<div class="layer">
 
-      <h2>Skill Overview</h2>
-      <p><code>doc-review</code> evaluates any PM document — a PRD, a ticket, a project brief, a tech spec — and returns structured feedback with severity-rated issues and a smell test. You paste in the document (or point to a file), and the skill identifies what's missing, what's vague, and what would cause problems downstream if left unaddressed. It auto-detects the document type, so you don't need to specify format before running it.</p>
-      <p>PMs produce and review documents constantly, but the review rarely happens with the same rigor as the writing. Teams approve PRDs with undefined success metrics, ship tickets with no edge cases, and brief engineers against specs that leave out the most important constraints. <code>doc-review</code> applies a consistent quality bar — the one a strong senior PM would apply — to every artifact you run it against, without fatigue or politeness.</p>
-      <p>Day 2 uses the PRD you produced on Day 1 as input. That sequence is intentional — you see your own work evaluated by the same standard you'll hold all future documents to. After today, you'll know what questions to ask before you draft, not after.</p>
+  <header class="chrome">
+    <div class="chrome-inner">
+      <div class="dots" aria-hidden="true">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      </div>
+      <div class="breadcrumb">
+        <span class="path"><a href="../index.html">~/pm-agent-kit-workbook</a></span>
+        <span class="sep">›</span>
+        <span class="path">days</span>
+        <span class="sep">›</span>
+        <span class="path">day-02.md</span>
+      </div>
+      <div class="chrome-meta">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light or dark mode">
+          <span class="seg seg-dark">night</span>
+          <span class="sep">/</span>
+          <span class="seg seg-light">day</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-      <h2>Sample Prompts</h2>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-path"><span class="path-root">~/workbook</span></div>
+      <div class="sidebar-section">
+        <a href="../index.html">index.md</a>
+        <a href="../setup.html">setup.md</a>
+        <a href="../terrain.html">terrain.md</a>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 01</div>
+        <div class="sidebar-days">
+          <a href="day-01.html"><span class="day-n">01</span><span class="day-s">/prd-draft</span></a>
+          <a href="day-02.html" aria-current="page"><span class="day-n">02</span><span class="day-s">/doc-review</span></a>
+          <a href="day-03.html"><span class="day-n">03</span><span class="day-s">/generate-tasks</span></a>
+          <a href="day-04.html"><span class="day-n">04</span><span class="day-s">/sprint-plan</span></a>
+          <a href="day-05.html"><span class="day-n">05</span><span class="day-s">/status-update</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 02</div>
+        <div class="sidebar-days">
+          <a href="day-06.html"><span class="day-n">06</span><span class="day-s">/discovery-plan</span></a>
+          <a href="day-07.html"><span class="day-n">07</span><span class="day-s">/user-feedback</span></a>
+          <a href="day-08.html"><span class="day-n">08</span><span class="day-s">/data-analysis</span></a>
+          <a href="day-09.html"><span class="day-n">09</span><span class="day-s">/competitive-intel</span></a>
+          <a href="day-10.html"><span class="day-n">10</span><span class="day-s">/business-case</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 03</div>
+        <div class="sidebar-days">
+          <a href="day-11.html"><span class="day-n">11</span><span class="day-s">/roadmap-pri…</span></a>
+          <a href="day-12.html"><span class="day-n">12</span><span class="day-s">/decision-log</span></a>
+          <a href="day-13.html"><span class="day-n">13</span><span class="day-s">/alignment-memo</span></a>
+          <a href="day-14.html"><span class="day-n">14</span><span class="day-s">/meeting-brief</span></a>
+          <a href="day-15.html"><span class="day-n">15</span><span class="day-s">/retro-synthesis</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 04</div>
+        <div class="sidebar-days">
+          <a href="day-16.html"><span class="day-n">16</span><span class="day-s">/launch-checklist</span></a>
+          <a href="day-17.html"><span class="day-n">17</span><span class="day-s">/one-pager</span></a>
+          <a href="day-18.html"><span class="day-n">18</span><span class="day-s">/presentation-deck</span></a>
+          <a href="day-19.html" class="capstone"><span class="day-n">19</span><span class="day-s">capstone-i</span></a>
+          <a href="day-20.html" class="capstone"><span class="day-n">20</span><span class="day-s">capstone-ii</span></a>
+        </div>
+      </div>
+    </aside>
 
-      <p class="prompt-label">Basic</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-basic">/doc-review
+    <main class="main">
+      <div class="page-header">
+        <div class="page-eyebrow">// week 01 · day 02 · tue</div>
+        <h1 class="page-title">Evaluate Like a Senior PM.</h1>
+        <div class="page-sub"><span class="glyph">$</span><code>/doc-review · ~20 min</code></div>
+      </div>
+
+      <div class="section">
+        <div class="about-grid">
+          <div>
+            <div class="sec-label">// 01 · what it does</div>
+            <h2 class="sec-headline">Review without <span class="accent">politeness.</span></h2>
+          </div>
+          <div class="body-text">
+            <p><code>doc-review</code> evaluates any PM document — a PRD, a ticket, a project brief, a tech spec — and returns structured feedback with severity-rated issues and a smell test. You paste in the document (or point to a file), and the skill identifies what's missing, what's vague, and what would cause problems downstream if left unaddressed. It auto-detects the document type, so you don't need to specify format before running it.</p>
+            <p>PMs produce and review documents constantly, but the review rarely happens with the same rigor as the writing. Teams approve PRDs with undefined success metrics, ship tickets with no edge cases, and brief engineers against specs that leave out the most important constraints. <code>doc-review</code> applies a consistent quality bar — the one a strong senior PM would apply — to every artifact you run it against, without fatigue or politeness.</p>
+            <p>Day 2 uses the PRD you produced on Day 1 as input. That sequence is intentional — you see your own work evaluated by the same standard you'll hold all future documents to. After today, you'll know what questions to ask before you draft, not after.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-label">// 02 · sample prompts</div>
+        <h2 class="sec-headline">Two ways in.</h2>
+
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.basic.txt</span>
+              <button class="copy-btn" data-target="prompt-basic">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-basic">/doc-review
 
 Review this PRD and tell me what's missing:
 
 [paste any existing PRD or spec here]</pre>
-        <button class="copy-btn" data-target="prompt-basic">Copy</button>
-      </div>
+            </div>
+          </div>
+        </div>
 
-      <p class="prompt-label">Advanced</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-advanced">/doc-review
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.advanced.txt</span>
+              <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-advanced">/doc-review
 
 Review this PRD. I'm the Adventurer Experience PM at Terrain, a two-sided marketplace for bookable outdoor experiences — guides list surf lessons, alpine climbs, foraging walks; adventurers discover and book them. The PRD is for a guide listing setup guidance feature intended to raise guide activation from 62% to 75% by Q3. I need this reviewed before I walk Jordan Lee, Aisha Nkomo, Chris Okafor, and the cross-squad engineering group through it on Thursday — flag anything that would cause confusion or require a follow-up meeting to resolve.
 
 [paste the PRD you produced on Day 1 here]</pre>
-        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">Don't have a Day 1 PRD? Paste any existing spec, ticket, or project brief. The skill auto-detects document type.</div>
       </div>
 
-      <p><em>Don't have a Day 1 PRD? Paste any existing spec, ticket, or project brief. The skill auto-detects document type.</em></p>
+      <div class="section">
+        <div class="sec-label">// 03 · reflection</div>
+        <h2 class="sec-headline">Three questions.</h2>
+        <ol class="reflection-list">
+          <li><span class="r-num">01</span>What did the skill flag that you would have missed or let slide in a peer review?</li>
+          <li><span class="r-num">02</span>Which severity-high issues surprised you — and why do you think they weren't caught when the document was first written?</li>
+          <li><span class="r-num">03</span>Where in your current work do you have documents that would benefit from this level of review before they go to engineering or leadership?</li>
+        </ol>
+      </div>
 
-      <h2>Reflection</h2>
-      <ol>
-        <li>What did the skill flag that you would have missed or let slide in a peer review?</li>
-        <li>Which severity-high issues surprised you — and why do you think they weren't caught when the document was first written?</li>
-        <li>Where in your current work do you have documents that would benefit from this level of review before they go to engineering or leadership?</li>
-      </ol>
-
-      <nav class="day-footer-nav">
-        <a href="day-01.html">← Day 1</a>
-        <a href="day-03.html">Day 3 →</a>
-      </nav>
+      <div class="day-nav">
+        <a href="day-01.html" class="nav-prev"><span class="arr">←</span> Day 1</a>
+        <a href="day-03.html" class="nav-next">Day 3 <span class="arr">→</span></a>
+      </div>
     </main>
   </div>
-  <script src="../assets/js/main.js" defer></script>
+
+  <footer class="page-footer">
+    <div class="left"><span class="pulse-mini"></span><span>PM AGENT KIT WORKBOOK · v1.0</span></div>
+    <div>BUILT FOR CLAUDE CODE · OFFLINE-FIRST</div>
+    <div><a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github</a> · <a href="../../workbook.json">workbook.json</a></div>
+  </footer>
+
+</div>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>

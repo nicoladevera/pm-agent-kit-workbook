@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 5 — Assess and Communicate Delivery Health | PM Agent Kit Workbook</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmakw-theme');
+        var pref = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
   <script type="application/json" id="day-metadata">
   {
     "day": 5,
@@ -33,73 +42,130 @@
   </script>
 </head>
 <body>
-  <div class="page-layout">
-    <nav class="sidebar">
-      <div class="sidebar-header">
-        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
-      </div>
-      <div class="sidebar-top-links">
-        <a href="../setup.html">Setup</a>
-        <a href="../terrain.html">Terrain</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 1</div>
-        <a href="day-01.html">D1</a>
-        <a href="day-02.html">D2</a>
-        <a href="day-03.html">D3</a>
-        <a href="day-04.html">D4</a>
-        <a href="day-05.html">D5</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 2</div>
-        <a href="day-06.html">D6</a>
-        <a href="day-07.html">D7</a>
-        <a href="day-08.html">D8</a>
-        <a href="day-09.html">D9</a>
-        <a href="day-10.html">D10</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 3</div>
-        <a href="day-11.html">D11</a>
-        <a href="day-12.html">D12</a>
-        <a href="day-13.html">D13</a>
-        <a href="day-14.html">D14</a>
-        <a href="day-15.html">D15</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 4</div>
-        <a href="day-16.html">D16</a>
-        <a href="day-17.html">D17</a>
-        <a href="day-18.html">D18</a>
-        <a href="day-19.html">D19</a>
-        <a href="day-20.html">D20</a>
-      </div>
-    </nav>
-    <main class="main-content">
-      <span class="week-badge">Week 1: Writing &amp; Thinking</span>
-      <p class="day-number">Day 5 of 20</p>
-      <h1>Assess and Communicate Delivery Health</h1>
+<div class="layer">
 
-      <h2>Skill Overview</h2>
-      <p><code>status-update</code> has two modes. Analyze mode produces an internal delivery assessment — workstream status, risks, blockers, dependencies, and recommended actions. Draft mode produces audience-calibrated communication leading with the assessment, not a summary of activity. The output format adapts by audience: a VP gets a concise assessment with clear risks and decisions needed; a cross-functional team gets workstream-level detail with dependencies called out.</p>
-      <p>The failure mode for status updates is describing output rather than making an assessment. "We shipped X, started Y, and will finish Z next sprint" is activity. "We are on track for Android GA with one open risk: the payment edge-case bug. If it doesn't close by end of this sprint, GA slips two weeks" is an assessment. <code>status-update</code> enforces that distinction — it leads with delivery health and only describes activity in service of that assessment.</p>
-      <p>Day 5 closes Week 1 because communication is the output of all the prior work. You drafted, reviewed, decomposed, and planned. Now you communicate the state of that work to someone who wasn't in the room. After this week, you've run the full writing cycle: produce → evaluate → decompose → plan → communicate.</p>
+  <header class="chrome">
+    <div class="chrome-inner">
+      <div class="dots" aria-hidden="true">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      </div>
+      <div class="breadcrumb">
+        <span class="path"><a href="../index.html">~/pm-agent-kit-workbook</a></span>
+        <span class="sep">›</span>
+        <span class="path">days</span>
+        <span class="sep">›</span>
+        <span class="path">day-05.md</span>
+      </div>
+      <div class="chrome-meta">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light or dark mode">
+          <span class="seg seg-dark">night</span>
+          <span class="sep">/</span>
+          <span class="seg seg-light">day</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-      <h2>Sample Prompts</h2>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-path"><span class="path-root">~/workbook</span></div>
+      <div class="sidebar-section">
+        <a href="../index.html">index.md</a>
+        <a href="../setup.html">setup.md</a>
+        <a href="../terrain.html">terrain.md</a>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 01</div>
+        <div class="sidebar-days">
+          <a href="day-01.html"><span class="day-n">01</span><span class="day-s">/prd-draft</span></a>
+          <a href="day-02.html"><span class="day-n">02</span><span class="day-s">/doc-review</span></a>
+          <a href="day-03.html"><span class="day-n">03</span><span class="day-s">/generate-tasks</span></a>
+          <a href="day-04.html"><span class="day-n">04</span><span class="day-s">/sprint-plan</span></a>
+          <a href="day-05.html" aria-current="page"><span class="day-n">05</span><span class="day-s">/status-update</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 02</div>
+        <div class="sidebar-days">
+          <a href="day-06.html"><span class="day-n">06</span><span class="day-s">/discovery-plan</span></a>
+          <a href="day-07.html"><span class="day-n">07</span><span class="day-s">/user-feedback</span></a>
+          <a href="day-08.html"><span class="day-n">08</span><span class="day-s">/data-analysis</span></a>
+          <a href="day-09.html"><span class="day-n">09</span><span class="day-s">/competitive-intel</span></a>
+          <a href="day-10.html"><span class="day-n">10</span><span class="day-s">/business-case</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 03</div>
+        <div class="sidebar-days">
+          <a href="day-11.html"><span class="day-n">11</span><span class="day-s">/roadmap-pri…</span></a>
+          <a href="day-12.html"><span class="day-n">12</span><span class="day-s">/decision-log</span></a>
+          <a href="day-13.html"><span class="day-n">13</span><span class="day-s">/alignment-memo</span></a>
+          <a href="day-14.html"><span class="day-n">14</span><span class="day-s">/meeting-brief</span></a>
+          <a href="day-15.html"><span class="day-n">15</span><span class="day-s">/retro-synthesis</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 04</div>
+        <div class="sidebar-days">
+          <a href="day-16.html"><span class="day-n">16</span><span class="day-s">/launch-checklist</span></a>
+          <a href="day-17.html"><span class="day-n">17</span><span class="day-s">/one-pager</span></a>
+          <a href="day-18.html"><span class="day-n">18</span><span class="day-s">/presentation-deck</span></a>
+          <a href="day-19.html" class="capstone"><span class="day-n">19</span><span class="day-s">capstone-i</span></a>
+          <a href="day-20.html" class="capstone"><span class="day-n">20</span><span class="day-s">capstone-ii</span></a>
+        </div>
+      </div>
+    </aside>
 
-      <p class="prompt-label">Basic</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-basic">/status-update
+    <main class="main">
+      <div class="page-header">
+        <div class="page-eyebrow">// week 01 · day 05 · fri</div>
+        <h1 class="page-title">Assess and Communicate Delivery Health.</h1>
+        <div class="page-sub"><span class="glyph">$</span><code>/status-update · ~20 min</code></div>
+      </div>
+
+      <div class="section">
+        <div class="about-grid">
+          <div>
+            <div class="sec-label">// 01 · what it does</div>
+            <h2 class="sec-headline">Assessment, not <span class="accent">activity.</span></h2>
+          </div>
+          <div class="body-text">
+            <p><code>status-update</code> has two modes. Analyze mode produces an internal delivery assessment — workstream status, risks, blockers, dependencies, and recommended actions. Draft mode produces audience-calibrated communication leading with the assessment, not a summary of activity. The output format adapts by audience: a VP gets a concise assessment with clear risks and decisions needed; a cross-functional team gets workstream-level detail with dependencies called out.</p>
+            <p>The failure mode for status updates is describing output rather than making an assessment. "We shipped X, started Y, and will finish Z next sprint" is activity. "We are on track for Android GA with one open risk: the payment edge-case bug. If it doesn't close by end of this sprint, GA slips two weeks" is an assessment. <code>status-update</code> enforces that distinction — it leads with delivery health and only describes activity in service of that assessment.</p>
+            <p>Day 5 closes Week 1 because communication is the output of all the prior work. You drafted, reviewed, decomposed, and planned. Now you communicate the state of that work to someone who wasn't in the room. After this week, you've run the full writing cycle: produce → evaluate → decompose → plan → communicate.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-label">// 02 · sample prompts</div>
+        <h2 class="sec-headline">Two ways in.</h2>
+
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.basic.txt</span>
+              <button class="copy-btn" data-target="prompt-basic">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-basic">/status-update
 
 Draft a status update for my VP.
 
 We're two weeks into a sprint. The main goal was to finish the search filter feature. Search filter backend is done. Frontend is 80% complete but we hit a bug with filter persistence on iOS. We probably won't ship on time. We also finished a small bug fix for the payment flow that wasn't in the sprint goals.</pre>
-        <button class="copy-btn" data-target="prompt-basic">Copy</button>
-      </div>
+            </div>
+          </div>
+        </div>
 
-      <p class="prompt-label">Advanced</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-advanced">/status-update
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.advanced.txt</span>
+              <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-advanced">/status-update
 
 Draft mode. Audience: Dana Park (VP Product), Jordan Lee (PM, Guide Experience), Priya Anand (Head of Marketing).
 
@@ -114,22 +180,35 @@ Current state:
 Risks: if AND-142 isn't resolved by end of next sprint, Android GA slips to 8 weeks. If we don't make the Instant Book decision soon, the rollout expansion planning stalls.
 
 Lead with delivery health assessment, not activity. This is going to Dana Park — she wants to know if we're on track, what's at risk, and what she needs to decide.</pre>
-        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <h2>Reflection</h2>
-      <ol>
-        <li>What did the skill lead with that you wouldn't have led with — and did the framing land correctly for the stated audience?</li>
-        <li>Where did the draft make an assessment call you'd push back on — and what information would change it?</li>
-        <li>What decision did the skill surface that you hadn't explicitly named as a decision in your input?</li>
-      </ol>
+      <div class="section">
+        <div class="sec-label">// 03 · reflection</div>
+        <h2 class="sec-headline">Three questions.</h2>
+        <ol class="reflection-list">
+          <li><span class="r-num">01</span>What did the skill lead with that you wouldn't have led with — and did the framing land correctly for the stated audience?</li>
+          <li><span class="r-num">02</span>Where did the draft make an assessment call you'd push back on — and what information would change it?</li>
+          <li><span class="r-num">03</span>What decision did the skill surface that you hadn't explicitly named as a decision in your input?</li>
+        </ol>
+      </div>
 
-      <nav class="day-footer-nav">
-        <a href="day-04.html">← Day 4</a>
-        <a href="day-06.html">Day 6 →</a>
-      </nav>
+      <div class="day-nav">
+        <a href="day-04.html" class="nav-prev"><span class="arr">←</span> Day 4</a>
+        <a href="day-06.html" class="nav-next">Day 6 <span class="arr">→</span></a>
+      </div>
     </main>
   </div>
-  <script src="../assets/js/main.js" defer></script>
+
+  <footer class="page-footer">
+    <div class="left"><span class="pulse-mini"></span><span>PM AGENT KIT WORKBOOK · v1.0</span></div>
+    <div>BUILT FOR CLAUDE CODE · OFFLINE-FIRST</div>
+    <div><a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github</a> · <a href="../../workbook.json">workbook.json</a></div>
+  </footer>
+
+</div>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>
