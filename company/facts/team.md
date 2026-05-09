@@ -17,9 +17,9 @@ Many workbook scenarios involve marketplace-wide problems, including guide activ
 **Sprint capacity:** 18–22 story points per 2-week sprint. Overhead is ~20% (standups, code review, bug triage, on-call rotation). One engineer per sprint is on reduced capacity (~50%) due to on-call rotation.
 
 **Current constraints:**
-- Android coverage is one engineer (Jordan T.). Android work serializes — avoid parallel Android tracks. Size Android stories conservatively.
+- Android coverage is one engineer (Elena T.). Android work serializes — avoid parallel Android tracks. Size Android stories conservatively.
 - Mia (design) splits her time. Confirm design availability before committing design-dependent stories to a sprint. High-complexity Guide Experience sprints can pull her.
-- Backend engineers (Sam W., Priya L.) support both squads for shared infrastructure (payments, search indexing). Coordinate with Guide Experience PM (Jordan Lee) when work touches shared services.
+- Backend engineers (Nina W., Omar L.) support both squads for shared infrastructure (payments, search indexing). Coordinate with Guide Experience PM (Jordan Lee) when work touches shared services.
 
 ---
 
@@ -32,9 +32,9 @@ Many workbook scenarios involve marketplace-wide problems, including guide activ
 - Interface: Weekly cross-squad sync (Thursdays); shared Slack channel #terrain-product; coordinate on anything touching the listing object, Instant Book (guide-side), or Guide Pro features
 
 **Platform / Infrastructure**
-- Lead engineer: Devon Park
+- Lead engineer: Billy Hudson
 - Owns: Payments infrastructure, search indexing, API reliability, data pipeline
-- Interface: Async via Slack (#terrain-dev); flag any work that touches payment flows or search indexing to Devon before sprint planning; expect 3-day turnaround on infrastructure requests
+- Interface: Async via Slack (#terrain-dev); flag any work that touches payment flows or search indexing to Billy before sprint planning; expect 3-day turnaround on infrastructure requests
 
 **Trust & Safety**
 - PM: Riley Chen (0.5 PM, shared with other responsibilities)
@@ -51,7 +51,7 @@ Many workbook scenarios involve marketplace-wide problems, including guide activ
 | Sam Rivera | Head of Engineering | Technical risk, system reliability, engineering velocity | Loop in via Chris (EM) for most things; direct ping for P0 production issues or decisions affecting platform architecture |
 | Priya Anand | Head of Marketing | Launch timing, app store positioning, external messaging | 2-week heads-up before any GA launch; coordinate on changelog copy and app store release notes |
 | Marcus Webb | Legal | Regulatory exposure, cancellation policy, guide liability | Consult before any feature that changes cancellation terms, surfaces guide credentials, or introduces new data collection |
-| Marcus Chen | Data Lead | Metric definitions, data integrity, analysis requests | Slack for ad hoc questions; 3-business-day lead time for structured analysis requests |
+| Fernando Lopez | Data Lead | Metric definitions, data integrity, analysis requests | Slack for ad hoc questions; 3-business-day lead time for structured analysis requests |
 
 ---
 
@@ -59,13 +59,13 @@ Many workbook scenarios involve marketplace-wide problems, including guide activ
 
 | Area | iOS | Android | Backend | Design |
 |------|-----|---------|---------|--------|
-| Search & discovery | Priya L. | Jordan T. | Sam W. | Mia S. |
-| Listing pages | Priya L. | Jordan T. | Sam W. | Mia S. |
-| Booking flow + payments | Priya L. | Jordan T. | Sam W. (primary) | Mia S. |
-| Instant Book | Priya L. | Jordan T. | Sam W. | — |
-| Post-experience reviews | Priya L. | Jordan T. | Priya L. (backend) | Mia S. |
-| Notifications | Priya L. | Jordan T. | Sam W. | — |
-| Adventurer NPS / feedback | — | — | Sam W. | — |
+| Search & discovery | Omar L. | Elena T. | Nina W. | Mia S. |
+| Listing pages | Omar L. | Elena T. | Nina W. | Mia S. |
+| Booking flow + payments | Omar L. | Elena T. | Nina W. (primary) | Mia S. |
+| Instant Book | Omar L. | Elena T. | Nina W. | — |
+| Post-experience reviews | Omar L. | Elena T. | Omar L. (backend) | Mia S. |
+| Notifications | Omar L. | Elena T. | Nina W. | — |
+| Adventurer NPS / feedback | — | — | Nina W. | — |
 
 ---
 

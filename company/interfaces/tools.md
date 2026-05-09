@@ -60,7 +60,7 @@
 |------|---------|--------|
 | Amplitude | Product event tracking, funnel analysis, user paths, retention | Self-serve for PMs; login via SSO |
 | Looker | BI dashboards, cohort analysis, revenue reporting | Self-serve for pre-built dashboards; SQL via Snowflake for custom |
-| Snowflake | Raw data warehouse; source of truth for all metrics | SQL access; request credentials from Marcus Chen (data lead) |
+| Snowflake | Raw data warehouse; source of truth for all metrics | SQL access; request credentials from Fernando Lopez (data lead) |
 | AppFollow | App store review monitoring (iOS + Android) | PM team; login via AppFollow account |
 | Delighted | NPS surveys; verbatim response export | Growth PM owns; others can request data export |
 

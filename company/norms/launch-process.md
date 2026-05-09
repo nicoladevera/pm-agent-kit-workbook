@@ -96,6 +96,6 @@ Terrain uses four standard launch tiers. Every feature ships through at least tw
 ## Post-Launch Review
 
 - **Timing:** Structured review at T+2 weeks for beta; T+4 weeks for GA
-- **Who attends:** PM, EM, designer, data analyst (Marcus Chen)
+- **Who attends:** PM, EM, designer, data analyst (Fernando Lopez)
 - **What's reviewed:** Adoption metrics vs. exit criteria, outcome metrics vs. hypothesis, qualitative signal (support tickets, user interviews scheduled), and any incidents or rollbacks
 - **Output:** Written summary in Notion with "ship it, iterate, or revisit" recommendation; shared with Dana Park (VP Product)

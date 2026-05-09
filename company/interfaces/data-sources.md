@@ -13,8 +13,8 @@
 ## Data Warehouse / BI
 
 **Tools:** Snowflake (raw data) + Looker (BI layer)
-**Access:** Looker is self-serve for PMs — pre-built dashboards and Explores. Snowflake SQL access is available for senior PMs; request credentials from Marcus Chen (data lead).
-**For complex queries:** File a request with Marcus Chen via Slack (#terrain-data). Typical turnaround: 2–3 business days for structured analysis, 5 days for new dashboard builds. Ad hoc questions in Slack are usually answered same day.
+**Access:** Looker is self-serve for PMs — pre-built dashboards and Explores. Snowflake SQL access is available for senior PMs; request credentials from Fernando Lopez (data lead).
+**For complex queries:** File a request with Fernando Lopez via Slack (#terrain-data). Typical turnaround: 2–3 business days for structured analysis, 5 days for new dashboard builds. Ad hoc questions in Slack are usually answered same day.
 **Key tables:** `bookings`, `guides`, `adventurers`, `experiences`, `reviews`, `cancellations`, `guide_pro_subscriptions`. Schema docs in Notion.
 
 ---
@@ -68,7 +68,7 @@
 
 ## Data Request Process
 
-1. **Ad hoc question** (quick metric check, single-event count): Slack Marcus Chen in #terrain-data. Same-day response for simple queries.
+1. **Ad hoc question** (quick metric check, single-event count): Slack Fernando Lopez in #terrain-data. Same-day response for simple queries.
 2. **Structured analysis** (cohort analysis, funnel breakdown, multi-table join): File a Linear ticket tagged to the Data team. Use the "Analysis Request" template. 2–3 business day turnaround.
-3. **New dashboard** (ongoing metric tracking, new Looker Explore): Linear ticket + sync with Marcus to scope. 5–7 business day turnaround.
+3. **New dashboard** (ongoing metric tracking, new Looker Explore): Linear ticket + sync with Fernando to scope. 5–7 business day turnaround.
 4. **New event instrumentation** (adding a new analytics event to the product): PM writes the event spec (name, properties, trigger condition, expected volume) → engineering instruments in the relevant PR → PM validates in staging before merge.
