@@ -41,6 +41,8 @@
 - **Clear space:** Padding equal to the height of the mountain mark on all sides
 - **Minimum size:** Never smaller than 80px wide for the full wordmark; 24px for the icon mark alone
 
+**Workbook asset note:** No Terrain logo asset is included in this workbook. If a generated deck or document needs a logo, use a text-only `Terrain` wordmark instead of referencing a missing image file. Use forest green on light backgrounds and white on forest green or dark backgrounds.
+
 ---
 
 ## Slide Defaults
