@@ -5,179 +5,321 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PM Agent Kit Workbook — 20-Day AI Practice for Product Managers</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmakw-theme');
+        var pref = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
 </head>
 <body>
-  <div class="page-layout">
+<div class="layer">
 
-    <nav class="sidebar">
-      <a href="index.html" class="sidebar-logo">PM Agent Kit Workbook</a>
-      <p class="sidebar-tagline">20-day AI practice for PMs</p>
-      <div class="sidebar-nav">
-        <a href="index.html">Home</a>
-        <a href="setup.html">Setup (Day 0)</a>
-        <a href="terrain.html">Terrain Context</a>
+  <header class="chrome">
+    <div class="chrome-inner">
+      <div class="dots" aria-hidden="true">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
       </div>
-      <div class="week-group">
-        <span class="week-group-label">Week 1</span>
-        <a href="days/day-01.html">D1</a>
-        <a href="days/day-02.html">D2</a>
-        <a href="days/day-03.html">D3</a>
-        <a href="days/day-04.html">D4</a>
-        <a href="days/day-05.html">D5</a>
+      <div class="breadcrumb">
+        <span class="path">~/pm-agent-kit-workbook</span>
+        <span class="sep">›</span>
+        <span class="cmd">claude › /init</span>
       </div>
-      <div class="week-group">
-        <span class="week-group-label">Week 2</span>
-        <a href="days/day-06.html">D6</a>
-        <a href="days/day-07.html">D7</a>
-        <a href="days/day-08.html">D8</a>
-        <a href="days/day-09.html">D9</a>
-        <a href="days/day-10.html">D10</a>
+      <div class="chrome-meta">
+        <span class="live"><span class="pulse"></span>OFFLINE-READY</span>
+        <span>v1.0</span>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light or dark mode">
+          <span class="seg seg-dark">night</span>
+          <span class="sep">/</span>
+          <span class="seg seg-light">day</span>
+        </button>
       </div>
-      <div class="week-group">
-        <span class="week-group-label">Week 3</span>
-        <a href="days/day-11.html">D11</a>
-        <a href="days/day-12.html">D12</a>
-        <a href="days/day-13.html">D13</a>
-        <a href="days/day-14.html">D14</a>
-        <a href="days/day-15.html">D15</a>
-      </div>
-      <div class="week-group">
-        <span class="week-group-label">Week 4</span>
-        <a href="days/day-16.html">D16</a>
-        <a href="days/day-17.html">D17</a>
-        <a href="days/day-18.html">D18</a>
-        <a href="days/day-19.html">D19</a>
-        <a href="days/day-20.html">D20</a>
-      </div>
-    </nav>
+    </div>
+  </header>
 
-    <main class="main-content">
-
-      <div class="hero">
-        <h1>PM Agent Kit Workbook</h1>
-        <p class="tagline">20 days. One skill a day. Build your AI-powered PM practice.</p>
+  <!-- hero terminal pane -->
+  <div class="hero-wrap">
+    <div class="pane">
+      <div class="pane-bar">
+        <span class="tag">README.md</span>
+        <span class="tag">workbook.json</span>
+        <span class="tag live">claude › /init —idx 01</span>
       </div>
-
-      <h2>What is the PM Agent Kit?</h2>
-      <p>The PM Agent Kit is a suite of PM skills encoded in a portable, agentic system built for Claude Code. It automates the PM work you do most: drafting specs, reviewing documents, planning sprints, synthesizing research, building business cases, and more. This workbook is the structured practice companion: twenty minutes a day, Monday through Friday, for four weeks. <a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">PM Agent Kit on GitHub</a></p>
-
-      <h2>How it works</h2>
-      <div class="how-it-works">
-        <div class="how-step">
-          <div class="step-num">Step 1</div>
-          <strong>Set up</strong>
-          <p>Clone the PM Agent Kit and copy the Terrain company context files. Day 0 walks you through everything.</p>
+      <div class="pane-body">
+        <div class="prompt-line">
+          <span class="glyph">$</span>
+          <code>cat ./about.txt</code>
         </div>
-        <div class="how-step">
-          <div class="step-num">Step 2</div>
-          <strong>Meet Terrain</strong>
-          <p>Get oriented to the fictional outdoor marketplace you'll use as your practice environment throughout the challenge.</p>
-        </div>
-        <div class="how-step">
-          <div class="step-num">Step 3</div>
-          <strong>Practice one skill a day</strong>
-          <p>Each day introduces one PM Agent Kit skill, explains why it matters, and gives you two copy-ready prompts to run in Claude Code. Twenty minutes, then done.</p>
-        </div>
-        <div class="how-step">
-          <div class="step-num">Step 4</div>
-          <strong>Reflect</strong>
-          <p>Three questions at the end of each day to connect what you saw to your real work.</p>
+        <h1 class="hero-title">
+          <span class="line">Twenty days.</span>
+          <span class="line">One skill <span class="accent">a day</span>.</span>
+          <span class="line">Build your AI practice<span class="caret"></span></span>
+        </h1>
+        <p class="hero-tag">A self-paced workbook for product managers, built for Claude Code. Twenty minutes a day, Monday through Friday, four weeks until fluency. Runs offline, copies to your clipboard, leaves no trace.</p>
+        <div class="stat-strip">
+          <div class="stat accent">
+            <div class="k">Days</div>
+            <div class="v">20<span class="unit">+ 1 setup</span></div>
+          </div>
+          <div class="stat">
+            <div class="k">Per day</div>
+            <div class="v">~20<span class="unit">min</span></div>
+          </div>
+          <div class="stat">
+            <div class="k">Skills</div>
+            <div class="v">18<span class="unit">+ 2 capstones</span></div>
+          </div>
+          <div class="stat">
+            <div class="k">Network</div>
+            <div class="v">0<span class="unit">deps</span></div>
+          </div>
         </div>
       </div>
-
-      <h2>A consistent practice environment</h2>
-      <p>All 20 days use Terrain — a fictional two-sided marketplace for bookable outdoor experiences — so prompts build on each other and you see how skills chain together across a real product context. You don't need to memorize Terrain; all the relevant details are embedded in the prompts.</p>
-
-      <h2>What "interactive" means here</h2>
-      <div class="terrain-snapshot">
-        <p style="margin-bottom: 0;">This workbook is interactive in a specific sense: every prompt has a one-click copy button, every day is linked, and each page has machine-readable metadata embedded for agents. It does not track progress, store state, or require login. Your notes live wherever you keep them.</p>
-      </div>
-
-      <h2>4-week curriculum overview</h2>
-
-      <div class="curriculum-week">
-        <h3>Week 1 — Writing &amp; Thinking</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Day</th>
-              <th>Skill</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td><a href="days/day-01.html">Day 1</a></td><td><code>prd-draft</code></td></tr>
-            <tr><td><a href="days/day-02.html">Day 2</a></td><td><code>doc-review</code></td></tr>
-            <tr><td><a href="days/day-03.html">Day 3</a></td><td><code>generate-tasks</code></td></tr>
-            <tr><td><a href="days/day-04.html">Day 4</a></td><td><code>sprint-plan</code></td></tr>
-            <tr><td><a href="days/day-05.html">Day 5</a></td><td><code>status-update</code></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="curriculum-week">
-        <h3>Week 2 — Evidence &amp; Discovery</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Day</th>
-              <th>Skill</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td><a href="days/day-06.html">Day 6</a></td><td><code>discovery-plan</code></td></tr>
-            <tr><td><a href="days/day-07.html">Day 7</a></td><td><code>user-feedback</code></td></tr>
-            <tr><td><a href="days/day-08.html">Day 8</a></td><td><code>data-analysis</code></td></tr>
-            <tr><td><a href="days/day-09.html">Day 9</a></td><td><code>competitive-intel</code></td></tr>
-            <tr><td><a href="days/day-10.html">Day 10</a></td><td><code>business-case</code></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="curriculum-week">
-        <h3>Week 3 — Strategy &amp; Alignment</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Day</th>
-              <th>Skill</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td><a href="days/day-11.html">Day 11</a></td><td><code>roadmap-prioritization</code></td></tr>
-            <tr><td><a href="days/day-12.html">Day 12</a></td><td><code>decision-log</code></td></tr>
-            <tr><td><a href="days/day-13.html">Day 13</a></td><td><code>alignment-memo</code></td></tr>
-            <tr><td><a href="days/day-14.html">Day 14</a></td><td><code>meeting-brief</code></td></tr>
-            <tr><td><a href="days/day-15.html">Day 15</a></td><td><code>retro-synthesis</code></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="curriculum-week">
-        <h3>Week 4 — Communication &amp; Integration</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Day</th>
-              <th>Skill</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td><a href="days/day-16.html">Day 16</a></td><td><code>launch-checklist</code></td></tr>
-            <tr><td><a href="days/day-17.html">Day 17</a></td><td><code>one-pager</code></td></tr>
-            <tr><td><a href="days/day-18.html">Day 18</a></td><td><code>presentation-deck</code></td></tr>
-            <tr><td><a href="days/day-19.html">Day 19</a></td><td>Capstone I</td></tr>
-            <tr><td><a href="days/day-20.html">Day 20</a></td><td>Capstone II</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="cta-group">
-        <a href="setup.html" class="btn-primary">Start Day 0 (Setup)</a>
-        <a href="days/day-01.html" class="btn-secondary">Jump to Day 1</a>
-      </div>
-
-    </main>
+    </div>
   </div>
-  <script src="assets/js/main.js" defer></script>
+
+  <!-- about -->
+  <section class="home-section">
+    <div class="home-about">
+      <div>
+        <div class="home-sec-label">// 01 · what's the kit</div>
+        <h2 class="home-sec-headline">A portable, agentic system for the work PMs actually <span class="accent">do.</span></h2>
+      </div>
+      <div class="home-about-body">
+        <p>The <strong>PM Agent Kit</strong> is a suite of product-management skills encoded as portable agents that run in Claude Code. It automates the work you do most: drafting specs, reviewing documents, planning sprints, synthesizing research, building business cases, and writing the leadership update at five o'clock.</p>
+        <p>This <strong>workbook</strong> is the structured practice companion. Each day introduces one skill, explains why it matters, and gives you two copy-ready prompts — a basic one and a richer scenario prompt anchored in <code>Terrain</code>, our fictional outdoor marketplace. Run them in your terminal, watch what comes back, write your reflection. <a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github.com/nicoladevera/pm-agent-kit →</a></p>
+      </div>
+    </div>
+
+    <!-- how it works -->
+    <div style="margin-top:104px">
+      <div class="home-sec-label">// 02 · how it works</div>
+      <h2 class="home-sec-headline">Four moves. Repeated <span class="accent">twenty</span> times.</h2>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="step-id">step.01 <span class="arrow">→</span> <span style="color:var(--text-faint)">setup</span></div>
+          <h3>Set up the kit</h3>
+          <p>Clone the repo, copy the Terrain context, run the Day 0 smoke-test. Roughly fifteen minutes once.</p>
+        </div>
+        <div class="how-step">
+          <div class="step-id">step.02 <span class="arrow">→</span> <span style="color:var(--text-faint)">orient</span></div>
+          <h3>Meet Terrain</h3>
+          <p>The fictional two-sided marketplace your prompts will reference for twenty days. Same product context, twenty lenses.</p>
+        </div>
+        <div class="how-step">
+          <div class="step-id">step.03 <span class="arrow">→</span> <span style="color:var(--text-faint)">practice</span></div>
+          <h3>One skill per day</h3>
+          <p>Pop the day page, copy a prompt, paste into Claude Code, read the output. Twenty minutes, then close the tab.</p>
+        </div>
+        <div class="how-step">
+          <div class="step-id">step.04 <span class="arrow">→</span> <span style="color:var(--text-faint)">reflect</span></div>
+          <h3>Reflect</h3>
+          <p>Three questions to connect what you saw to your actual sprint. Notes live wherever you keep them.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- curriculum -->
+    <div style="margin-top:104px">
+      <div class="home-sec-label">// 03 · the curriculum</div>
+      <h2 class="home-sec-headline">Twenty skills in deliberate <span class="accent">sequence.</span></h2>
+      <div class="curr-wrap">
+        <div class="curr-bar">
+          <div class="left"><span class="glyph">●</span><span>cat ./workbook/curriculum.idx</span></div>
+          <div class="right"><b>20</b> days · <b>4</b> weeks · <b>0</b> trackers</div>
+        </div>
+        <div class="curr-grid">
+
+          <!-- Week 01 -->
+          <div class="curr-row">
+            <div class="week-cell">
+              <div>
+                <div class="ix"><span class="marker"></span> Week 01 / 04</div>
+                <h3>Writing<br>&amp; <span class="accent">thinking.</span></h3>
+              </div>
+              <p>The artifacts every PM produces constantly. Most immediate payoff.</p>
+            </div>
+            <a class="day-cell" href="days/day-01.html">
+              <div class="day-top"><div class="day-num">01</div><div class="day-meta">Mon</div></div>
+              <div class="day-bottom"><div class="day-skill">/prd-draft</div><div class="day-title">Turn a Rough Idea Into a Spec</div></div>
+            </a>
+            <a class="day-cell" href="days/day-02.html">
+              <div class="day-top"><div class="day-num">02</div><div class="day-meta">Tue</div></div>
+              <div class="day-bottom"><div class="day-skill">/doc-review</div><div class="day-title">Evaluate Like a Senior PM</div></div>
+            </a>
+            <a class="day-cell" href="days/day-03.html">
+              <div class="day-top"><div class="day-num">03</div><div class="day-meta">Wed</div></div>
+              <div class="day-bottom"><div class="day-skill">/generate-tasks</div><div class="day-title">Break a Spec Into Shippable Stories</div></div>
+            </a>
+            <a class="day-cell" href="days/day-04.html">
+              <div class="day-top"><div class="day-num">04</div><div class="day-meta">Thu</div></div>
+              <div class="day-bottom"><div class="day-skill">/sprint-plan</div><div class="day-title">Allocate Capacity and Set Goals</div></div>
+            </a>
+            <a class="day-cell" href="days/day-05.html">
+              <div class="day-top"><div class="day-num">05</div><div class="day-meta">Fri</div></div>
+              <div class="day-bottom"><div class="day-skill">/status-update</div><div class="day-title">Communicate Delivery Health</div></div>
+            </a>
+          </div>
+
+          <!-- Week 02 -->
+          <div class="curr-row">
+            <div class="week-cell">
+              <div>
+                <div class="ix"><span class="marker"></span> Week 02 / 04</div>
+                <h3>Evidence<br>&amp; <span class="accent">discovery.</span></h3>
+              </div>
+              <p>The research layer that makes decisions defensible.</p>
+            </div>
+            <a class="day-cell" href="days/day-06.html">
+              <div class="day-top"><div class="day-num">06</div><div class="day-meta">Mon</div></div>
+              <div class="day-bottom"><div class="day-skill">/discovery-plan</div><div class="day-title">Map Assumptions Before Committing</div></div>
+            </a>
+            <a class="day-cell" href="days/day-07.html">
+              <div class="day-top"><div class="day-num">07</div><div class="day-meta">Tue</div></div>
+              <div class="day-bottom"><div class="day-skill">/user-feedback</div><div class="day-title">Extract Signal from Customer Voices</div></div>
+            </a>
+            <a class="day-cell" href="days/day-08.html">
+              <div class="day-top"><div class="day-num">08</div><div class="day-meta">Wed</div></div>
+              <div class="day-bottom"><div class="day-skill">/data-analysis</div><div class="day-title">Interpret Metrics in Context</div></div>
+            </a>
+            <a class="day-cell" href="days/day-09.html">
+              <div class="day-top"><div class="day-num">09</div><div class="day-meta">Thu</div></div>
+              <div class="day-bottom"><div class="day-skill">/competitive-intel</div><div class="day-title">Read the Competitive Landscape</div></div>
+            </a>
+            <a class="day-cell" href="days/day-10.html">
+              <div class="day-top"><div class="day-num">10</div><div class="day-meta">Fri</div></div>
+              <div class="day-bottom"><div class="day-skill">/business-case</div><div class="day-title">Build the Investment Argument</div></div>
+            </a>
+          </div>
+
+          <!-- Week 03 -->
+          <div class="curr-row">
+            <div class="week-cell">
+              <div>
+                <div class="ix"><span class="marker"></span> Week 03 / 04</div>
+                <h3>Strategy<br>&amp; <span class="accent">alignment.</span></h3>
+              </div>
+              <p>Cross-team work — prioritization, decisions, alignment, retros.</p>
+            </div>
+            <a class="day-cell" href="days/day-11.html">
+              <div class="day-top"><div class="day-num">11</div><div class="day-meta">Mon</div></div>
+              <div class="day-bottom"><div class="day-skill">/roadmap-prioritization</div><div class="day-title">Sequence Work and Name Trade-offs</div></div>
+            </a>
+            <a class="day-cell" href="days/day-12.html">
+              <div class="day-top"><div class="day-num">12</div><div class="day-meta">Tue</div></div>
+              <div class="day-bottom"><div class="day-skill">/decision-log</div><div class="day-title">Capture Decisions That Stay Found</div></div>
+            </a>
+            <a class="day-cell" href="days/day-13.html">
+              <div class="day-top"><div class="day-num">13</div><div class="day-meta">Wed</div></div>
+              <div class="day-bottom"><div class="day-skill">/alignment-memo</div><div class="day-title">Codify How the Team Operates</div></div>
+            </a>
+            <a class="day-cell" href="days/day-14.html">
+              <div class="day-top"><div class="day-num">14</div><div class="day-meta">Thu</div></div>
+              <div class="day-bottom"><div class="day-skill">/meeting-brief</div><div class="day-title">Arrive Ready to Decide</div></div>
+            </a>
+            <a class="day-cell" href="days/day-15.html">
+              <div class="day-top"><div class="day-num">15</div><div class="day-meta">Fri</div></div>
+              <div class="day-bottom"><div class="day-skill">/retro-synthesis</div><div class="day-title">Find Patterns Before They Become Permanent</div></div>
+            </a>
+          </div>
+
+          <!-- Week 04 -->
+          <div class="curr-row">
+            <div class="week-cell">
+              <div>
+                <div class="ix"><span class="marker"></span> Week 04 / 04</div>
+                <h3>Comms<br>&amp; <span class="accent">integration.</span></h3>
+              </div>
+              <p>Audience-facing work plus two integration capstones.</p>
+            </div>
+            <a class="day-cell" href="days/day-16.html">
+              <div class="day-top"><div class="day-num">16</div><div class="day-meta">Mon</div></div>
+              <div class="day-bottom"><div class="day-skill">/launch-checklist</div><div class="day-title">Coordinate a Multi-Stage Rollout</div></div>
+            </a>
+            <a class="day-cell" href="days/day-17.html">
+              <div class="day-top"><div class="day-num">17</div><div class="day-meta">Tue</div></div>
+              <div class="day-bottom"><div class="day-skill">/one-pager</div><div class="day-title">Compress a Complex Argument</div></div>
+            </a>
+            <a class="day-cell" href="days/day-18.html">
+              <div class="day-top"><div class="day-num">18</div><div class="day-meta">Wed</div></div>
+              <div class="day-bottom"><div class="day-skill">/presentation-deck</div><div class="day-title">Build a Narrative for Any Audience</div></div>
+            </a>
+            <a class="day-cell capstone" href="days/day-19.html">
+              <div class="day-top"><div class="day-num">19</div><div class="day-meta">Thu · Capstone</div></div>
+              <div class="day-bottom"><div class="day-skill">capstone-i</div><div class="day-title">From Idea to Backlog</div></div>
+            </a>
+            <a class="day-cell capstone" href="days/day-20.html">
+              <div class="day-top"><div class="day-num">20</div><div class="day-meta">Fri · Capstone</div></div>
+              <div class="day-bottom"><div class="day-skill">capstone-ii</div><div class="day-title">From Opportunity to Communication</div></div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- note on form -->
+    <div style="margin-top:104px">
+      <div class="home-sec-label">// 04 · the form</div>
+      <h2 class="home-sec-headline">"Interactive" means <span class="accent">something specific.</span></h2>
+      <div class="note-grid">
+        <div class="note-body">
+          <p>Every prompt has a one-click copy button. Every day is linked. Each page carries machine-readable metadata for agents who want to load the curriculum as context. The site does <strong>not</strong> track progress, store state, gate days, or require login. Your notes live wherever you keep them.</p>
+          <p>The whole site is static HTML, no build step, no telemetry. You can read it on a plane.</p>
+        </div>
+        <div class="note-spec-home">
+          <div><span class="k">stack</span><span class="v">html · css · vanilla js</span></div>
+          <div><span class="k">build step</span><span class="v off">none</span></div>
+          <div><span class="k">network</span><span class="v off">none</span></div>
+          <div><span class="k">storage</span><span class="v off">none</span></div>
+          <div><span class="k">auth</span><span class="v off">none</span></div>
+          <div><span class="k">telemetry</span><span class="v off">none</span></div>
+          <div><span class="k">copy api</span><span class="v">clipboard + fallback</span></div>
+          <div><span class="k">agent index</span><span class="v">workbook.json</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-pane">
+    <div class="pane">
+      <div class="pane-bar">
+        <span class="tag live">claude › /start</span>
+      </div>
+      <div class="cta-inner">
+        <div class="cta-eyebrow">ready when you are</div>
+        <h2>Open the kit. Start <span class="accent">day zero.</span></h2>
+        <div class="btn-row-cta">
+          <a class="btn btn-primary" href="setup.html">
+            <span>Start Day 0</span>
+            <span class="kbd">↵</span>
+          </a>
+          <a class="btn" href="days/day-01.html">
+            <span>Skip to Day 1</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <div class="cta-foot">
+          Source &amp; kit on <a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="home-footer">
+    <div class="left">
+      <span class="pulse-mini"></span>
+      <span>PM AGENT KIT WORKBOOK · v1.0</span>
+    </div>
+    <div>BUILT FOR CLAUDE CODE · OFFLINE-FIRST</div>
+    <div><a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github</a> · <a href="../workbook.json">workbook.json</a></div>
+  </footer>
+
+</div>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>

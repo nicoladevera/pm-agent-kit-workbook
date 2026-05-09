@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 19 — Capstone I: Idea to Backlog | PM Agent Kit Workbook</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmakw-theme');
+        var pref = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
   <script type="application/json" id="day-metadata">
   {
     "day": 19,
@@ -44,66 +53,113 @@
   </script>
 </head>
 <body>
-  <div class="page-layout">
-    <nav class="sidebar">
-      <div class="sidebar-header">
-        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
-      </div>
-      <div class="sidebar-top-links">
-        <a href="../setup.html">Setup</a>
-        <a href="../terrain.html">Terrain</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 1</div>
-        <a href="day-01.html">D1</a>
-        <a href="day-02.html">D2</a>
-        <a href="day-03.html">D3</a>
-        <a href="day-04.html">D4</a>
-        <a href="day-05.html">D5</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 2</div>
-        <a href="day-06.html">D6</a>
-        <a href="day-07.html">D7</a>
-        <a href="day-08.html">D8</a>
-        <a href="day-09.html">D9</a>
-        <a href="day-10.html">D10</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 3</div>
-        <a href="day-11.html">D11</a>
-        <a href="day-12.html">D12</a>
-        <a href="day-13.html">D13</a>
-        <a href="day-14.html">D14</a>
-        <a href="day-15.html">D15</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 4</div>
-        <a href="day-16.html">D16</a>
-        <a href="day-17.html">D17</a>
-        <a href="day-18.html">D18</a>
-        <a href="day-19.html">D19</a>
-        <a href="day-20.html">D20</a>
-      </div>
-    </nav>
-    <main class="main-content">
-      <span class="week-badge">Week 4: Communication &amp; Integration</span>
-      <p class="day-number">Day 19 of 20</p>
-      <span class="capstone-badge">Capstone</span>
-      <h1>Capstone I: Idea to Backlog</h1>
+<div class="layer">
 
-      <p>This capstone chains three skills in sequence — <code>/discovery-plan</code> → <code>/prd-draft</code> → <code>/generate-tasks</code> — against a single scenario. Each step's output becomes the next step's input. The scenario is a real Terrain problem: guide activation drop-off. The challenge is to go from raw problem context to a backlog-ready story set in one session.</p>
+  <header class="chrome">
+    <div class="chrome-inner">
+      <div class="dots" aria-hidden="true">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      </div>
+      <div class="breadcrumb">
+        <span class="path"><a href="../index.html">~/pm-agent-kit-workbook</a></span>
+        <span class="sep">›</span>
+        <span class="path">days</span>
+        <span class="sep">›</span>
+        <span class="path">day-19.md</span>
+      </div>
+      <div class="chrome-meta">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light or dark mode">
+          <span class="seg seg-dark">night</span>
+          <span class="sep">/</span>
+          <span class="seg seg-light">day</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-      <h2>Overview</h2>
-      <p>Individual skills are easy to run in isolation. The harder skill — for both the PM and the agent — is maintaining coherence across a chain. What assumptions from the discovery plan constrain the PRD? What decisions in the PRD surface as story-level ambiguities in the task breakdown? The capstone tests whether those handoffs happen cleanly and whether the agent carries context without the PM having to repeat it.</p>
-      <p>Day 19 is the first capstone because discovery → spec → tasks is the shorter chain and the workflow PMs run most often. Day 20 is the full strategic cycle, which compounds this chain with alignment and communication. Today is the foundation.</p>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-path"><span class="path-root">~/workbook</span></div>
+      <div class="sidebar-section">
+        <a href="../index.html">index.md</a>
+        <a href="../setup.html">setup.md</a>
+        <a href="../terrain.html">terrain.md</a>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 01</div>
+        <div class="sidebar-days">
+          <a href="day-01.html"><span class="day-n">01</span><span class="day-s">/prd-draft</span></a>
+          <a href="day-02.html"><span class="day-n">02</span><span class="day-s">/doc-review</span></a>
+          <a href="day-03.html"><span class="day-n">03</span><span class="day-s">/generate-tasks</span></a>
+          <a href="day-04.html"><span class="day-n">04</span><span class="day-s">/sprint-plan</span></a>
+          <a href="day-05.html"><span class="day-n">05</span><span class="day-s">/status-update</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 02</div>
+        <div class="sidebar-days">
+          <a href="day-06.html"><span class="day-n">06</span><span class="day-s">/discovery-plan</span></a>
+          <a href="day-07.html"><span class="day-n">07</span><span class="day-s">/user-feedback</span></a>
+          <a href="day-08.html"><span class="day-n">08</span><span class="day-s">/data-analysis</span></a>
+          <a href="day-09.html"><span class="day-n">09</span><span class="day-s">/competitive-intel</span></a>
+          <a href="day-10.html"><span class="day-n">10</span><span class="day-s">/business-case</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 03</div>
+        <div class="sidebar-days">
+          <a href="day-11.html"><span class="day-n">11</span><span class="day-s">/roadmap-pri…</span></a>
+          <a href="day-12.html"><span class="day-n">12</span><span class="day-s">/decision-log</span></a>
+          <a href="day-13.html"><span class="day-n">13</span><span class="day-s">/alignment-memo</span></a>
+          <a href="day-14.html"><span class="day-n">14</span><span class="day-s">/meeting-brief</span></a>
+          <a href="day-15.html"><span class="day-n">15</span><span class="day-s">/retro-synthesis</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 04</div>
+        <div class="sidebar-days">
+          <a href="day-16.html"><span class="day-n">16</span><span class="day-s">/launch-checklist</span></a>
+          <a href="day-17.html"><span class="day-n">17</span><span class="day-s">/one-pager</span></a>
+          <a href="day-18.html"><span class="day-n">18</span><span class="day-s">/presentation-deck</span></a>
+          <a href="day-19.html" class="capstone" aria-current="page"><span class="day-n">19</span><span class="day-s">capstone-i</span></a>
+          <a href="day-20.html" class="capstone"><span class="day-n">20</span><span class="day-s">capstone-ii</span></a>
+        </div>
+      </div>
+    </aside>
 
-      <h2>Steps</h2>
+    <main class="main">
+      <div class="page-header">
+        <div class="page-eyebrow capstone-eyebrow">// week 04 · day 19 · capstone i</div>
+        <h1 class="page-title">Capstone I: Idea to Backlog.</h1>
+        <div class="page-sub"><span class="glyph">$</span><code>/discovery-plan → /prd-draft → /generate-tasks · ~45 min</code></div>
+      </div>
 
-      <div class="step-block">
-        <h3>Step 1: /discovery-plan</h3>
-        <div class="prompt-block-wrapper">
-          <pre class="prompt-block" id="prompt-step-1">/discovery-plan
+      <div class="section">
+        <div class="about-grid">
+          <div>
+            <div class="sec-label">// 00 · overview</div>
+            <h2 class="sec-headline">Three skills, <span class="accent">one chain.</span></h2>
+          </div>
+          <div class="body-text">
+            <p>This capstone chains three skills in sequence — <code>/discovery-plan</code> → <code>/prd-draft</code> → <code>/generate-tasks</code> — against a single scenario. Each step's output becomes the next step's input. The scenario is a real Terrain problem: guide activation drop-off. The challenge is to go from raw problem context to a backlog-ready story set in one session.</p>
+            <p>Individual skills are easy to run in isolation. The harder skill — for both the PM and the agent — is maintaining coherence across a chain. What assumptions from the discovery plan constrain the PRD? What decisions in the PRD surface as story-level ambiguities in the task breakdown? The capstone tests whether those handoffs happen cleanly and whether the agent carries context without the PM having to repeat it.</p>
+            <p>Day 19 is the first capstone because discovery → spec → tasks is the shorter chain and the workflow PMs run most often. Day 20 is the full strategic cycle, which compounds this chain with alignment and communication. Today is the foundation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-label">// 01 · steps</div>
+        <h2 class="sec-headline">Run in sequence.</h2>
+
+        <div class="step-pane">
+          <div class="step-pane-bar">
+            <span class="pane-tag">step.01 → discovery-plan</span>
+            <button class="copy-btn" data-target="prompt-step-1">Copy</button>
+          </div>
+          <div class="step-pane-body">
+            <pre class="prompt-block" id="prompt-step-1">/discovery-plan
 
 Problem: guide activation drop-off at Terrain. 38% of guides who register never publish an experience within 30 days of signup.
 
@@ -120,14 +176,16 @@ What's not known: relative weight of friction vs. uncertainty vs. motivation pro
 Timeline: 6 weeks to Q3 planning. Research budget: 4 guide interviews/week, data requests through Fernando Lopez (2–3 day turnaround). Jordan Lee's squad owns the listing object; any build decision requires their coordination.
 
 Produce a discovery plan: map assumptions, rank by cost-of-being-wrong, select research methods with pre-defined evidence thresholds, sequence the work.</pre>
-          <button class="copy-btn" data-target="prompt-step-1">Copy</button>
+          </div>
         </div>
-      </div>
 
-      <div class="step-block">
-        <h3>Step 2: /prd-draft</h3>
-        <div class="prompt-block-wrapper">
-          <pre class="prompt-block" id="prompt-step-2">/prd-draft
+        <div class="step-pane">
+          <div class="step-pane-bar">
+            <span class="pane-tag">step.02 → prd-draft</span>
+            <button class="copy-btn" data-target="prompt-step-2">Copy</button>
+          </div>
+          <div class="step-pane-body">
+            <pre class="prompt-block" id="prompt-step-2">/prd-draft
 
 Use the discovery plan output above as context.
 
@@ -140,14 +198,16 @@ Draft a PRD for listing setup guidance at Terrain. The PRD should:
 - Be ready for a cross-squad engineering walkthrough with Jordan Lee, Aisha Nkomo, Chris Okafor, and the engineers next week
 
 PM persona: Adventurer Experience PM partnering with Jordan Lee on guide-side work.</pre>
-          <button class="copy-btn" data-target="prompt-step-2">Copy</button>
+          </div>
         </div>
-      </div>
 
-      <div class="step-block">
-        <h3>Step 3: /generate-tasks</h3>
-        <div class="prompt-block-wrapper">
-          <pre class="prompt-block" id="prompt-step-3">/generate-tasks
+        <div class="step-pane">
+          <div class="step-pane-bar">
+            <span class="pane-tag">step.03 → generate-tasks</span>
+            <button class="copy-btn" data-target="prompt-step-3">Copy</button>
+          </div>
+          <div class="step-pane-body">
+            <pre class="prompt-block" id="prompt-step-3">/generate-tasks
 
 Use the PRD above as input. Decompose into sprint-ready stories for the Terrain Adventurer Experience squad.
 
@@ -163,23 +223,34 @@ Please flag:
 - Any story that requires Jordan's squad to change the listing schema first (dependency)
 - Any Android-specific work (serialized)
 - Any story where the AC requires a PM decision the PRD didn't resolve</pre>
-          <button class="copy-btn" data-target="prompt-step-3">Copy</button>
+          </div>
         </div>
       </div>
 
-      <h2>Reflection</h2>
-      <ol>
-        <li>What was lost at the discovery-plan → prd-draft handoff — what context from the discovery plan should have shaped the PRD but didn't?</li>
-        <li>Where did the PRD make a scoping decision that the discovery plan's evidence didn't fully support — and would you have caught that without comparing the two outputs?</li>
-        <li>If you ran this chain again from the beginning with what you know now, what would you change in Step 1 that would improve the quality of the Step 3 output?</li>
-      </ol>
+      <div class="section">
+        <div class="sec-label">// 02 · reflection</div>
+        <h2 class="sec-headline">Three questions.</h2>
+        <ol class="reflection-list">
+          <li><span class="r-num">01</span>What was lost at the discovery-plan → prd-draft handoff — what context from the discovery plan should have shaped the PRD but didn't?</li>
+          <li><span class="r-num">02</span>Where did the PRD make a scoping decision that the discovery plan's evidence didn't fully support — and would you have caught that without comparing the two outputs?</li>
+          <li><span class="r-num">03</span>If you ran this chain again from the beginning with what you know now, what would you change in Step 1 that would improve the quality of the Step 3 output?</li>
+        </ol>
+      </div>
 
-      <nav class="day-footer-nav">
-        <a href="day-18.html">← Day 18</a>
-        <a href="day-20.html">Day 20 →</a>
-      </nav>
+      <div class="day-nav">
+        <a href="day-18.html" class="nav-prev"><span class="arr">←</span> Day 18</a>
+        <a href="day-20.html" class="nav-next">Day 20 <span class="arr">→</span></a>
+      </div>
     </main>
   </div>
-  <script src="../assets/js/main.js" defer></script>
+
+  <footer class="page-footer">
+    <div class="left"><span class="pulse-mini"></span><span>PM AGENT KIT WORKBOOK · v1.0</span></div>
+    <div>BUILT FOR CLAUDE CODE · OFFLINE-FIRST</div>
+    <div><a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github</a> · <a href="../../workbook.json">workbook.json</a></div>
+  </footer>
+
+</div>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>

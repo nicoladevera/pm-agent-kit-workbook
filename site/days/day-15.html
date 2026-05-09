@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 15 — Find Patterns Before They Become Permanent | PM Agent Kit Workbook</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmakw-theme');
+        var pref = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
   <script type="application/json" id="day-metadata">
   {
     "day": 15,
@@ -33,75 +42,132 @@
   </script>
 </head>
 <body>
-  <div class="page-layout">
-    <nav class="sidebar">
-      <div class="sidebar-header">
-        <a href="../index.html" class="site-name">PM Agent Kit Workbook</a>
-      </div>
-      <div class="sidebar-top-links">
-        <a href="../setup.html">Setup</a>
-        <a href="../terrain.html">Terrain</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 1</div>
-        <a href="day-01.html">D1</a>
-        <a href="day-02.html">D2</a>
-        <a href="day-03.html">D3</a>
-        <a href="day-04.html">D4</a>
-        <a href="day-05.html">D5</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 2</div>
-        <a href="day-06.html">D6</a>
-        <a href="day-07.html">D7</a>
-        <a href="day-08.html">D8</a>
-        <a href="day-09.html">D9</a>
-        <a href="day-10.html">D10</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 3</div>
-        <a href="day-11.html">D11</a>
-        <a href="day-12.html">D12</a>
-        <a href="day-13.html">D13</a>
-        <a href="day-14.html">D14</a>
-        <a href="day-15.html">D15</a>
-      </div>
-      <div class="week-group">
-        <div class="week-group-label">Week 4</div>
-        <a href="day-16.html">D16</a>
-        <a href="day-17.html">D17</a>
-        <a href="day-18.html">D18</a>
-        <a href="day-19.html">D19</a>
-        <a href="day-20.html">D20</a>
-      </div>
-    </nav>
-    <main class="main-content">
-      <span class="week-badge">Week 3: Strategy &amp; Alignment</span>
-      <p class="day-number">Day 15 of 20</p>
-      <h1>Find Patterns Before They Become Permanent</h1>
+<div class="layer">
 
-      <h2>Skill Overview</h2>
-      <p><code>retro-synthesis</code> processes retrospective notes — one or many — and produces a pattern analysis rather than a summary. Each recurring pattern is named, mapped to the sprints where it appeared, and classified as improving, stable, or getting worse. Action items are tracked across retros: resolved items are acknowledged; items that appear in multiple sprints without resolution are flagged with a count. With a single retro, the skill surfaces themes. With four or more, it surfaces systemic problems.</p>
-      <p>Individual retros produce action items that get written down and forgotten. <code>retro-synthesis</code> with multiple retros produces patterns — which are different in kind. A problem that appeared in three sprints isn't something to action-item; it's something to understand as a structural failure. The skill forces that distinction, and the follow-through tracker makes it impossible to pretend that repeated inaction is just an oversight.</p>
-      <p>Day 15 closes the strategy week because strategy is only as good as the process that executes it. The PM spent a week prioritizing, deciding, and aligning. Today they look back at what their team's process is actually producing and what it keeps failing to fix.</p>
+  <header class="chrome">
+    <div class="chrome-inner">
+      <div class="dots" aria-hidden="true">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      </div>
+      <div class="breadcrumb">
+        <span class="path"><a href="../index.html">~/pm-agent-kit-workbook</a></span>
+        <span class="sep">›</span>
+        <span class="path">days</span>
+        <span class="sep">›</span>
+        <span class="path">day-15.md</span>
+      </div>
+      <div class="chrome-meta">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light or dark mode">
+          <span class="seg seg-dark">night</span>
+          <span class="sep">/</span>
+          <span class="seg seg-light">day</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-      <h2>Sample Prompts</h2>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-path"><span class="path-root">~/workbook</span></div>
+      <div class="sidebar-section">
+        <a href="../index.html">index.md</a>
+        <a href="../setup.html">setup.md</a>
+        <a href="../terrain.html">terrain.md</a>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 01</div>
+        <div class="sidebar-days">
+          <a href="day-01.html"><span class="day-n">01</span><span class="day-s">/prd-draft</span></a>
+          <a href="day-02.html"><span class="day-n">02</span><span class="day-s">/doc-review</span></a>
+          <a href="day-03.html"><span class="day-n">03</span><span class="day-s">/generate-tasks</span></a>
+          <a href="day-04.html"><span class="day-n">04</span><span class="day-s">/sprint-plan</span></a>
+          <a href="day-05.html"><span class="day-n">05</span><span class="day-s">/status-update</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 02</div>
+        <div class="sidebar-days">
+          <a href="day-06.html"><span class="day-n">06</span><span class="day-s">/discovery-plan</span></a>
+          <a href="day-07.html"><span class="day-n">07</span><span class="day-s">/user-feedback</span></a>
+          <a href="day-08.html"><span class="day-n">08</span><span class="day-s">/data-analysis</span></a>
+          <a href="day-09.html"><span class="day-n">09</span><span class="day-s">/competitive-intel</span></a>
+          <a href="day-10.html"><span class="day-n">10</span><span class="day-s">/business-case</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 03</div>
+        <div class="sidebar-days">
+          <a href="day-11.html"><span class="day-n">11</span><span class="day-s">/roadmap-pri…</span></a>
+          <a href="day-12.html"><span class="day-n">12</span><span class="day-s">/decision-log</span></a>
+          <a href="day-13.html"><span class="day-n">13</span><span class="day-s">/alignment-memo</span></a>
+          <a href="day-14.html"><span class="day-n">14</span><span class="day-s">/meeting-brief</span></a>
+          <a href="day-15.html" aria-current="page"><span class="day-n">15</span><span class="day-s">/retro-synthesis</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 04</div>
+        <div class="sidebar-days">
+          <a href="day-16.html"><span class="day-n">16</span><span class="day-s">/launch-checklist</span></a>
+          <a href="day-17.html"><span class="day-n">17</span><span class="day-s">/one-pager</span></a>
+          <a href="day-18.html"><span class="day-n">18</span><span class="day-s">/presentation-deck</span></a>
+          <a href="day-19.html" class="capstone"><span class="day-n">19</span><span class="day-s">capstone-i</span></a>
+          <a href="day-20.html" class="capstone"><span class="day-n">20</span><span class="day-s">capstone-ii</span></a>
+        </div>
+      </div>
+    </aside>
 
-      <p class="prompt-label">Basic</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-basic">/retro-synthesis
+    <main class="main">
+      <div class="page-header">
+        <div class="page-eyebrow">// week 03 · day 15 · fri</div>
+        <h1 class="page-title">Find Patterns Before They Become Permanent.</h1>
+        <div class="page-sub"><span class="glyph">$</span><code>/retro-synthesis · ~20 min</code></div>
+      </div>
+
+      <div class="section">
+        <div class="about-grid">
+          <div>
+            <div class="sec-label">// 01 · what it does</div>
+            <h2 class="sec-headline">Patterns, not <span class="accent">action items.</span></h2>
+          </div>
+          <div class="body-text">
+            <p><code>retro-synthesis</code> processes retrospective notes — one or many — and produces a pattern analysis rather than a summary. Each recurring pattern is named, mapped to the sprints where it appeared, and classified as improving, stable, or getting worse. Action items are tracked across retros: resolved items are acknowledged; items that appear in multiple sprints without resolution are flagged with a count. With a single retro, the skill surfaces themes. With four or more, it surfaces systemic problems.</p>
+            <p>Individual retros produce action items that get written down and forgotten. <code>retro-synthesis</code> with multiple retros produces patterns — which are different in kind. A problem that appeared in three sprints isn't something to action-item; it's something to understand as a structural failure. The skill forces that distinction, and the follow-through tracker makes it impossible to pretend that repeated inaction is just an oversight.</p>
+            <p>Day 15 closes the strategy week because strategy is only as good as the process that executes it. The PM spent a week prioritizing, deciding, and aligning. Today they look back at what their team's process is actually producing and what it keeps failing to fix.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-label">// 02 · sample prompts</div>
+        <h2 class="sec-headline">Two ways in.</h2>
+
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.basic.txt</span>
+              <button class="copy-btn" data-target="prompt-basic">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-basic">/retro-synthesis
 
 Here are notes from two recent retrospectives. Find patterns and track action item follow-through:
 
 Retro 1 — Sprint 4: Went well: deployment pipeline is much faster. Didn't go well: we merged a PR without a review and it caused a production incident. Action: enforce required reviewers in GitHub. Owner: Dev Lead.
 
 Retro 2 — Sprint 5: Went well: no production incidents. Didn't go well: the required reviewers rule was set up but people are bypassing it for "small" changes. Action: team agreement on what counts as "small." Owner: Dev Lead. Status: not started (same action as last sprint).</pre>
-        <button class="copy-btn" data-target="prompt-basic">Copy</button>
-      </div>
+            </div>
+          </div>
+        </div>
 
-      <p class="prompt-label">Advanced</p>
-      <div class="prompt-block-wrapper">
-        <pre class="prompt-block" id="prompt-advanced">/retro-synthesis
+        <div class="prompt-group">
+          <div class="prompt-pane">
+            <div class="prompt-pane-bar">
+              <span class="pane-tag">prompt.advanced.txt</span>
+              <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+            <div class="prompt-block-wrapper">
+              <pre class="prompt-block" id="prompt-advanced">/retro-synthesis
 
 Synthesize these five retrospectives. Find recurring patterns with trend classification (improving / stable / getting worse). Track action item follow-through across all five. Identify the 1–2 focus areas that most need attention next quarter.
 
@@ -151,22 +217,35 @@ Action items:
 - Launch checklist adoption: the artifact exists but isn't operationalized. Third sprint this pattern appears in some form. Owner: Product. Status: not started.
 - Scope intake process: mid-sprint additions from stakeholders need a triage step before acceptance. Owner: Chris Okafor. Status: not started (same as Sprint 15 scope freeze protocol — different framing, same underlying problem).
 - Priya Anand comms process: establish a pre-sprint window for marketing to surface launch requirements. Owner: PM + Priya. Status: not started.</pre>
-        <button class="copy-btn" data-target="prompt-advanced">Copy</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <h2>Reflection</h2>
-      <ol>
-        <li>Which pattern did the skill classify as "getting worse" — and do you agree with that read based on the evidence across all five sprints?</li>
-        <li>What unaddressed action item has the highest compounding cost if it goes unfixed another quarter — and why hasn't it been fixed?</li>
-        <li>Where in your real team's retro process would this synthesis change what gets prioritized — and what's getting in the way of doing it this way now?</li>
-      </ol>
+      <div class="section">
+        <div class="sec-label">// 03 · reflection</div>
+        <h2 class="sec-headline">Three questions.</h2>
+        <ol class="reflection-list">
+          <li><span class="r-num">01</span>Which pattern did the skill classify as "getting worse" — and do you agree with that read based on the evidence across all five sprints?</li>
+          <li><span class="r-num">02</span>What unaddressed action item has the highest compounding cost if it goes unfixed another quarter — and why hasn't it been fixed?</li>
+          <li><span class="r-num">03</span>Where in your real team's retro process would this synthesis change what gets prioritized — and what's getting in the way of doing it this way now?</li>
+        </ol>
+      </div>
 
-      <nav class="day-footer-nav">
-        <a href="day-14.html">← Day 14</a>
-        <a href="day-16.html">Day 16 →</a>
-      </nav>
+      <div class="day-nav">
+        <a href="day-14.html" class="nav-prev"><span class="arr">←</span> Day 14</a>
+        <a href="day-16.html" class="nav-next">Day 16 <span class="arr">→</span></a>
+      </div>
     </main>
   </div>
-  <script src="../assets/js/main.js" defer></script>
+
+  <footer class="page-footer">
+    <div class="left"><span class="pulse-mini"></span><span>PM AGENT KIT WORKBOOK · v1.0</span></div>
+    <div>BUILT FOR CLAUDE CODE · OFFLINE-FIRST</div>
+    <div><a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github</a> · <a href="../../workbook.json">workbook.json</a></div>
+  </footer>
+
+</div>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>
