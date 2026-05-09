@@ -63,25 +63,27 @@ pm-agent-kit-workbook/
       data-sources.md
       templates.md
       tools.md
-  index.html              # Landing page: challenge overview, how it works, start CTA
-  setup.html              # Day 0: environment setup (not counted in 20 days)
-  terrain.html            # Company context: fictional Terrain scenario used throughout the challenge
-  days/
-    day-01.html           # prd-draft
-    day-02.html           # doc-review
-    ...
-    day-20.html           # Capstone II
-  css/
-    styles.css
-  js/
-    main.js               # Copy-to-clipboard, day navigation
+  site/                   # Static workbook website
+    index.html            # Landing page: challenge overview, how it works, start CTA
+    setup.html            # Day 0: environment setup (not counted in 20 days)
+    terrain.html          # Company context: fictional Terrain scenario used throughout the challenge
+    days/
+      day-01.html         # prd-draft
+      day-02.html         # doc-review
+      ...
+      day-20.html         # Capstone II
+    assets/
+      css/
+        styles.css
+      js/
+        main.js           # Copy-to-clipboard, day navigation
   workbook.json           # Machine-readable curriculum index
   README.md
 ```
 
 ### Pages
 
-#### Landing Page (`index.html`)
+#### Landing Page (`site/index.html`)
 - Challenge name and tagline
 - "What is the PM Agent Kit?" — one paragraph, link to the pm-agent-kit repo
 - "How it works" — 4-step explainer (Set up → Meet Terrain → Practice one skill a day → Reflect)
@@ -90,7 +92,7 @@ pm-agent-kit-workbook/
 - Primary CTA: "Start Day 0 (Setup)"
 - Secondary CTA: "Jump to Day 1" (for users who already have the kit installed)
 
-#### Setup Page (`setup.html`) — Day 0, not counted in 20 days
+#### Setup Page (`site/setup.html`) — Day 0, not counted in 20 days
 - What you need: a Mac or Linux machine, a Claude account, a terminal or IDE
 - Step-by-step:
   1. Install Claude Code
@@ -114,7 +116,7 @@ The setup page should show this table with a note: "You don't need everything in
 
 Primary CTA at the bottom: "Continue to Terrain Context"
 
-#### Terrain Context Page (`terrain.html`) — company context, not counted in 20 days
+#### Terrain Context Page (`site/terrain.html`) — company context, not counted in 20 days
 
 This page orients the user to the fictional company used throughout the workbook. It is not setup and not part of the 20-day curriculum. Its job is to show why shared company context matters when working with agents and to give the PM enough Terrain context to understand the advanced prompts.
 
@@ -129,7 +131,7 @@ The page should include:
 
 The page should link to Day 1 with a primary CTA: "Start Day 1"
 
-#### Day Pages (`days/day-NN.html`)
+#### Day Pages (`site/days/day-NN.html`)
 Each day page contains the following sections in order:
 
 1. **Header:** Day number, week label (Week 1–4), day title (skill name + short descriptor)
@@ -157,7 +159,7 @@ Each day page contains the following sections in order:
    Embedded in the page `<head>` as `<script type="application/json" id="day-metadata">`. The object must match the corresponding per-day object in `workbook.json`. Skill days use the skill-day schema (`type: "skill"`, `prompts: { basic, advanced }`). Capstone days use the capstone schema (`type: "capstone"`, `steps: [...]`).
 
 #### Navigation
-- The intended onboarding flow is `index.html` → `setup.html` → `terrain.html` → `days/day-01.html`
+- The intended onboarding flow is `site/index.html` → `site/setup.html` → `site/terrain.html` → `site/days/day-01.html`
 - Each day page has Previous / Next navigation at the bottom
 - A compact day strip or sidebar shows all 20 days with the current day highlighted — days are linked, not gated
 - Week labels group the days visually (Week 1, Week 2, etc.)
@@ -451,7 +453,7 @@ These were open questions; they are now resolved. The implementing agent should 
 
 4. **Fixture strategy:** No separate `/fixtures/` directory. Scenario context is embedded inline in the advanced prompts. This keeps the site self-contained (no external files to locate) and makes each day page fully portable. If a skill requires sample data (e.g., `data-analysis` needs a data table), the prompt includes a minimal inline dataset or a note to paste the PM's own data.
 
-5. **README target audience:** The `README.md` is dual-audience. It should open with instructions for human PMs (clone, open `index.html`, start Day 0), then include a section titled "For Agents" that explains the `workbook.json` schema and how to load the curriculum as context.
+5. **README target audience:** The `README.md` is dual-audience. It should open with instructions for human PMs (clone, open `site/index.html`, start Day 0), then include a section titled "For Agents" that explains the `workbook.json` schema and how to load the curriculum as context.
 
 6. **"Interactive workbook" definition:** In the context of this project, "interactive" means: copy-paste prompts with a one-click copy button, linked day-by-day navigation, and agent-readable metadata embedded in each page. It does not mean in-browser exercises, progress tracking, or stored state. This should be stated plainly on the landing page so PMs know what to expect.
 
@@ -462,7 +464,7 @@ These were open questions; they are now resolved. The implementing agent should 
 Before the workbook is considered implementation-complete, the implementing agent must verify each of the following. These are pass/fail — no partial credit.
 
 **HTML & navigation**
-- [ ] All 23 HTML files exist: `index.html`, `setup.html`, `terrain.html`, `days/day-01.html` through `days/day-20.html`
+- [ ] All 23 HTML files exist: `site/index.html`, `site/setup.html`, `site/terrain.html`, `site/days/day-01.html` through `site/days/day-20.html`
 - [ ] All internal links are relative (no `http://localhost`, no absolute `/` paths)
 - [ ] Primary onboarding path works: landing page links to setup, setup links to Terrain context, Terrain context links to Day 1
 - [ ] Previous / Next navigation works correctly on every day page, including day-01 (no "previous") and day-20 (no "next")
@@ -483,8 +485,8 @@ Before the workbook is considered implementation-complete, the implementing agen
 
 **Content completeness**
 - [ ] No day page contains placeholder text (`...`, `TODO`, `[insert]`, `[TBD]`)
-- [ ] `terrain.html` renders the Terrain scenario from Appendix B / `workbook.json.scenario` without contradicting either source
-- [ ] Core Terrain facts match across `company/`, `terrain.html`, `workbook.json`, and day prompts: take rate, platform fee, GMV, take-rate revenue definition, active guides, monthly active adventurers, Instant Book adoption, cancellation rate, repeat rate, and PM persona
+- [ ] `site/terrain.html` renders the Terrain scenario from Appendix B / `workbook.json.scenario` without contradicting either source
+- [ ] Core Terrain facts match across `company/`, `site/terrain.html`, `workbook.json`, and day prompts: take rate, platform fee, GMV, take-rate revenue definition, active guides, monthly active adventurers, Instant Book adoption, cancellation rate, repeat rate, and PM persona
 - [ ] Every advanced prompt uses at least one specific Terrain detail from Appendix B: metric, persona, roadmap item, competitor, stakeholder, or product rule
 - [ ] Every day page has exactly 2–3 reflection questions
 - [ ] Every day page has a machine-readable `<script type="application/json" id="day-metadata">` block whose content matches `workbook.json` for that day

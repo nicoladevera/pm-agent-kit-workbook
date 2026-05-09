@@ -5,16 +5,17 @@ A 20-day challenge for product managers to build fluency with the PM Agent Kit �
 ## Quick start
 
 1. Clone this repo: `git clone https://github.com/nicoladevera/pm-agent-kit-workbook`
-2. Open `index.html` in a browser — it works from the filesystem, no server needed
-3. Start at `setup.html` (Day 0) if you haven't installed the PM Agent Kit yet
-4. Or jump to Day 1 if you have: `days/day-01.html`
+2. Open `site/index.html` in a browser — it works from the filesystem, no server needed
+3. Start at `site/setup.html` (Day 0) if you haven't installed the PM Agent Kit yet
+4. Or jump to Day 1 if you have: `site/days/day-01.html`
 
 ## What's in here
 
-- `index.html` — Landing page with challenge overview
-- `setup.html` — Day 0: how to install the PM Agent Kit and configure it for Terrain
-- `terrain.html` — The fictional company context used throughout the 20 days
-- `days/day-01.html` through `days/day-20.html` — One day page per skill
+- `site/` — Static workbook website. Open `site/index.html` to start.
+- `site/index.html` — Landing page with challenge overview
+- `site/setup.html` — Day 0: how to install the PM Agent Kit and configure it for Terrain
+- `site/terrain.html` — The fictional company context used throughout the 20 days
+- `site/days/day-01.html` through `site/days/day-20.html` — One day page per skill
 - `company/` — Pre-filled Terrain context files. Copy these into your pm-agent-kit clone during setup.
 - `workbook.json` — Machine-readable curriculum index (see below)
 
