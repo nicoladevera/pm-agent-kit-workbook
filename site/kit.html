@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Kit — PM Agent Kit Overview | PM Agent Kit Workbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pmakw-theme');
+        var pref = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+</head>
+<body>
+<div class="layer">
+
+  <header class="topbar">
+    <button class="topbar-menu" id="sidebarToggle" aria-label="Open navigation">&#9776;</button>
+    <a class="topbar-logo" href="index.html">
+      PM Agent Kit <span class="sub">Workbook</span>
+    </a>
+    <div class="topbar-right">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light or dark mode">&#9788;</button>
+    </div>
+  </header>
+
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-path"><span class="path-root">~/workbook</span></div>
+      <div class="sidebar-section">
+        <a href="index.html">Home</a>
+        <a href="setup.html">Setup</a>
+        <a href="kit.html">The Kit</a>
+        <a href="terrain.html">Company Context</a>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 01</div>
+        <div class="sidebar-days">
+          <a href="days/day-01.html"><span class="day-n">01</span><span class="day-s">/prd-draft</span></a>
+          <a href="days/day-02.html"><span class="day-n">02</span><span class="day-s">/doc-review</span></a>
+          <a href="days/day-03.html"><span class="day-n">03</span><span class="day-s">/generate-tasks</span></a>
+          <a href="days/day-04.html"><span class="day-n">04</span><span class="day-s">/sprint-plan</span></a>
+          <a href="days/day-05.html"><span class="day-n">05</span><span class="day-s">/status-update</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 02</div>
+        <div class="sidebar-days">
+          <a href="days/day-06.html"><span class="day-n">06</span><span class="day-s">/discovery-plan</span></a>
+          <a href="days/day-07.html"><span class="day-n">07</span><span class="day-s">/user-feedback</span></a>
+          <a href="days/day-08.html"><span class="day-n">08</span><span class="day-s">/data-analysis</span></a>
+          <a href="days/day-09.html"><span class="day-n">09</span><span class="day-s">/competitive-intel</span></a>
+          <a href="days/day-10.html"><span class="day-n">10</span><span class="day-s">/business-case</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 03</div>
+        <div class="sidebar-days">
+          <a href="days/day-11.html"><span class="day-n">11</span><span class="day-s">/roadmap-prioritization</span></a>
+          <a href="days/day-12.html"><span class="day-n">12</span><span class="day-s">/decision-log</span></a>
+          <a href="days/day-13.html"><span class="day-n">13</span><span class="day-s">/alignment-memo</span></a>
+          <a href="days/day-14.html"><span class="day-n">14</span><span class="day-s">/meeting-brief</span></a>
+          <a href="days/day-15.html"><span class="day-n">15</span><span class="day-s">/retro-synthesis</span></a>
+        </div>
+      </div>
+      <div class="sidebar-week">
+        <div class="sidebar-week-label">Week 04</div>
+        <div class="sidebar-days">
+          <a href="days/day-16.html"><span class="day-n">16</span><span class="day-s">/launch-checklist</span></a>
+          <a href="days/day-17.html"><span class="day-n">17</span><span class="day-s">/one-pager</span></a>
+          <a href="days/day-18.html"><span class="day-n">18</span><span class="day-s">/presentation-deck</span></a>
+          <a href="days/day-19.html" class="capstone"><span class="day-n">19</span><span class="day-s">capstone-i</span></a>
+          <a href="days/day-20.html" class="capstone"><span class="day-n">20</span><span class="day-s">capstone-ii</span></a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="page-header">
+        <div class="page-eyebrow">// the kit &middot; what you cloned</div>
+        <h1 class="page-title">What you cloned.</h1>
+        <div class="page-sub"><span class="glyph">$</span><code>tree .claude/skills/ references/ knowledge/</code></div>
+      </div>
+
+      <!-- 01 · what it is -->
+      <div class="section">
+        <div class="about-grid">
+          <div>
+            <div class="sec-label">// 01 &middot; what it is</div>
+            <h2 class="sec-headline">A system, not <span class="accent">a chatbot.</span></h2>
+          </div>
+          <div class="body-text">
+            <p>The PM Agent Kit encodes the accumulated judgment of a senior product manager as a set of portable, invocable skills that run in Claude Code. It&rsquo;s not a collection of prompts or templates &mdash; it&rsquo;s a system: each skill reads your company context, applies PM judgment from a shared reference library, and produces structured, reviewable artifacts.</p>
+            <p>The kit is designed to travel. Everything in <code>.claude/skills/</code> and <code>references/</code> is company-agnostic &mdash; it encodes <em>how</em> a strong PM thinks, not what any specific company does. Company-specific context lives in <code>company/</code> and gets rebuilt at each new role. Your accumulated work lives in <code>knowledge/</code> and follows you too.</p>
+            <p>The workbook is the structured practice companion. Each day introduces one skill against a consistent fictional product &mdash; Terrain &mdash; so you can see exactly how the kit performs at full capacity before applying it to your real work.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 · the 18 skills -->
+      <div class="section">
+        <div class="sec-label">// 02 &middot; the skills</div>
+        <h2 class="sec-headline">Eighteen invocable skills. <span class="accent">One for every PM job.</span></h2>
+
+        <div class="curr-grid">
+
+          <div class="week-header">
+            <span class="wh-label">Week 01</span>
+            <span class="wh-theme">Writing &amp; <span class="accent">thinking</span></span>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">01</span><span class="dc-cat">Writing</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/prd-draft</div><div class="dc-title">Turn any rough input into a complete, structured PRD</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">02</span><span class="dc-cat">Writing</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/doc-review</div><div class="dc-title">Evaluate a PM document against expert quality criteria</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">03</span><span class="dc-cat">Writing</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/generate-tasks</div><div class="dc-title">Break a spec into user stories with acceptance criteria</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">04</span><span class="dc-cat">Writing</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/sprint-plan</div><div class="dc-title">Assess backlog health and optionally draft a sprint plan</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">05</span><span class="dc-cat">Writing</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/status-update</div><div class="dc-title">Synthesize delivery health into a stakeholder-ready update</div></div>
+          </div>
+
+          <div class="week-header">
+            <span class="wh-label">Week 02</span>
+            <span class="wh-theme">Evidence &amp; <span class="accent">discovery</span></span>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">06</span><span class="dc-cat">Evidence</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/discovery-plan</div><div class="dc-title">Map assumptions by risk and plan the cheapest credible validation</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">07</span><span class="dc-cat">Evidence</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/user-feedback</div><div class="dc-title">Cluster customer feedback into themes, severity, and implications</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">08</span><span class="dc-cat">Evidence</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/data-analysis</div><div class="dc-title">Interpret product metrics in context and generate visualizations</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">09</span><span class="dc-cat">Evidence</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/competitive-intel</div><div class="dc-title">Read the competitive landscape and translate signals into implications</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">10</span><span class="dc-cat">Evidence</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/business-case</div><div class="dc-title">Build the investment argument: problem, impact, cost, risks</div></div>
+          </div>
+
+          <div class="week-header">
+            <span class="wh-label">Week 03</span>
+            <span class="wh-theme">Strategy &amp; <span class="accent">alignment</span></span>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">11</span><span class="dc-cat">Strategy</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/roadmap-prioritization</div><div class="dc-title">Sequence initiatives and produce a defensible rationale</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">12</span><span class="dc-cat">Strategy</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/decision-log</div><div class="dc-title">Capture decisions with context and reasoning that stays findable</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">13</span><span class="dc-cat">Strategy</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/alignment-memo</div><div class="dc-title">Codify team operating norms and escalation paths</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">14</span><span class="dc-cat">Strategy</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/meeting-brief</div><div class="dc-title">Prepare for a specific meeting with context, agenda, and decisions</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">15</span><span class="dc-cat">Strategy</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/retro-synthesis</div><div class="dc-title">Find patterns in retrospective feedback before they become permanent</div></div>
+          </div>
+
+          <div class="week-header">
+            <span class="wh-label">Week 04</span>
+            <span class="wh-theme">Comms &amp; <span class="accent">integration</span></span>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">16</span><span class="dc-cat">Comms</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/launch-checklist</div><div class="dc-title">Generate a complete checklist covering all launch readiness dimensions</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">17</span><span class="dc-cat">Comms</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/one-pager</div><div class="dc-title">Compress a complex initiative into a single-page executive summary</div></div>
+          </div>
+          <div class="day-card">
+            <div class="day-card-top"><span class="dc-num">18</span><span class="dc-cat">Comms</span></div>
+            <div class="day-card-bottom"><div class="dc-skill">/presentation-deck</div><div class="dc-title">Build a narrative deck and export to HTML, PDF, or PPTX</div></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 03 · the reference library -->
+      <div class="section">
+        <div class="sec-label">// 03 &middot; reference library</div>
+        <h2 class="sec-headline">26 files of <span class="accent">encoded PM judgment.</span></h2>
+
+        <div class="callout">These aren&rsquo;t documentation &mdash; they&rsquo;re the judgment that runs underneath every skill. <code>pm-philosophy.md</code> is a good example: it encodes the reasoning behind every quality criterion in the system, and skills across all four weeks load it to understand <em>why</em> a standard exists, not just what it is. The same file shapes how a PRD gets drafted, how a retro gets synthesized, and how a business case gets structured.</div>
+
+        <div style="background:var(--bg-card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);margin-top:28px;">
+        <table class="spec-table" style="border:none;box-shadow:none;">
+          <thead>
+            <tr><th>File</th><th>What it encodes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="2" style="font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);background:var(--bg-hover);padding:10px 14px;">PM Judgment</td></tr>
+            <tr><td><code>pm-philosophy.md</code></td><td>The reasoning behind every quality criterion in the system</td></tr>
+            <tr><td><code>pm-smell-test.md</code></td><td>Red flags that signal an artifact isn&rsquo;t ready to move forward</td></tr>
+            <tr><td><code>decision-frameworks.md</code></td><td>How to structure decisions that stay legible at six months</td></tr>
+            <tr><td><code>prioritization-judgment.md</code></td><td>How to sequence competing initiatives with transparent reasoning</td></tr>
+            <tr><td><code>pushback-and-negotiation.md</code></td><td>How to protect scope, navigate disagreement, and escalate when needed</td></tr>
+
+            <tr><td colspan="2" style="font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);background:var(--bg-hover);padding:10px 14px;">Quality Criteria</td></tr>
+            <tr><td><code>quality-criteria-prd.md</code></td><td>What a strong PRD must satisfy across problem, solution, and data dimensions</td></tr>
+            <tr><td><code>quality-criteria-tech-spec.md</code></td><td>What a good engineering spec must surface for PM review</td></tr>
+            <tr><td><code>quality-criteria-ticket.md</code></td><td>What a good user story or ticket must contain</td></tr>
+            <tr><td><code>quality-criteria-project-brief.md</code></td><td>Quality bar for project briefs calibrated to maturity stage</td></tr>
+            <tr><td><code>quality-criteria-general-document.md</code></td><td>Six universal quality dimensions for any PM document</td></tr>
+            <tr><td><code>acceptance-criteria.md</code></td><td>AC standards written for AI coding agent implementers</td></tr>
+
+            <tr><td colspan="2" style="font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);background:var(--bg-hover);padding:10px 14px;">Communication &amp; Structure</td></tr>
+            <tr><td><code>communication-quality.md</code></td><td>What makes PM communication worth reading across all formats</td></tr>
+            <tr><td><code>narrative-structure.md</code></td><td>How to build a presentation arc where each slide earns the next</td></tr>
+            <tr><td><code>story-structure.md</code></td><td>How to scope and organize stories for AI coding agent implementers</td></tr>
+            <tr><td><code>audience-registers.md</code></td><td>Behavioral profiles for adjusting depth and tone by audience type</td></tr>
+            <tr><td><code>slide-design.md</code></td><td>How to compose slides for hierarchy, density, and visual clarity</td></tr>
+            <tr><td><code>visualization-standards.md</code></td><td>How to select chart types and render findings that carry the insight themselves</td></tr>
+            <tr><td><code>branding-guidelines.md</code></td><td>What brand consistency looks like in presentations and how to apply it</td></tr>
+
+            <tr><td colspan="2" style="font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);background:var(--bg-hover);padding:10px 14px;">Research &amp; Analysis</td></tr>
+            <tr><td><code>discovery-methods.md</code></td><td>How to identify assumptions, rank by risk, and plan credible validation</td></tr>
+            <tr><td><code>user-feedback-analysis.md</code></td><td>How to synthesize feedback into what customers need, not just what they said</td></tr>
+            <tr><td><code>data-interpretation.md</code></td><td>How to turn metrics into product decisions, not reports</td></tr>
+            <tr><td><code>competitive-analysis.md</code></td><td>How to translate market signals into product implications</td></tr>
+            <tr><td><code>business-case-standards.md</code></td><td>How to argue whether to invest in an initiative and at what level</td></tr>
+            <tr><td><code>launch-readiness.md</code></td><td>What a complete launch covers across all readiness dimensions</td></tr>
+            <tr><td><code>sprint-planning.md</code></td><td>What makes a sprint plan and backlog ready for the team</td></tr>
+
+            <tr><td colspan="2" style="font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);background:var(--bg-hover);padding:10px 14px;">Output Format</td></tr>
+            <tr><td><code>agent-readable-output.md</code></td><td>Shared vocabulary for structured output blocks across all skills</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <!-- 04 · knowledge -->
+      <div class="section">
+        <div class="sec-label">// 04 &middot; knowledge</div>
+        <h2 class="sec-headline">Artifacts accumulate. <span class="accent">The kit gets richer over time.</span></h2>
+
+        <div class="body-text">
+          <p>Every skill that produces a document saves its output to a typed folder inside <code>knowledge/</code>. The folder isn&rsquo;t just storage &mdash; it&rsquo;s context. When <code>/doc-review</code> evaluates a PRD, it can read prior PRDs in <code>knowledge/prds/</code> to understand your norms. When <code>/sprint-plan</code> drafts a new plan, it can read prior plans to calibrate velocity assumptions. The kit learns from its own output.</p>
+        </div>
+
+        <div style="background:var(--bg-card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);margin-top:20px;">
+        <table class="spec-table" style="border:none;box-shadow:none;">
+          <thead>
+            <tr><th>Directory</th><th>Written by</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>knowledge/prds/</code></td><td><code>/prd-draft</code></td></tr>
+            <tr><td><code>knowledge/tasks/</code></td><td><code>/generate-tasks</code></td></tr>
+            <tr><td><code>knowledge/sprint-plans/</code></td><td><code>/sprint-plan</code> (Draft mode)</td></tr>
+            <tr><td><code>knowledge/status-updates/</code></td><td><code>/status-update</code> (Draft mode)</td></tr>
+            <tr><td><code>knowledge/decisions/</code></td><td><code>/decision-log</code></td></tr>
+            <tr><td><code>knowledge/meeting-briefs/</code></td><td><code>/meeting-brief</code></td></tr>
+            <tr><td><code>knowledge/memos/</code></td><td><code>/alignment-memo</code></td></tr>
+            <tr><td><code>knowledge/discovery-plans/</code></td><td><code>/discovery-plan</code></td></tr>
+            <tr><td><code>knowledge/user-feedback/</code></td><td><code>/user-feedback</code></td></tr>
+            <tr><td><code>knowledge/data-analyses/</code></td><td><code>/data-analysis</code></td></tr>
+            <tr><td><code>knowledge/competition/</code></td><td><code>/competitive-intel</code></td></tr>
+            <tr><td><code>knowledge/business-cases/</code></td><td><code>/business-case</code></td></tr>
+            <tr><td><code>knowledge/roadmaps/</code></td><td><code>/roadmap-prioritization</code></td></tr>
+            <tr><td><code>knowledge/retros/</code></td><td><code>/retro-synthesis</code></td></tr>
+            <tr><td><code>knowledge/launch-checklists/</code></td><td><code>/launch-checklist</code></td></tr>
+            <tr><td><code>knowledge/one-pagers/</code></td><td><code>/one-pager</code></td></tr>
+            <tr><td><code>knowledge/presentations/</code></td><td><code>/presentation-deck</code></td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <!-- 05 · company context -->
+      <div class="section">
+        <div class="about-grid">
+          <div>
+            <div class="sec-label">// 05 &middot; company context</div>
+            <h2 class="sec-headline">Portable by <span class="accent">design.</span></h2>
+          </div>
+          <div class="body-text">
+            <p>The <code>company/</code> directory holds everything that changes when you change jobs: product facts, team structure, sprint process, tool configurations. Skills read these files to produce output that&rsquo;s specific to your context rather than generic.</p>
+            <div style="background:var(--bg-card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);margin-top:16px;margin-bottom:16px;">
+            <table class="spec-table" style="border:none;box-shadow:none;">
+              <tbody>
+                <tr><td><code>company/facts/</code></td><td>Product areas, customers, team structure, glossary</td></tr>
+                <tr><td><code>company/norms/</code></td><td>Sprint process, decision-making, communication patterns</td></tr>
+                <tr><td><code>company/interfaces/</code></td><td>Tool configs &mdash; Jira, Slack, data sources, branding</td></tr>
+              </tbody>
+            </table>
+            </div>
+            <p>When context files are missing or still contain placeholder text, each skill applies a declared degradation rule &mdash; either proceeding with a visible caveat or stopping to tell you what it needs. Output quality scales directly with context depth. The workbook&rsquo;s Terrain files give every skill real, substantive context from Day 0.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 · how skills work -->
+      <div class="section">
+        <div class="sec-label">// 06 &middot; how skills work</div>
+        <h2 class="sec-headline">Every skill follows the <span class="accent">same execution model.</span></h2>
+
+        <div class="step-pane">
+          <div class="step-pane-bar">
+            <span class="step-id">step.01</span><span class="step-arrow">&rarr;</span><span class="step-name">load context</span>
+          </div>
+          <div class="step-pane-body">
+            <h3>Read company context and references</h3>
+            <p>The skill reads any files it declared as <code>context-required</code> or <code>context-optional</code>. If a required file is missing or still contains placeholder text, the skill applies its degradation rule &mdash; proceeding with a caveat or stopping to explain what&rsquo;s needed. It then loads the relevant files from <code>references/</code> as its judgment criteria.</p>
+          </div>
+        </div>
+
+        <div class="step-pane">
+          <div class="step-pane-bar">
+            <span class="step-id">step.02</span><span class="step-arrow">&rarr;</span><span class="step-name">run intake</span>
+          </div>
+          <div class="step-pane-body">
+            <h3>Assess input and adapt</h3>
+            <p>Before executing, the skill assesses how much signal your input provides. <strong>Rich input</strong> (problem, audience, and constraints are clear): restates understanding and proceeds. <strong>Moderate input</strong> (some gaps): asks up to three targeted questions with specific options. <strong>Thin input</strong> (a sentence or a vague ask): presents a structured interpretation of what it&rsquo;s inferring and asks you to confirm before continuing. The cap is four questions.</p>
+          </div>
+        </div>
+
+        <div class="step-pane">
+          <div class="step-pane-bar">
+            <span class="step-id">step.03</span><span class="step-arrow">&rarr;</span><span class="step-name">execute</span>
+          </div>
+          <div class="step-pane-body">
+            <h3>Apply reference judgment and produce the artifact</h3>
+            <p>The skill executes against your input using the loaded reference files as its standard. A <code>/prd-draft</code> generates toward <code>quality-criteria-prd.md</code>. A <code>/doc-review</code> evaluates against the same file. The same judgment that catches problems in a review is what prevents them during generation.</p>
+          </div>
+        </div>
+
+        <div class="step-pane">
+          <div class="step-pane-bar">
+            <span class="step-id">step.04</span><span class="step-arrow">&rarr;</span><span class="step-name">draft-confirm</span>
+          </div>
+          <div class="step-pane-body">
+            <h3>You review before anything moves</h3>
+            <p>All skills start at draft-confirm: the agent produces output, you review it before using it. Nothing is sent, shared, or published automatically. Autonomy is earned through consistent output quality over time &mdash; it&rsquo;s graduated, not assumed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-nav">
+        <a href="setup.html" class="nav-prev"><span class="arr">&larr;</span> Setup</a>
+        <a href="terrain.html" class="nav-next">Company Context <span class="arr">&rarr;</span></a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="page-footer">
+    <div class="left">
+      <span>PM Agent Kit Workbook &middot; v1.0</span>
+    </div>
+    <div>&copy; 2026 Nicola de Vera &middot; Built for Claude Code</div>
+    <div><a href="https://github.com/nicoladevera/pm-agent-kit" target="_blank" rel="noopener">github</a> &middot; <a href="../workbook.json">workbook.json</a></div>
+  </footer>
+
+</div>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
