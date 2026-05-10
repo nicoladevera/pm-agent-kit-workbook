@@ -850,6 +850,34 @@ pre.prompt-block {
   }
 }
 
+/* ── spec-table mobile card view ── */
+@media (max-width: 600px) {
+  .spec-table thead { display: none; }
+  .spec-table tr {
+    display: block;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .spec-table tr:last-child { border-bottom: none; }
+  .spec-table td {
+    display: block;
+    border: none;
+    padding: 0;
+    white-space: normal;
+  }
+  .spec-table td:first-child {
+    white-space: normal;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .spec-table td:last-child {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-soft);
+  }
+}
+
 .spec-table td code {
   font-family: var(--mono);
   font-size: .88em;
@@ -1505,12 +1533,18 @@ a:hover { opacity: .85; }
 @media (max-width: 640px) {
   .how-grid { grid-template-columns: 1fr; }
   .curr-grid { grid-template-columns: 1fr 1fr; }
-  .stat-row { grid-template-columns: 1fr 1fr; }
+  .stat-row { grid-template-columns: 1fr 1fr; gap: 10px; }
   .cta-block { padding: 40px 24px 48px; }
   .metric-strip { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 430px) {
   .curr-grid { grid-template-columns: 1fr; }
   .day-card { min-height: auto; }
+}
+
+@media (max-width: 480px) {
+  .main { padding: 24px 16px 48px; }
+  .step-pane-body { padding: 16px 14px 20px; }
+  .page-footer { gap: 12px; font-size: 12px; }
 }
