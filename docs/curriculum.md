@@ -1,6 +1,6 @@
 # PM Agent Kit Workbook — Curriculum Content
 
-This document is the source of truth for all 20 days of curriculum content. It feeds the HTML day pages and `workbook.json`. If content changes, update here first, then sync HTML and JSON. Implementing agents: match tone, depth, and structure to the Day 2 quality anchor (the doc-review day, carried from the project brief appendix).
+This document is the source of truth for all 20 days of curriculum content. It feeds the HTML day pages and `site/workbook.json`. If content changes, update here first, then sync HTML and JSON. Implementing agents: match tone, depth, and structure to the Day 2 quality anchor (the doc-review day, carried from the project brief appendix).
 
 **Day sequence note:** Days 1 and 2 are `prd-draft` then `doc-review`. Day 1 produces a PRD; Day 2 reviews it.
 

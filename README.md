@@ -16,8 +16,12 @@ A 20-day challenge for product managers to build fluency with the PM Agent Kit �
 - `site/setup.html` — Day 0: how to install the PM Agent Kit and configure it for Terrain
 - `site/terrain.html` — The fictional company context used throughout the 20 days
 - `site/days/day-01.html` through `site/days/day-20.html` — One day page per skill
+- `site/workbook.json` — Machine-readable curriculum index (see below)
 - `company/` — Pre-filled Terrain context files. Copy these into your pm-agent-kit clone during setup.
-- `workbook.json` — Machine-readable curriculum index (see below)
+
+## Deployment
+
+This repo deploys the static site to GitHub Pages with GitHub Actions. The workflow publishes the `site/` directory directly, so GitHub Pages should be configured to use **GitHub Actions** as its source.
 
 ## PM Agent Kit
 
@@ -27,7 +31,7 @@ The workbook is built around the PM Agent Kit: https://github.com/nicoladevera/p
 
 ## For Agents
 
-To load the full curriculum as context, read `workbook.json`. It contains:
+To load the full curriculum as context, read `site/workbook.json`. It contains:
 
 - `scenario`: The full Terrain company context (metrics, personas, product rules, strategic context)
 - `weeks`: The four-week curriculum structure with themes
@@ -65,6 +69,6 @@ To load the full curriculum as context, read `workbook.json`. It contains:
 }
 ```
 
-To run a specific day, load `workbook.json`, find the day object by `day` number, use the `invocation` field to call the skill, and use `prompts.advanced` (or the relevant step prompt for capstones) as the prompt.
+To run a specific day, load `site/workbook.json`, find the day object by `day` number, use the `invocation` field to call the skill, and use `prompts.advanced` (or the relevant step prompt for capstones) as the prompt.
 
 Each HTML day page also embeds its metadata as `<script type="application/json" id="day-metadata">` in the page head — this makes individual pages self-describing.

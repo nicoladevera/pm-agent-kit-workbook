@@ -19,10 +19,10 @@ open site/setup.html          # open Day 0 setup guide
 ### Source of truth hierarchy
 
 1. `docs/curriculum.md` — canonical curriculum content. Update here first if content changes.
-2. `workbook.json` — machine-readable index of all 20 days. Sync from `docs/curriculum.md` when content changes.
+2. `site/workbook.json` — machine-readable index of all 20 days. Sync from `docs/curriculum.md` when content changes.
 3. `site/days/day-NN.html` — rendered HTML for each day. Each page embeds its own metadata as `<script type="application/json" id="day-metadata">` in the page `<head>`.
 
-When updating curriculum content, the change sequence is: `docs/curriculum.md` → `workbook.json` → `site/days/*.html`.
+When updating curriculum content, the change sequence is: `docs/curriculum.md` → `site/workbook.json` → `site/days/*.html`.
 
 ### Site structure
 
@@ -30,12 +30,13 @@ When updating curriculum content, the change sequence is: `docs/curriculum.md` �
 - `site/assets/js/main.js` — single vanilla JS file. Handles: theme toggle (persisted via `localStorage` key `pmakw-theme`), mobile sidebar toggle, copy-to-clipboard for prompt blocks, and active nav highlighting.
 - `site/days/day-NN.html` — all 20 day pages share the same HTML shell (topbar, sidebar, main content). The sidebar lists all days grouped by week.
 - `site/index.html`, `site/setup.html`, `site/terrain.html` — top-level pages with the same shell.
+- `site/workbook.json` — machine-readable curriculum index, published with the static site.
 
 ### Fictional company context
 
-`company/` contains pre-filled context files for "Terrain" (a fictional outdoor-experience marketplace). These are copied into the user's `pm-agent-kit/company/` directory during Day 0 setup — they are not consumed by this repo itself. The full scenario (metrics, personas, product rules) is also embedded in `workbook.json` under `scenario`.
+`company/` contains pre-filled context files for "Terrain" (a fictional outdoor-experience marketplace). These are copied into the user's `pm-agent-kit/company/` directory during Day 0 setup — they are not consumed by this repo itself. The full scenario (metrics, personas, product rules) is also embedded in `site/workbook.json` under `scenario`.
 
-### workbook.json schema
+### site/workbook.json schema
 
 Two day types:
 
@@ -68,5 +69,5 @@ Two day types:
 
 - Curriculum tone and depth should match the Day 2 (`doc-review`) content as a quality anchor — see `docs/curriculum.md`.
 - Days 1 and 2 are intentionally sequenced: Day 1 produces a PRD with `/prd-draft`; Day 2 reviews it with `/doc-review`.
-- Each day page's embedded `<script type="application/json" id="day-metadata">` must stay in sync with `workbook.json`.
+- Each day page's embedded `<script type="application/json" id="day-metadata">` must stay in sync with `site/workbook.json`.
 - The `advanced` prompt in each day always includes the full Terrain scenario context needed; the `basic` prompt is context-free.
