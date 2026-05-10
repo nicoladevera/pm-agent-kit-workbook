@@ -19,7 +19,7 @@ Many workbook scenarios involve marketplace-wide problems, including guide activ
 **Current constraints:**
 - Android coverage is one engineer (Elena T.). Android work serializes — avoid parallel Android tracks. Size Android stories conservatively.
 - Mia (design) splits her time. Confirm design availability before committing design-dependent stories to a sprint. High-complexity Guide Experience sprints can pull her.
-- Backend engineers (Nina W., Omar L.) support both squads for shared infrastructure (payments, search indexing). Coordinate with Guide Experience PM (Jordan Lee) when work touches shared services.
+- Backend ownership is led by Nina W., with shared infrastructure support coordinated through Platform as needed. Coordinate with Guide Experience PM (Jordan Lee) when work touches shared services.
 
 ---
 
@@ -63,7 +63,7 @@ Many workbook scenarios involve marketplace-wide problems, including guide activ
 | Listing pages | Omar L. | Elena T. | Nina W. | Mia S. |
 | Booking flow + payments | Omar L. | Elena T. | Nina W. (primary) | Mia S. |
 | Instant Book | Omar L. | Elena T. | Nina W. | — |
-| Post-experience reviews | Omar L. | Elena T. | Omar L. (backend) | Mia S. |
+| Post-experience reviews | Omar L. | Elena T. | Nina W. | Mia S. |
 | Notifications | Omar L. | Elena T. | Nina W. | — |
 | Adventurer NPS / feedback | — | — | Nina W. | — |
 

@@ -226,7 +226,7 @@ A JSON file published with the static site that describes the full 20-day curric
         "9": "Compare Terrain against Airbnb Experiences, Viator, GetYourGuide, and REI Adventures",
         "10": "Build the case for an adventurer repeat loop or flexible Instant Book",
         "11": "Compare the four known product problems and sequence the next quarter",
-        "12": "Capture the decision between mandatory Instant Book and flexible Instant Book",
+        "12": "Structure the pending decision between mandatory Instant Book and flexible Instant Book",
         "13": "Draft an operating memo for how Terrain evaluates guide/adventurer trade-offs",
         "14": "Prepare for a leadership decision meeting on Instant Book rollout",
         "15": "Synthesize repeated process issues from Android GA and Instant Book rollout retros",
@@ -610,7 +610,7 @@ These constraints should appear in advanced prompts where relevant. They keep Te
 - Guides receive payouts T+3 after the experience completes.
 - Instant Book is currently available to 15% of guides in beta. Eligibility requires rating above 4.7, at least 10 completed bookings, and no safety incidents in the past 12 months.
 - Only 22% of beta-eligible guides have opted into Instant Book.
-- Instant Book listings convert 31% higher than request-to-book listings, but guides worry about over-committed calendars and no-shows.
+- Instant Book listings show about 32% higher detail-to-booking conversion than request-to-book listings, but guides worry about over-committed calendars and no-shows.
 - Guide Pro costs $29/month and includes analytics dashboard, priority search placement, and bulk availability management.
 - Android GA is planned in 6 weeks. Remaining blockers are payment edge cases and push notification reliability.
 - Terrain operates only in the US today, with guide supply across 38 states.
@@ -731,7 +731,7 @@ Once an adventurer completes a booking, Terrain has no structured re-engagement 
 
 #### 4. Instant Book guide adoption
 
-Instant Book is in beta with 15% of guides. Of those eligible, only 22% have opted in. Conversion on Instant Book-eligible listings is 31% higher than on request-to-book listings — a significant lift — but guides cite two fears: over-committing their availability and absorbing no-shows without a buffer period. The team is debating two directions: mandate Instant Book for guides above a quality threshold (>4.7 rating, >10 completed bookings), or introduce a "flexible Instant Book" mode where guides can set a shorter advance-notice window. No decision has been made. This is the highest-leverage conversion lever the team has identified this quarter.
+Instant Book is in beta with 15% of guides. Of those eligible, only 22% have opted in. Detail-to-booking conversion on Instant Book-eligible listings is about 32% higher than on request-to-book listings — a significant lift — but guides cite two fears: over-committing their availability and absorbing no-shows without a buffer period. The team is debating two directions: mandate Instant Book for guides above a quality threshold (>4.7 rating, >10 completed bookings), or introduce a "flexible Instant Book" mode where guides can set a shorter advance-notice window. No decision has been made. This is the highest-leverage conversion lever the team has identified this quarter.
 
 ---
 
@@ -752,7 +752,7 @@ Use this map when authoring advanced prompts. Basic prompts can stay generic; ad
 | 9 | `competitive-intel` | Compare Terrain against Airbnb Experiences, Viator, GetYourGuide, and REI Adventures |
 | 10 | `business-case` | Build the case for an adventurer repeat loop or flexible Instant Book |
 | 11 | `roadmap-prioritization` | Compare the four known product problems and sequence the next quarter |
-| 12 | `decision-log` | Capture the decision between mandatory Instant Book and flexible Instant Book |
+| 12 | `decision-log` | Structure the pending decision between mandatory Instant Book and flexible Instant Book |
 | 13 | `alignment-memo` | Draft an operating memo for how Terrain evaluates guide/adventurer trade-offs |
 | 14 | `meeting-brief` | Prepare for a leadership decision meeting on Instant Book rollout |
 | 15 | `retro-synthesis` | Synthesize repeated process issues from Android GA and Instant Book rollout retros |
@@ -823,7 +823,7 @@ Use for `status-update`, `meeting-brief`, and Day 20 capstone.
 ```text
 Audience: Dana Park (VP Product), Jordan Lee (PM, Guide Experience), Priya Anand (Head of Marketing)
 Timeframe: This week
-Instant Book rollout: eligible guide opt-in remains low at 22%; conversion lift still strong at +31% on opted-in listings; guide concern is calendar risk.
+Instant Book rollout: eligible guide opt-in remains low at 22%; detail-to-booking conversion lift still strong at about +32% on opted-in listings; guide concern is calendar risk.
 Android GA: still targeting launch in 6 weeks; payment edge-case bug remains open; push notification reliability improved from 91% to 97% in latest beta build.
 Expanded Guide Pro analytics dashboard: final QA; no launch blocker yet.
 Decision needed: whether to keep pushing opt-in education, build flexible Instant Book, or mandate Instant Book for high-quality guides.

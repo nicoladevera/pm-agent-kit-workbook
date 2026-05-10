@@ -6,7 +6,7 @@
 
 - **Experience** — A single bookable outdoor activity listed by a guide. Examples: "2-hour surf lesson at Ocean Beach," "Full-day alpine climb on Mt. Rainier," "Foraging walk in Muir Woods." Each experience has a listed price, capacity, availability calendar, and booking mode (Request to Book or Instant Book).
 
-- **Instant Book** — A booking mode where adventurers can confirm a booking without waiting for guide approval. The experience is automatically confirmed upon payment. Currently in beta with 15% of guides; 22% of eligible guides have opted in. Conversion on Instant Book listings is 31% higher than Request to Book listings.
+- **Instant Book** — A booking mode where adventurers can confirm a booking without waiting for guide approval. The experience is automatically confirmed upon payment. Currently in beta with 15% of guides; 22% of eligible guides have opted in. Detail-to-booking conversion on Instant Book listings is about 32% higher than Request to Book listings.
 
 - **Request to Book** — The default booking mode. Adventurers request a booking and the guide has 24 hours to accept or decline. Median acceptance time is 18 hours.
 
@@ -20,7 +20,7 @@
 
 - **Platform fee** — The 3% fee charged to adventurers at checkout, on top of the guide's listed price. Separate from the take rate; both are Terrain revenue.
 
-- **Booking conversion** — Bookings completed as a percentage of search sessions. Currently 2.8% overall; 31% higher for Instant Book-eligible listings.
+- **Booking conversion** — Bookings completed as a percentage of search sessions. Currently 2.8% overall. Related funnel cuts should name their denominator explicitly; for example, Instant Book-eligible listings show about 32% higher detail-to-booking conversion than Request to Book listings.
 
 - **Guide activation** — The milestone event when a newly registered guide publishes their first experience. Guides who don't activate within 30 days churn at much higher rates. Currently 38% of registered guides never activate.
 
