@@ -4,7 +4,7 @@
 
 **Terrain** is a two-sided marketplace for bookable outdoor experiences. Independent guides list surf lessons, alpine climbs, foraging walks, sea kayaking tours, fly fishing instruction, and similar experiences. Adventurers discover and book them. Terrain earns an 18% take rate on every booking plus a 3% platform fee charged to adventurers at checkout.
 
-**Primary platforms:** iOS (GA), Android (public beta, GA targeting next quarter), web (discovery only — no booking on web).
+**Primary platforms:** iOS (GA), Android (public beta, GA targeting Q2 in 6 weeks), web (discovery only — no booking on web).
 
 **Business model:** Marketplace commission. Terrain charges guides 18% of the listed price per booking. Adventurers pay the listed price plus a 3% platform fee. Guides can also subscribe to Guide Pro ($29/month) for premium features. No listing fees; guides pay only when they earn.
 
@@ -109,7 +109,7 @@ These rules govern current product behavior. They should appear in advanced prom
 
 ## Recent Decisions
 
-- **2026-04:** Launched Instant Book beta with 15% of guides. Primary hypothesis: removing the approval wait will improve booking conversion. Early data shows 31% higher conversion on Instant Book-eligible listings. Guide adoption is the open problem.
+- **2026-04:** Launched Instant Book beta with 15% of guides. Primary hypothesis: removing the approval wait will improve booking conversion. Early data shows about 32% higher detail-to-booking conversion on Instant Book-eligible listings. Guide adoption is the open problem.
 - **2026-03:** Moved Android to public beta. GA committed for Q2. Engineering owns the timeline; PM owns the go-to-market readiness checklist.
 - **2026-02:** Deprioritized group booking for H1. Complexity (split payments, liability, cancellation policy edge cases) is high; demand signal is present but not urgent. Revisiting in H2 planning.
 - **2026-01:** Launched Guide Pro analytics dashboard to Pro subscribers. Adoption is early; monitoring engagement before expanding the feature set.
