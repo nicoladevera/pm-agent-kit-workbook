@@ -760,7 +760,7 @@ pre.prompt-block {
 .note-spec .k {
   color: var(--text-faint);
   display: inline-block;
-  width: 17ch;
+  width: 21ch;
   vertical-align: top;
 }
 
@@ -806,6 +806,48 @@ pre.prompt-block {
   font-size: 12px;
   color: var(--text);
   white-space: nowrap;
+}
+
+/* ── note-spec mobile fix ── */
+@media (max-width: 600px) {
+  .note-spec > div { display: flex; }
+  .note-spec .k { flex-shrink: 0; }
+  .note-spec .v { flex: 1; }
+}
+
+/* ── stakeholder table ── */
+.stakeholder-table-wrap { margin-top: 20px; }
+
+@media (max-width: 600px) {
+  .stakeholder-table thead { display: none; }
+  .stakeholder-table tr {
+    display: block;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .stakeholder-table tr:last-child { border-bottom: none; }
+  .stakeholder-table td {
+    display: block;
+    border: none;
+    padding: 0;
+    white-space: normal;
+  }
+  .stakeholder-table td:first-child {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .stakeholder-table td:nth-child(2) {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--text-faint);
+    white-space: normal;
+    margin-bottom: 6px;
+  }
+  .stakeholder-table td:nth-child(3) {
+    font-size: 13px;
+    line-height: 1.55;
+  }
 }
 
 .spec-table td code {
