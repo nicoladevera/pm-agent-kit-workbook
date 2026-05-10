@@ -22,27 +22,31 @@
     "week": 4,
     "type": "capstone",
     "title": "Capstone I: Idea to Backlog",
-    "theme": "Integration",
+    "theme": "Communication & Integration",
     "estimated_minutes": 45,
-    "skills_chained": ["discovery-plan", "prd-draft", "generate-tasks"],
+    "skills_chained": [
+      "discovery-plan",
+      "prd-draft",
+      "generate-tasks"
+    ],
     "steps": [
       {
         "step": 1,
         "skill": "discovery-plan",
         "invocation": "/discovery-plan",
-        "prompt": "Guide activation drop-off. 38% of guides never publish within 30 days. Decision: invest in listing setup guidance, milestone emails, or both. Evidence from Day 7 synthesis and Day 9 competitive analysis. No activation funnel data. 6 weeks to Q3 planning. Produce: assumption map, research plan with evidence thresholds, sequenced work plan."
+        "prompt": "Problem: guide activation drop-off at Terrain. 38% of guides who register never publish an experience within 30 days of signup.\n\nDecision to inform: whether and how to invest in (a) listing setup guidance and pricing transparency tooling, (b) a milestone email sequence for guides in the first 30 days, or (c) both. These are the three candidate solutions. We need to know which underlying problem is load-bearing before committing engineering resources.\n\nCurrent evidence:\n- Exit survey verbatims (n≈40 over 6 months) point to listing setup friction and pricing uncertainty\n- Zendesk tickets from guides who never published show \"didn't know what to put\" as the dominant theme (from the Day 7 feedback synthesis)\n- No activation funnel instrumentation exists today — we can't see where in the listing setup process guides abandon\n- Day 9 competitive analysis: Viator's new independent guide track includes pricing guidance during onboarding. This is a direct competitive signal.\n\nWhat's not known: relative weight of friction vs. uncertainty vs. motivation problems; whether abandonment clusters in a specific step of listing setup; whether the problem is worse in certain experience categories.\n\nTimeline: 6 weeks to Q3 planning. Research budget: 4 guide interviews/week, data requests through Fernando Lopez (2–3 day turnaround). Jordan Lee's squad owns the listing object; any build decision requires their coordination.\n\nProduce a discovery plan: map assumptions, rank by cost-of-being-wrong, select research methods with pre-defined evidence thresholds, sequence the work."
       },
       {
         "step": 2,
         "skill": "prd-draft",
         "invocation": "/prd-draft",
-        "prompt": "Use the discovery plan output as context. Top hypothesis confirmed: guides abandon because of listing description uncertainty and pricing reference gap. Draft a PRD scoped to these two root causes. Include activation funnel data requirements. Account for Jordan Lee/Aisha Nkomo ownership of guide onboarding and plan a cross-squad walkthrough with Chris Okafor's Adventurer Experience team."
+        "prompt": "Use the discovery plan output above as context.\n\nAssume the discovery plan's top hypothesis has been confirmed: guides abandon listing setup because (1) they don't know what makes a strong listing description and (2) they have no pricing reference point for their experience category. The research validated these two root causes. The third candidate (milestone emails) showed weaker signal — guides who abandoned did so within the first session, before any email sequence would have reached them.\n\nDraft a PRD for listing setup guidance at Terrain. The PRD should:\n- Scope to the two confirmed root causes only (description guidance and pricing reference)\n- Include data requirements for the activation funnel tracking that doesn't currently exist\n- Account for the Jordan Lee squad coordination constraint on the listing object schema\n- Be ready for a cross-squad engineering walkthrough with Jordan Lee, Aisha Nkomo, Chris Okafor, and the engineers next week\n\nPM persona: Adventurer Experience PM partnering with Jordan Lee on guide-side work."
       },
       {
         "step": 3,
         "skill": "generate-tasks",
         "invocation": "/generate-tasks",
-        "prompt": "Use the PRD above as input. Decompose into sprint-ready stories. Team: 6 engineers (2 iOS, 1 Android, 2 backend, 1 QA), 18–22 pts/sprint, 85% capacity rule, single Android engineer (serialized). Flag: missing data stories, listing schema dependency on Jordan's squad, Android-specific work, unresolved PM decisions in AC."
+        "prompt": "Use the PRD above as input. Decompose into sprint-ready stories for the Terrain Adventurer Experience squad.\n\nTeam context:\n- 6 engineers: 2 iOS, 1 Android, 2 backend, 1 QA\n- 18–22 story points per sprint, 85% capacity rule\n- Single Android engineer — Android work is serialized and cannot run in parallel\n- Jordan Lee's Guide Experience squad owns the listing object schema; any backend changes to the listing schema require a separate ticket owned by their squad\n- Definition of ready: AC in Given/When/Then, Figma link for user-facing changes, named analytics events, no unresolved dependencies, estimated\n\nPlease flag:\n- Any story requiring a data tracking counterpart not explicit in the PRD\n- Any story that requires Jordan's squad to change the listing schema first (dependency)\n- Any Android-specific work (serialized)\n- Any story where the AC requires a PM decision the PRD didn't resolve"
       }
     ],
     "reflection_questions": [
@@ -50,7 +54,11 @@
       "Where did the PRD make a scoping decision that the discovery plan's evidence didn't fully support — and would you have caught that without comparing the two outputs?",
       "If you ran this chain again from the beginning with what you know now, what would you change in Step 1 that would improve the quality of the Step 3 output?"
     ],
-    "prerequisites": [6, 1, 3]
+    "prerequisites": [
+      6,
+      1,
+      3
+    ]
   }
   </script>
 </head>

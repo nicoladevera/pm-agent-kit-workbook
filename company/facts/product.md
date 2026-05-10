@@ -44,7 +44,7 @@
 | Overall booking conversion | 2.8% | — |
 | Guide listing activation rate | 62% | Target: 75% |
 | Guide 12-month retention | 71% | Target: 80% |
-| Adventurer repeat rate (2+ bookings / 12 months) | 38% | Target: 50% |
+| Adventurer repeat rate (2+ bookings / 12 months) | 38% | Target: 45% |
 | Cancellation rate | 14% | Industry: 7-9% |
 
 ---

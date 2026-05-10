@@ -3,7 +3,7 @@
 **Version:** 0.1  
 **Author:** Nicola de Vera
 **Date:** 2026-05-09  
-**Status:** Draft — content model and curriculum ready, implementation pending
+**Status:** Implemented draft — static site, curriculum index, and Terrain context are live; content QA and polish ongoing
 
 ---
 
@@ -86,7 +86,7 @@ pm-agent-kit-workbook/
 #### Landing Page (`site/index.html`)
 - Challenge name and tagline
 - "What is the PM Agent Kit?" — one paragraph, link to the pm-agent-kit repo
-- "How it works" — 4-step explainer (Set up → Meet Terrain → Practice one skill a day → Reflect)
+- "How it works" — 4-step explainer (Set up → Understand the kit → Meet Terrain → Practice and reflect)
 - Note that the challenge uses a fictional company, Terrain, so every day builds on the same product context
 - 4-week curriculum overview: week themes and skill names, no detail
 - Primary CTA: "Start Day 0 (Setup)"
@@ -114,7 +114,7 @@ pm-agent-kit-workbook/
 
 The setup page should show this table with a note: "You don't need everything installed on Day 0. Install the extras before the day they're needed."
 
-Primary CTA at the bottom: "Continue to Terrain Context"
+Primary CTA at the bottom: "The Kit"
 
 #### Terrain Context Page (`site/terrain.html`) — company context, not counted in 20 days
 
@@ -159,7 +159,7 @@ Each day page contains the following sections in order:
    Embedded in the page `<head>` as `<script type="application/json" id="day-metadata">`. The object must match the corresponding per-day object in `workbook.json`. Skill days use the skill-day schema (`type: "skill"`, `prompts: { basic, advanced }`). Capstone days use the capstone schema (`type: "capstone"`, `steps: [...]`).
 
 #### Navigation
-- The intended onboarding flow is `site/index.html` → `site/setup.html` → `site/terrain.html` → `site/days/day-01.html`
+- The intended onboarding flow is `site/index.html` → `site/setup.html` → `site/kit.html` → `site/terrain.html` → `site/days/day-01.html`
 - Each day page has Previous / Next navigation at the bottom
 - A compact day strip or sidebar shows all 20 days with the current day highlighted — days are linked, not gated
 - Week labels group the days visually (Week 1, Week 2, etc.)
@@ -167,10 +167,11 @@ Each day page contains the following sections in order:
 ### Technical Requirements
 
 - **Static HTML + CSS + vanilla JS only.** No framework, no build step, no package.json.
-- **Must open correctly from the filesystem** (`file://` protocol) without running a local server. All asset paths must be relative.
+- **Designed for static hosting.** The site is intended to be published to GitHub Pages, Replit, or another static host. Asset paths must remain relative so the site can be served from a subpath.
 - **Copy-to-clipboard** for sample prompts via the Clipboard API with a fallback for older browsers (`execCommand`). Button text changes to "Copied ✓" for 2 seconds after click.
-- **No backend, no auth, no localStorage state.** The workbook is read-only. Reflection prompts are printed — PMs write their answers in a notebook, their own doc, or wherever they keep notes. The site does not store anything.
-- **No CDN dependencies.** All CSS and JS is self-contained or inlined. The workbook must be fully usable offline after cloning.
+- **No backend, no auth.** The workbook is read-only. Reflection prompts are printed — PMs write their answers in a notebook, their own doc, or wherever they keep notes.
+- **Preference-only browser state is allowed.** The site may use `localStorage` for non-essential UI preferences such as theme. It must not store reflection answers, progress, or user work.
+- **Hosted presentation assets are allowed when non-critical.** Web fonts or similar presentation enhancements may load from hosted providers, but core content, navigation, and copy controls must remain usable if those requests fail.
 
 ### Machine-Readable Curriculum Index (`workbook.json`)
 
@@ -273,7 +274,7 @@ A root-level JSON file that describes the full 20-day curriculum. An agent that 
   "week": 4,
   "type": "capstone",
   "title": "From Idea to Backlog",
-  "theme": "Integration",
+  "theme": "Communication & Integration",
   "estimated_minutes": 45,
   "skills_chained": ["discovery-plan", "prd-draft", "generate-tasks"],
   "steps": [
@@ -414,7 +415,7 @@ Clean, minimal, typography-first. The workbook should feel like a well-designed 
 - **Dividers and secondary text:** Light gray (`#E5E5E5`, `#6B6B6B`)
 
 ### Typography
-- Body: System font stack (no web font download required — works offline)
+- Body: Hosted web font with a system-font fallback, or a system font stack where preferred
 - Code / prompts: `font-family: monospace` — prompts should feel like terminal input
 - Hierarchy: Clear but subtle — H1 for day title, H2 for section headers, body for everything else
 
@@ -464,16 +465,16 @@ These were open questions; they are now resolved. The implementing agent should 
 Before the workbook is considered implementation-complete, the implementing agent must verify each of the following. These are pass/fail — no partial credit.
 
 **HTML & navigation**
-- [ ] All 23 HTML files exist: `site/index.html`, `site/setup.html`, `site/terrain.html`, `site/days/day-01.html` through `site/days/day-20.html`
+- [ ] All 24 HTML files exist: `site/index.html`, `site/setup.html`, `site/kit.html`, `site/terrain.html`, `site/days/day-01.html` through `site/days/day-20.html`
 - [ ] All internal links are relative (no `http://localhost`, no absolute `/` paths)
-- [ ] Primary onboarding path works: landing page links to setup, setup links to Terrain context, Terrain context links to Day 1
+- [ ] Primary onboarding path works: landing page links to setup, setup links to The Kit, The Kit links to Terrain context, Terrain context links to Day 1
 - [ ] Previous / Next navigation works correctly on every day page, including day-01 (no "previous") and day-20 (no "next")
-- [ ] The site opens and renders correctly via `file://` in Chrome and Safari without a local server
+- [ ] The site renders correctly when served from a static host or local static server
 
 **Copy functionality**
 - [ ] Every prompt block has a copy button
 - [ ] Clicking copy changes the button text to "Copied ✓" and resets after 2 seconds
-- [ ] Copy works under `file://` (Clipboard API permissions behave differently under file protocol — must be tested, not assumed)
+- [ ] Copy works in a hosted browser context, with `execCommand` fallback available when Clipboard API access is unavailable
 
 **workbook.json**
 - [ ] JSON is valid (passes `JSON.parse` without error)
@@ -492,7 +493,7 @@ Before the workbook is considered implementation-complete, the implementing agen
 - [ ] Every day page has a machine-readable `<script type="application/json" id="day-metadata">` block whose content matches `workbook.json` for that day
 
 **CSS / assets**
-- [ ] No external URLs in `styles.css` or `main.js` (no CDN fonts, no remote images)
+- [ ] External URLs are limited to approved non-critical presentation assets such as hosted fonts; no remote images or runtime data dependencies
 - [ ] Color contrast passes WCAG AA for body text and interactive elements
 
 ---
@@ -504,7 +505,7 @@ The workbook is successful if:
 - A PM with no prior Claude Code experience can complete Day 0 and run Day 1's basic prompt without any help beyond the workbook itself
 - An agent given the `workbook.json` and told "run Day 8" can invoke the correct skill with the correct prompt without any other context
 - Every day page is self-contained — a PM who lands on Day 11 without having done Days 1–10 understands what the skill is and can run the prompt
-- The site loads and functions correctly from the filesystem (`file://`) with no network access after initial clone
+- The hosted static site loads, navigates, and copies prompts correctly without a backend
 
 ---
 
@@ -726,7 +727,7 @@ Industry benchmark for marketplace experiences is 7–9%. Terrain's 14% is rough
 
 #### 3. Low adventurer repeat rate (38%)
 
-Once an adventurer completes a booking, Terrain has no structured re-engagement loop. There are no post-experience push notifications, no personalized "you might like" suggestions based on past activity, no mechanism to share a completed trip, and no friend graph to surface what others have done. The 38% repeat rate is entirely organic — adventurers who come back do so because they remember Terrain, not because Terrain brought them back. The business impact: CAC is ~$38 per adventurer; a 10-point improvement in repeat rate would add ~$1.1M GMV at current scale without incremental acquisition spend.
+Once an adventurer completes a booking, Terrain has no structured re-engagement loop. There are no post-experience push notifications, no personalized "you might like" suggestions based on past activity, no mechanism to share a completed trip, and no friend graph to surface what others have done. The 38% repeat rate is entirely organic — adventurers who come back do so because they remember Terrain, not because Terrain brought them back. The business impact: CAC is ~$38 per adventurer; a 7-point improvement from 38% to 45% would add ~$609k GMV at current scale without incremental acquisition spend.
 
 #### 4. Instant Book guide adoption
 
