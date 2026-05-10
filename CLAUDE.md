@@ -34,7 +34,7 @@ When updating curriculum content, the change sequence is: `docs/curriculum.md` �
 
 ### Fictional company context
 
-`company/` contains pre-filled context files for "Terrain" (a fictional outdoor-experience marketplace). These are copied into the user's `pm-agent-kit/company/` directory during Day 0 setup — they are not consumed by this repo itself. The full scenario (metrics, personas, product rules) is also embedded in `site/workbook.json` under `scenario`.
+`company/` contains pre-filled context files for "Terrain" (a fictional outdoor-experience marketplace). These are served as a downloadable ZIP at `site/downloads/terrain-company-context.zip` (published via GitHub Pages) for users to place into their `pm-agent-kit/company/` directory during Day 0 setup — they are not consumed by this repo itself. If the source files in `company/` change, rebuild the ZIP: `cd company && zip -r ../site/downloads/terrain-company-context.zip . && cd ..`. The full scenario (metrics, personas, product rules) is also embedded in `site/workbook.json` under `scenario`.
 
 ### site/workbook.json schema
 

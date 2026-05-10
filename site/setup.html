@@ -136,38 +136,19 @@
 
         <div class="step-pane">
           <div class="step-pane-bar">
-            <span class="step-id">step.03</span><span class="step-arrow">→</span><span class="step-name">clone workbook</span>
+            <span class="step-id">step.03</span><span class="step-arrow">→</span><span class="step-name">download terrain context</span>
           </div>
           <div class="step-pane-body">
-            <h3>Clone this workbook</h3>
+            <h3>Download the Terrain company context and place it in the kit</h3>
+            <p style="margin-bottom:16px;font-family:var(--sans);font-size:15px;color:var(--text-soft);line-height:1.6;">Run the one-liner below, or <a href="downloads/terrain-company-context.zip" download>download the ZIP manually</a>. If downloading manually: unzip it, then copy the <strong>contents</strong> of the extracted folder (not the folder itself) into <code>pm-agent-kit/company/</code> — this replaces the stub files already there.</p>
             <div class="prompt-group">
               <div class="prompt-pane">
                 <div class="prompt-pane-bar">
                   <span class="pane-tag">terminal</span>
-                  <button class="copy-btn" data-target="setup-clone-workbook">Copy</button>
+                  <button class="copy-btn" data-target="setup-download-terrain">Copy</button>
                 </div>
                 <div class="prompt-block-wrapper">
-                  <pre class="prompt-block" id="setup-clone-workbook">git clone https://github.com/nicoladevera/pm-agent-kit-workbook</pre>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="step-pane">
-          <div class="step-pane-bar">
-            <span class="step-id">step.04</span><span class="step-arrow">→</span><span class="step-name">copy terrain context</span>
-          </div>
-          <div class="step-pane-body">
-            <h3>Copy the Terrain company context files into the kit</h3>
-            <div class="prompt-group">
-              <div class="prompt-pane">
-                <div class="prompt-pane-bar">
-                  <span class="pane-tag">terminal</span>
-                  <button class="copy-btn" data-target="setup-copy-terrain">Copy</button>
-                </div>
-                <div class="prompt-block-wrapper">
-                  <pre class="prompt-block" id="setup-copy-terrain">cp -R pm-agent-kit-workbook/company/. pm-agent-kit/company/</pre>
+                  <pre class="prompt-block" id="setup-download-terrain">curl -L https://nicoladevera.github.io/pm-agent-kit-workbook/downloads/terrain-company-context.zip -o /tmp/terrain.zip && unzip -o /tmp/terrain.zip -d pm-agent-kit/company && rm /tmp/terrain.zip</pre>
                 </div>
               </div>
             </div>
@@ -177,7 +158,7 @@
 
         <div class="step-pane">
           <div class="step-pane-bar">
-            <span class="step-id">step.05</span><span class="step-arrow">→</span><span class="step-name">open claude code</span>
+            <span class="step-id">step.04</span><span class="step-arrow">→</span><span class="step-name">open claude code</span>
           </div>
           <div class="step-pane-body">
             <h3>Open Claude Code in the pm-agent-kit directory</h3>
@@ -198,7 +179,7 @@ claude</pre>
 
         <div class="step-pane">
           <div class="step-pane-bar">
-            <span class="step-id">step.06</span><span class="step-arrow">→</span><span class="step-name">smoke test</span>
+            <span class="step-id">step.05</span><span class="step-arrow">→</span><span class="step-name">smoke test</span>
           </div>
           <div class="step-pane-body">
             <h3>Run a smoke test to confirm the kit is working</h3>
@@ -244,7 +225,7 @@ Review this and tell me if it's a strong PRD: "We want to add a search filter. U
             <tr>
               <td>1–7, 9–17</td>
               <td>Most skills</td>
-              <td>None — works after cloning</td>
+              <td>None — works out of the box</td>
             </tr>
             <tr>
               <td>8</td>
