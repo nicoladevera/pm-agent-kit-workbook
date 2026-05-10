@@ -33,7 +33,7 @@ After 20 days, a PM has:
 
 **Primary — Human PMs:** Product managers at any stage of AI adoption. The workbook assumes they have the Agent Kit installed (or will set it up on Day 0). It does not assume prior AI fluency — it builds it.
 
-**Secondary — Agents:** The workbook is also designed to be readable by agents as structured curriculum context. An agent asked to "run the Day 8 challenge" should be able to load the workbook, parse the day's metadata, and know exactly what skill to invoke, what prompts to use, and what output to produce. Every day page includes embedded machine-readable metadata, and a root-level `workbook.json` describes the full curriculum.
+**Secondary — Agents:** The workbook is also designed to be readable by agents as structured curriculum context. An agent asked to "run the Day 8 challenge" should be able to load the workbook, parse the day's metadata, and know exactly what skill to invoke, what prompts to use, and what output to produce. Every day page includes embedded machine-readable metadata, and `site/workbook.json` describes the full curriculum.
 
 ---
 
@@ -77,7 +77,7 @@ pm-agent-kit-workbook/
         styles.css
       js/
         main.js           # Copy-to-clipboard, day navigation
-  workbook.json           # Machine-readable curriculum index
+    workbook.json         # Machine-readable curriculum index
   README.md
 ```
 
@@ -156,7 +156,7 @@ Each day page contains the following sections in order:
    - "What context would you need to have loaded to get a stronger output from this skill?"
 
 5. **Machine-Readable Metadata Block**  
-   Embedded in the page `<head>` as `<script type="application/json" id="day-metadata">`. The object must match the corresponding per-day object in `workbook.json`. Skill days use the skill-day schema (`type: "skill"`, `prompts: { basic, advanced }`). Capstone days use the capstone schema (`type: "capstone"`, `steps: [...]`).
+   Embedded in the page `<head>` as `<script type="application/json" id="day-metadata">`. The object must match the corresponding per-day object in `site/workbook.json`. Skill days use the skill-day schema (`type: "skill"`, `prompts: { basic, advanced }`). Capstone days use the capstone schema (`type: "capstone"`, `steps: [...]`).
 
 #### Navigation
 - The intended onboarding flow is `site/index.html` → `site/setup.html` → `site/kit.html` → `site/terrain.html` → `site/days/day-01.html`
@@ -173,11 +173,11 @@ Each day page contains the following sections in order:
 - **Preference-only browser state is allowed.** The site may use `localStorage` for non-essential UI preferences such as theme. It must not store reflection answers, progress, or user work.
 - **Hosted presentation assets are allowed when non-critical.** Web fonts or similar presentation enhancements may load from hosted providers, but core content, navigation, and copy controls must remain usable if those requests fail.
 
-### Machine-Readable Curriculum Index (`workbook.json`)
+### Machine-Readable Curriculum Index (`site/workbook.json`)
 
-A root-level JSON file that describes the full 20-day curriculum. An agent that wants to understand the workbook loads this file as context rather than scraping all 20 HTML pages.
+A JSON file published with the static site that describes the full 20-day curriculum. An agent that wants to understand the workbook loads this file as context rather than scraping all 20 HTML pages.
 
-**Source-of-truth decision:** `docs/curriculum.md` owns the authored curriculum content: skill overviews, narrative framing, prompts, reflection questions, and per-day metadata. HTML day pages render that content for humans. `workbook.json` mirrors the structured data that agents need to act on: skill name, invocation, full runnable prompts, output type, and sequencing metadata. If content changes, update `docs/curriculum.md` first, then sync the HTML page and `workbook.json`. There is no runtime build step and the shipped site must not depend on generated files. During implementation, agents may use temporary validation scripts to confirm that each page's embedded metadata matches `workbook.json`.
+**Source-of-truth decision:** `docs/curriculum.md` owns the authored curriculum content: skill overviews, narrative framing, prompts, reflection questions, and per-day metadata. HTML day pages render that content for humans. `site/workbook.json` mirrors the structured data that agents need to act on: skill name, invocation, full runnable prompts, output type, and sequencing metadata. If content changes, update `docs/curriculum.md` first, then sync the HTML page and `site/workbook.json`. There is no runtime build step and the shipped site must not depend on generated files. During implementation, agents may use temporary validation scripts to confirm that each page's embedded metadata matches `site/workbook.json`.
 
 **Full schema for a skill day:**
 ```json
@@ -448,13 +448,13 @@ These were open questions; they are now resolved. The implementing agent should 
 
 1. **Repo reference style:** Sample prompts assume the pm-agent-kit is cloned locally — the workbook audience has completed Day 0. The GitHub URL (`https://github.com/nicoladevera/pm-agent-kit`) appears on the landing page, setup page, and README for users arriving cold, but not inside the daily prompts.
 
-2. **Capstone prompt structure:** Capstone days use a sequence of separate prompts — one per skill, labeled Step 1 / Step 2 / Step 3 (or Step 4 for Day 20). The PM runs each step, reviews the output, then runs the next. No single chained mega-prompt. This matches how the `steps` array is modeled in `workbook.json`.
+2. **Capstone prompt structure:** Capstone days use a sequence of separate prompts — one per skill, labeled Step 1 / Step 2 / Step 3 (or Step 4 for Day 20). The PM runs each step, reviews the output, then runs the next. No single chained mega-prompt. This matches how the `steps` array is modeled in `site/workbook.json`.
 
-3. **Scenario substrate:** All sample prompts across 20 days reference "Terrain," defined in `workbook.json` under `scenario`. Terrain is a two-sided marketplace for bookable outdoor experiences — guides on the supply side, adventurers on the demand side, 18% take rate. Using a consistent fictional product makes prompts coherent across the challenge and shows PMs how skills chain together in real workflows. The Terrain context is defined in the workbook.json schema above and should be embedded in each day's advanced prompt.
+3. **Scenario substrate:** All sample prompts across 20 days reference "Terrain," defined in `site/workbook.json` under `scenario`. Terrain is a two-sided marketplace for bookable outdoor experiences — guides on the supply side, adventurers on the demand side, 18% take rate. Using a consistent fictional product makes prompts coherent across the challenge and shows PMs how skills chain together in real workflows. The Terrain context is defined in the site/workbook.json schema above and should be embedded in each day's advanced prompt.
 
 4. **Fixture strategy:** No separate `/fixtures/` directory. Scenario context is embedded inline in the advanced prompts. This keeps the site self-contained (no external files to locate) and makes each day page fully portable. If a skill requires sample data (e.g., `data-analysis` needs a data table), the prompt includes a minimal inline dataset or a note to paste the PM's own data.
 
-5. **README target audience:** The `README.md` is dual-audience. It should open with instructions for human PMs (clone, open `site/index.html`, start Day 0), then include a section titled "For Agents" that explains the `workbook.json` schema and how to load the curriculum as context.
+5. **README target audience:** The `README.md` is dual-audience. It should open with instructions for human PMs (clone, open `site/index.html`, start Day 0), then include a section titled "For Agents" that explains the `site/workbook.json` schema and how to load the curriculum as context.
 
 6. **"Interactive workbook" definition:** In the context of this project, "interactive" means: copy-paste prompts with a one-click copy button, linked day-by-day navigation, and agent-readable metadata embedded in each page. It does not mean in-browser exercises, progress tracking, or stored state. This should be stated plainly on the landing page so PMs know what to expect.
 
@@ -476,7 +476,7 @@ Before the workbook is considered implementation-complete, the implementing agen
 - [ ] Clicking copy changes the button text to "Copied ✓" and resets after 2 seconds
 - [ ] Copy works in a hosted browser context, with `execCommand` fallback available when Clipboard API access is unavailable
 
-**workbook.json**
+**site/workbook.json**
 - [ ] JSON is valid (passes `JSON.parse` without error)
 - [ ] All 20 days are present with no gaps
 - [ ] Skill days have `type: "skill"` and `prompts: { basic, advanced }`
@@ -486,11 +486,11 @@ Before the workbook is considered implementation-complete, the implementing agen
 
 **Content completeness**
 - [ ] No day page contains placeholder text (`...`, `TODO`, `[insert]`, `[TBD]`)
-- [ ] `site/terrain.html` renders the Terrain scenario from Appendix B / `workbook.json.scenario` without contradicting either source
-- [ ] Core Terrain facts match across `company/`, `site/terrain.html`, `workbook.json`, and day prompts: take rate, platform fee, GMV, take-rate revenue definition, active guides, monthly active adventurers, Instant Book adoption, cancellation rate, repeat rate, and PM persona
+- [ ] `site/terrain.html` renders the Terrain scenario from Appendix B / `site/workbook.json.scenario` without contradicting either source
+- [ ] Core Terrain facts match across `company/`, `site/terrain.html`, `site/workbook.json`, and day prompts: take rate, platform fee, GMV, take-rate revenue definition, active guides, monthly active adventurers, Instant Book adoption, cancellation rate, repeat rate, and PM persona
 - [ ] Every advanced prompt uses at least one specific Terrain detail from Appendix B: metric, persona, roadmap item, competitor, stakeholder, or product rule
 - [ ] Every day page has exactly 2–3 reflection questions
-- [ ] Every day page has a machine-readable `<script type="application/json" id="day-metadata">` block whose content matches `workbook.json` for that day
+- [ ] Every day page has a machine-readable `<script type="application/json" id="day-metadata">` block whose content matches `site/workbook.json` for that day
 
 **CSS / assets**
 - [ ] External URLs are limited to approved non-critical presentation assets such as hosted fonts; no remote images or runtime data dependencies
@@ -503,7 +503,7 @@ Before the workbook is considered implementation-complete, the implementing agen
 The workbook is successful if:
 
 - A PM with no prior Claude Code experience can complete Day 0 and run Day 1's basic prompt without any help beyond the workbook itself
-- An agent given the `workbook.json` and told "run Day 8" can invoke the correct skill with the correct prompt without any other context
+- An agent given `site/workbook.json` and told "run Day 8" can invoke the correct skill with the correct prompt without any other context
 - Every day page is self-contained — a PM who lands on Day 11 without having done Days 1–10 understands what the skill is and can run the prompt
 - The hosted static site loads, navigates, and copies prompts correctly without a backend
 
