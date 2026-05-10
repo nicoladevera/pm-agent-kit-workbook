@@ -84,7 +84,7 @@ There is no procurement layer, no B2B buyer dynamic, and no admin-versus-end-use
 - Push notification opt-out within first 30 days
 - NPS detractor score (6 or below) without support ticket (unresolved frustration)
 
-**Adventurer CAC and payback:** Current blended CAC is ~$38 per adventurer. A 10-point improvement in repeat rate (38% → 48%) would add approximately $1.1M GMV at current scale without incremental acquisition spend — making retention the highest-leverage lever available to the team.
+**Adventurer CAC and payback:** Current blended CAC is ~$38 per adventurer. A 7-point improvement in repeat rate (38% → 45%) would add approximately $609k GMV at current scale without incremental acquisition spend — making retention the highest-leverage lever available to the team.
 
 **What re-engages lapsed adventurers:**
 - Not yet systematically tested with a retention campaign

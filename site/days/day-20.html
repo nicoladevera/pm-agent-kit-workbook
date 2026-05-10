@@ -22,33 +22,38 @@
     "week": 4,
     "type": "capstone",
     "title": "Capstone II: Full Strategy Cycle",
-    "theme": "Integration",
+    "theme": "Communication & Integration",
     "estimated_minutes": 60,
-    "skills_chained": ["business-case", "roadmap-prioritization", "presentation-deck", "status-update"],
+    "skills_chained": [
+      "business-case",
+      "roadmap-prioritization",
+      "presentation-deck",
+      "status-update"
+    ],
     "steps": [
       {
         "step": 1,
         "skill": "business-case",
         "invocation": "/business-case",
-        "prompt": "Adventurer repeat loop. 38% repeat rate, target 45%, no current re-engagement mechanism. Evidence from Days 7+8. Sizing: ~$1.1M GMV annually for 7-point improvement. Alternatives: Do Nothing, promotional campaigns, full social layer. Android constraint: repeat loop Android work starts post-GA. Run full stress test."
+        "prompt": "Build the case for the adventurer repeat engagement loop at Terrain.\n\nProblem: 38% of adventurers complete 2+ bookings in a 12-month window (target: 45%). Once an adventurer completes their first booking, Terrain has no structured re-engagement mechanism — no post-experience notifications, no personalized suggestions, no booking history page with re-booking options. Return traffic is entirely organic.\n\nEvidence:\n- Day 7 feedback synthesis: \"I forget to come back unless I'm planning a vacation\" — 6 instances across NPS verbatims, adventurer interviews, and post-booking surveys. Distinct and recurring.\n- Day 8 data: adventurer repeat rate is the only major funnel metric without a corresponding product intervention. The data analysis flagged no second-booking cohort analysis as a gap.\n- Sizing: CAC ~$38 per adventurer. A 7-point improvement in repeat rate (38% → 45%) × 47,000 MAU × $185 average booking value = ~$609k additional GMV annually without incremental acquisition spend.\n\nAlternatives:\n- Do Nothing: organic repeat stays at 38%. Every new adventurer costs $38 to acquire.\n- Promotional campaigns only: email and push campaigns, no product changes. Low build cost, historically low lift for activity platforms (users opt out quickly).\n- Full social layer: trip sharing, friend graph, public wishlists. High build cost (~6+ months), not committed, not in this business case.\n\nContext: Android GA ships in 6 weeks. The repeat loop work cannot start on Android until after GA. Backend and iOS work can start sooner.\n\nRun the full stress test."
       },
       {
         "step": 2,
         "skill": "roadmap-prioritization",
         "invocation": "/roadmap-prioritization",
-        "prompt": "Sequence four candidates for quarter after Android GA: (1) adventurer repeat loop (Step 1 business case), (2) guide activation listing guidance (Day 19), (3) cancellation rate reduction (Day 7 signal, no discovery plan), (4) Instant Book flexible mode (approved after Day 14 decision meeting). Constraints: Android GA in 6 weeks, single Android engineer, H1 OKRs: GMV, guide retention 71%→80%, repeat rate 38%→45%. Include stress test."
+        "prompt": "Use the business case above as one candidate initiative. Sequence it against the other three known Terrain product problems for the quarter after Android GA ships.\n\nCandidates:\n1. Adventurer repeat loop (from Step 1 business case)\n2. Guide activation — listing setup guidance and pricing transparency (from Day 19 PRD and Day 6 discovery plan; structured research not yet complete but direction is clear)\n3. Cancellation rate reduction — 14% current, benchmark 7–9% (problem confirmed in Day 7; no discovery plan yet; most complex to solve)\n4. Instant Book flexible mode — configurable advance-notice window (structured in Day 12 and approved by Dana after the Day 14 decision meeting; build not yet started)\n\nConstraints:\n- Android GA is non-negotiable and ships in 6 weeks\n- Single Android engineer is the binding constraint on all mobile work until GA\n- Instant Book flexible mode requires backend + iOS + Android; cross-squad with Jordan Lee\n- H1 OKRs: GMV growth, guide 12-month retention (71% → 80%), adventurer repeat rate (38% → 45%)\n- Team capacity post-GA: 18–22 story points per sprint\n\nInclude stress test."
       },
       {
         "step": 3,
         "skill": "presentation-deck",
         "invocation": "/presentation-deck",
-        "prompt": "Narrative mode. Q3 priorities deck. Audience: Dana Park + Sam Rivera. Purpose: Exec Review. Align on guide activation first / repeat loop second / IB flexible third / cancellation deferred. Asks: sequence alignment, Sam sign-off on engineering sequencing. Source: Steps 1+2 outputs, Android GA constraint, and post-Day 14 Instant Book decision. 8 slides, speaker notes."
+        "prompt": "Narrative mode. Build the leadership alignment deck for Q3 priorities.\n\nAudience: Dana Park (VP Product) and Sam Rivera (Head of Engineering).\nPurpose: Strategy / Exec Review.\nObjective: align on the post-Android-GA initiative sequence and get explicit sign-off on the repeat loop as Priority 2 (after guide activation).\n\nSource material for slides:\n- Step 1 business case: repeat loop sizing ($609k GMV), conviction level, stress test results\n- Step 2 prioritization: recommended sequence with per-position reasoning and deferred initiative framing\n- Android GA constraint: 6 weeks, single Android engineer, no Android feature work until GA ships\n- Post-Day 14 outcome: Instant Book flexible mode direction approved; this is already decided\n\nKey asks for the deck:\n1. Alignment on post-GA sequence (guide activation first, repeat loop second)\n2. Explicit acknowledgment that cancellation rate work is deferred and why\n3. Sam Rivera's sign-off on the engineering sequencing implication (backend for guide activation can start during GA sprint; Android repeat loop work starts post-GA)\n\n8 slides. Include speaker notes."
       },
       {
         "step": 4,
         "skill": "status-update",
         "invocation": "/status-update",
-        "prompt": "Draft mode. Audience: squad (Chris Okafor, 6 engineers, Mia Santos). Communicate Q3 decision: guide activation first post-GA, repeat loop second, IB flexible third, cancellation deferred. Per-role implications. Lead with decision and reasoning. Name what's not happening and why."
+        "prompt": "Draft mode. Team communication for the Adventurer Experience squad.\n\nAudience: the team — Chris Okafor (EM), 6 engineers, Mia Santos (designer).\nPurpose: communicate the Q3 strategy decision that just came out of the leadership meeting.\n\nWhat was decided:\n- Post-Android GA, the squad's focus shifts to guide activation listing guidance first, then adventurer repeat loop.\n- Instant Book flexible mode is third in sequence, starting after the repeat loop is in flight.\n- Cancellation rate reduction is deferred — not this quarter. The underlying problem is real but the solution complexity is highest and we don't have a discovery plan yet.\n- Android GA remains on track. Nothing changes for the next 6 weeks.\n\nWhat this means for the team:\n- Backend engineers: guide activation backend work (listing schema changes with Jordan's squad) can begin scoping during the current sprint, before GA ships.\n- iOS engineers: guide activation iOS work starts sprint 1 post-GA.\n- Android engineer: Android-specific work for guide activation and repeat loop starts sprint 2 post-GA (sprint 1 post-GA is decompression and infra catch-up).\n- Mia: design for guide activation listing guidance starts now. Repeat loop design starts in 6 weeks.\n\nLead with the decision and the reasoning. Tell the team what's not happening and why — don't leave that unsaid. Keep it tight."
       }
     ],
     "reflection_questions": [
@@ -56,7 +61,12 @@
       "At which step did the skill's framing diverge most from your own judgment — and would you have caught that divergence without running the full chain?",
       "What would you do differently when you run this cycle at your real company — what input would you invest more time in, and what step would you skip or compress?"
     ],
-    "prerequisites": [10, 11, 18, 5]
+    "prerequisites": [
+      10,
+      11,
+      18,
+      5
+    ]
   }
   </script>
 </head>
@@ -165,7 +175,7 @@ Problem: 38% of adventurers complete 2+ bookings in a 12-month window (target: 4
 Evidence:
 - Day 7 feedback synthesis: "I forget to come back unless I'm planning a vacation" — 6 instances across NPS verbatims, adventurer interviews, and post-booking surveys. Distinct and recurring.
 - Day 8 data: adventurer repeat rate is the only major funnel metric without a corresponding product intervention. The data analysis flagged no second-booking cohort analysis as a gap.
-- Sizing: CAC ~$38 per adventurer. A 7-point improvement in repeat rate (38% → 45%) × 47,000 MAU × $185 average booking value = ~$1.1M additional GMV annually without incremental acquisition spend.
+- Sizing: CAC ~$38 per adventurer. A 7-point improvement in repeat rate (38% → 45%) × 47,000 MAU × $185 average booking value = ~$609k additional GMV annually without incremental acquisition spend.
 
 Alternatives:
 - Do Nothing: organic repeat stays at 38%. Every new adventurer costs $38 to acquire.
@@ -220,7 +230,7 @@ Purpose: Strategy / Exec Review.
 Objective: align on the post-Android-GA initiative sequence and get explicit sign-off on the repeat loop as Priority 2 (after guide activation).
 
 Source material for slides:
-- Step 1 business case: repeat loop sizing ($1.1M GMV), conviction level, stress test results
+- Step 1 business case: repeat loop sizing ($609k GMV), conviction level, stress test results
 - Step 2 prioritization: recommended sequence with per-position reasoning and deferred initiative framing
 - Android GA constraint: 6 weeks, single Android engineer, no Android feature work until GA ships
 - Post-Day 14 outcome: Instant Book flexible mode direction approved; this is already decided
