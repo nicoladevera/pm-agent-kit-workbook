@@ -4,14 +4,20 @@
   'use strict';
 
   /* ── Theme toggle ── */
+  function setThemeIcon(btn, theme) {
+    btn.textContent = theme === 'dark' ? '☀' : '☽';
+  }
+
   function initThemeToggle() {
     var btn = document.getElementById('themeToggle');
     if (!btn) return;
+    var current = document.documentElement.getAttribute('data-theme') || 'light';
+    setThemeIcon(btn, current);
     btn.addEventListener('click', function () {
-      var current = document.documentElement.getAttribute('data-theme') || 'light';
-      var next = current === 'dark' ? 'light' : 'dark';
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       try { localStorage.setItem('pmakw-theme', next); } catch (e) {}
+      setThemeIcon(btn, next);
     });
   }
 
