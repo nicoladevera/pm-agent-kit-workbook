@@ -5,7 +5,7 @@
 
   /* ── Theme toggle ── */
   function setThemeIcon(btn, theme) {
-    btn.textContent = theme === 'dark' ? '☀' : '☽';
+    btn.textContent = theme === 'dark' ? '☀︎' : '☽︎';
   }
 
   function initThemeToggle() {
