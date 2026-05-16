@@ -161,13 +161,13 @@ Review this PRD. I'm the Adventurer Experience PM at Terrain, a two-sided market
 ---
 
 ## Day 3 — Break a Spec Into Shippable Stories
-**Week 1: Writing & Thinking | Skill: `generate-tasks` | Invocation: `/generate-tasks`**
+**Week 1: Writing & Thinking | Skill: `backlog-tasks` | Invocation: `/backlog-tasks`**
 
 ### Skill Overview + Why It Matters
 
-`generate-tasks` decomposes a PRD or spec into shippable stories, each scoped to a single deployable unit with Given/When/Then acceptance criteria. It produces an ordered story set, a dependency graph, and an implementation sequence — plus a list of items flagged for PM input: edge cases the spec didn't resolve, data requirements that need explicit instrumentation, and product decisions embedded in acceptance criteria that only the PM can make.
+`backlog-tasks` decomposes a PRD or spec into shippable stories, each scoped to a single deployable unit with Given/When/Then acceptance criteria. It produces an ordered story set, a dependency graph, and an implementation sequence — plus a list of items flagged for PM input: edge cases the spec didn't resolve, data requirements that need explicit instrumentation, and product decisions embedded in acceptance criteria that only the PM can make.
 
-The transition from spec to backlog is where scope and quality erode. Stories get written without acceptance criteria, data requirements get forgotten until after launch, and engineers make product decisions because the spec didn't make them. `generate-tasks` closes that gap systematically — and is explicit about what remains unresolved. Every flag it raises is a conversation you'd otherwise have mid-sprint.
+The transition from spec to backlog is where scope and quality erode. Stories get written without acceptance criteria, data requirements get forgotten until after launch, and engineers make product decisions because the spec didn't make them. `backlog-tasks` closes that gap systematically — and is explicit about what remains unresolved. Every flag it raises is a conversation you'd otherwise have mid-sprint.
 
 Day 3 follows Day 2 because the PRD you wrote and reviewed is the natural input. You'll see how a document you authored translates into implementation units — and where the spec's gaps become story-level ambiguities. The stories you generate today are what a sprint plan would draw from on Day 4.
 
@@ -175,7 +175,7 @@ Day 3 follows Day 2 because the PRD you wrote and reviewed is the natural input.
 
 **Basic**
 ```
-/generate-tasks
+/backlog-tasks
 
 Break this feature description into shippable stories:
 
@@ -184,7 +184,7 @@ We want to add a difficulty rating system so adventurers can filter search resul
 
 **Advanced**
 ```
-/generate-tasks
+/backlog-tasks
 
 Use the guide listing setup guidance PRD from Day 1 as input. Decompose it into sprint-ready stories.
 
@@ -215,16 +215,16 @@ Flag:
   "day": 3,
   "week": 1,
   "type": "skill",
-  "skill": "generate-tasks",
-  "invocation": "/generate-tasks",
+  "skill": "backlog-tasks",
+  "invocation": "/backlog-tasks",
   "mode": null,
   "title": "Break a Spec Into Shippable Stories",
   "theme": "Writing & Thinking",
   "estimated_minutes": 20,
   "required_inputs": "A PRD, spec, or feature description. The Day 1 PRD is the natural input. The skill also works from meeting notes or rough feature descriptions.",
   "prompts": {
-    "basic": "/generate-tasks\n\nBreak this feature description into shippable stories:\n\nWe want to add a difficulty rating system so adventurers can filter search results by skill level. Guides set the difficulty level on their listing (beginner, intermediate, advanced). Adventurers can filter by difficulty on search. The filter should persist across sessions.",
-    "advanced": "/generate-tasks\n\nUse the guide listing setup guidance PRD from Day 1 as input. Decompose it into sprint-ready stories.\n\nTeam context:\n- 6 engineers: 2 iOS, 1 Android, 2 backend, 1 QA\n- 18–22 story points per sprint\n- Single Android engineer — Android work must be sequenced serially, it cannot run in parallel with other Android tickets\n- Listing object is owned by Jordan Lee's Guide Experience squad; any changes to listing schema require cross-squad coordination and a separate backend ticket owned by that squad\n- Definition of ready requires: AC in Given/When/Then, Figma link for user-facing changes, named analytics events, no unresolved dependencies, estimated\n\nFlag:\n- Any story that requires a data tracking counterpart that isn't explicit in the PRD\n- Any story where the AC requires a PM decision not yet resolved in the spec\n- Any story that touches the shared listing object (needs Jordan's squad coordination)\n- Any Android-specific story (serialized, plan accordingly)\n\n[paste the Day 1 PRD here, or describe the guide listing setup guidance feature in detail]"
+    "basic": "/backlog-tasks\n\nBreak this feature description into shippable stories:\n\nWe want to add a difficulty rating system so adventurers can filter search results by skill level. Guides set the difficulty level on their listing (beginner, intermediate, advanced). Adventurers can filter by difficulty on search. The filter should persist across sessions.",
+    "advanced": "/backlog-tasks\n\nUse the guide listing setup guidance PRD from Day 1 as input. Decompose it into sprint-ready stories.\n\nTeam context:\n- 6 engineers: 2 iOS, 1 Android, 2 backend, 1 QA\n- 18–22 story points per sprint\n- Single Android engineer — Android work must be sequenced serially, it cannot run in parallel with other Android tickets\n- Listing object is owned by Jordan Lee's Guide Experience squad; any changes to listing schema require cross-squad coordination and a separate backend ticket owned by that squad\n- Definition of ready requires: AC in Given/When/Then, Figma link for user-facing changes, named analytics events, no unresolved dependencies, estimated\n\nFlag:\n- Any story that requires a data tracking counterpart that isn't explicit in the PRD\n- Any story where the AC requires a PM decision not yet resolved in the spec\n- Any story that touches the shared listing object (needs Jordan's squad coordination)\n- Any Android-specific story (serialized, plan accordingly)\n\n[paste the Day 1 PRD here, or describe the guide listing setup guidance feature in detail]"
   },
   "reflection_questions": [
     "Which stories were split differently than you would have split them — and do you agree with the dependency ordering the skill produced?",
@@ -1676,11 +1676,11 @@ Deck type: Strategy/Roadmap. Target: 8–10 slides. Include speaker notes.
 ---
 
 ## Day 19 — Capstone I: Idea to Backlog
-**Week 4: Integration | Skills chained: `discovery-plan` → `prd-draft` → `generate-tasks`**
+**Week 4: Integration | Skills chained: `discovery-plan` → `prd-draft` → `backlog-tasks`**
 
 ### Skill Overview + Why It Matters
 
-Capstone I chains three skills in sequence — `discovery-plan` → `prd-draft` → `generate-tasks` — against a single scenario. Each step's output becomes the next step's input. The scenario is a real Terrain problem: guide activation drop-off. The challenge is to go from raw problem context to a backlog-ready story set in one session.
+Capstone I chains three skills in sequence — `discovery-plan` → `prd-draft` → `backlog-tasks` — against a single scenario. Each step's output becomes the next step's input. The scenario is a real Terrain problem: guide activation drop-off. The challenge is to go from raw problem context to a backlog-ready story set in one session.
 
 Individual skills are easy to run in isolation. The harder skill — for both the PM and the agent — is maintaining coherence across a chain. What assumptions from the discovery plan constrain the PRD? What decisions in the PRD surface as story-level ambiguities in the task breakdown? The capstone tests whether those handoffs happen cleanly and whether the agent carries context without the PM having to repeat it.
 
@@ -1726,9 +1726,9 @@ Draft a PRD for listing setup guidance at Terrain. The PRD should:
 PM persona: Adventurer Experience PM partnering with Jordan Lee on guide-side work.
 ```
 
-**Step 3 — `/generate-tasks`**
+**Step 3 — `/backlog-tasks`**
 ```
-/generate-tasks
+/backlog-tasks
 
 Use the PRD above as input. Decompose into sprint-ready stories for the Terrain Adventurer Experience squad.
 
@@ -1763,7 +1763,7 @@ Please flag:
   "skills_chained": [
     "discovery-plan",
     "prd-draft",
-    "generate-tasks"
+    "backlog-tasks"
   ],
   "steps": [
     {
@@ -1780,8 +1780,8 @@ Please flag:
     },
     {
       "step": 3,
-      "skill": "generate-tasks",
-      "invocation": "/generate-tasks",
+      "skill": "backlog-tasks",
+      "invocation": "/backlog-tasks",
       "prompt": "Use the PRD above as input. Decompose into sprint-ready stories for the Terrain Adventurer Experience squad.\n\nTeam context:\n- 6 engineers: 2 iOS, 1 Android, 2 backend, 1 QA\n- 18–22 story points per sprint, 85% capacity rule\n- Single Android engineer — Android work is serialized and cannot run in parallel\n- Jordan Lee's Guide Experience squad owns the listing object schema; any backend changes to the listing schema require a separate ticket owned by their squad\n- Definition of ready: AC in Given/When/Then, Figma link for user-facing changes, named analytics events, no unresolved dependencies, estimated\n\nPlease flag:\n- Any story requiring a data tracking counterpart not explicit in the PRD\n- Any story that requires Jordan's squad to change the listing schema first (dependency)\n- Any Android-specific work (serialized)\n- Any story where the AC requires a PM decision the PRD didn't resolve"
     }
   ],

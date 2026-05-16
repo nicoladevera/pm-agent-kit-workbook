@@ -276,7 +276,7 @@ A JSON file published with the static site that describes the full 20-day curric
   "title": "From Idea to Backlog",
   "theme": "Communication & Integration",
   "estimated_minutes": 45,
-  "skills_chained": ["discovery-plan", "prd-draft", "generate-tasks"],
+  "skills_chained": ["discovery-plan", "prd-draft", "backlog-tasks"],
   "steps": [
     {
       "step": 1,
@@ -292,8 +292,8 @@ A JSON file published with the static site that describes the full 20-day curric
     },
     {
       "step": 3,
-      "skill": "generate-tasks",
-      "invocation": "/generate-tasks",
+      "skill": "backlog-tasks",
+      "invocation": "/backlog-tasks",
       "prompt": "Use the PRD above as input. ..."
     }
   ],
@@ -312,17 +312,17 @@ The workbook ships pre-filled company context files for Terrain, stored in `comp
 
 | File | Priority | Skills affected |
 |------|----------|----------------|
-| `facts/product.md` | Active runtime input | doc-review, prd-draft, generate-tasks, status-update, sprint-plan, business-case, and more |
+| `facts/product.md` | Active runtime input | doc-review, prd-draft, backlog-tasks, status-update, sprint-plan, business-case, and more |
 | `facts/customers.md` | Active runtime input | user-feedback, prd-draft, business-case, competitive-intel, data-analysis |
 | `facts/team.md` | Active runtime input | status-update, sprint-plan, meeting-brief, decision-log, launch-checklist |
-| `norms/team-process.md` | Active runtime input | doc-review, prd-draft, generate-tasks, status-update, sprint-plan, retro-synthesis |
+| `norms/team-process.md` | Active runtime input | doc-review, prd-draft, backlog-tasks, status-update, sprint-plan, retro-synthesis |
 | `norms/communication.md` | Active runtime input | status-update, meeting-brief, presentation-deck |
 | `norms/decisions.md` | Conditional | decision-log, business-case, roadmap-prioritization |
 | `facts/competitors.md` | Conditional | competitive-intel, user-feedback |
 | `interfaces/data-sources.md` | Conditional | data-analysis, user-feedback, discovery-plan |
 | `norms/launch-process.md` | Conditional | launch-checklist |
 | `interfaces/branding.md` | Conditional | presentation-deck (Slides mode only) |
-| `facts/glossary.md` | Conditional | Terminology calibration for doc-review, prd-draft, generate-tasks, status-update, meeting-brief, data-analysis, competitive-intel |
+| `facts/glossary.md` | Conditional | Terminology calibration for doc-review, prd-draft, backlog-tasks, status-update, meeting-brief, data-analysis, competitive-intel |
 | `interfaces/tools.md` | Future-facing | Not consumed by shipped skills today |
 | `interfaces/templates.md` | Future-facing | Not consumed by shipped skills today |
 
@@ -342,7 +342,7 @@ The first week is about the written artifacts every PM produces constantly. Thes
 |-----|-------|-------|
 | 1 | `prd-draft` | Turn a Rough Idea Into a Spec |
 | 2 | `doc-review` | Evaluate Like a Senior PM |
-| 3 | `generate-tasks` | Break a Spec Into Shippable Stories |
+| 3 | `backlog-tasks` | Break a Spec Into Shippable Stories |
 | 4 | `sprint-plan` | Allocate Capacity and Set Goals |
 | 5 | `status-update` | Assess and Communicate Delivery Health |
 
@@ -388,7 +388,7 @@ Capstone days are not skill showcases — they're integration challenges. The PM
 
 **Day 19 — Capstone I: From Idea to Backlog**  
 Scenario: The PM has a rough feature idea backed by user research notes. The challenge is to go from raw input to a backlog-ready set of stories in one session.  
-Sequence: `discovery-plan` (map what you still need to learn) → `prd-draft` (structure the feature spec) → `generate-tasks` (decompose into stories with acceptance criteria)  
+Sequence: `discovery-plan` (map what you still need to learn) → `prd-draft` (structure the feature spec) → `backlog-tasks` (decompose into stories with acceptance criteria)  
 Prompt: A guided multi-step prompt that explains the scenario and asks the PM to run each skill in sequence, using the prior output as input.
 
 **Day 20 — Capstone II: From Opportunity to Communication**  
@@ -743,7 +743,7 @@ Use this map when authoring advanced prompts. Basic prompts can stay generic; ad
 |-----|-------|-------------------------|
 | 1 | `prd-draft` | Draft a PRD for guided listing setup improvements that raise guide activation |
 | 2 | `doc-review` | Review the guide listing setup PRD before engineering walkthrough |
-| 3 | `generate-tasks` | Break the guide listing setup PRD into shippable stories |
+| 3 | `backlog-tasks` | Break the guide listing setup PRD into shippable stories |
 | 4 | `sprint-plan` | Plan a sprint around Android GA blockers and Instant Book adoption instrumentation |
 | 5 | `status-update` | Draft a leadership update on Instant Book rollout risk and Android GA blockers |
 | 6 | `discovery-plan` | Plan discovery for guide activation drop-off |

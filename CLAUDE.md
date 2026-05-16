@@ -57,7 +57,7 @@ Two day types:
 {
   "day": 19, "week": 4, "type": "capstone",
   "title": "...",
-  "skills_chained": ["discovery-plan", "prd-draft", "generate-tasks"],
+  "skills_chained": ["discovery-plan", "prd-draft", "backlog-tasks"],
   "steps": [
     { "step": 1, "skill": "...", "invocation": "/...", "prompt": "..." }
   ],
