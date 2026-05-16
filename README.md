@@ -59,11 +59,11 @@ To load the full curriculum as context, read `site/workbook.json`. It contains:
   "week": 4,
   "type": "capstone",
   "title": "From Idea to Backlog",
-  "skills_chained": ["discovery-plan", "prd-draft", "generate-tasks"],
+  "skills_chained": ["discovery-plan", "prd-draft", "backlog-tasks"],
   "steps": [
     { "step": 1, "skill": "discovery-plan", "invocation": "/discovery-plan", "prompt": "..." },
     { "step": 2, "skill": "prd-draft", "invocation": "/prd-draft", "prompt": "..." },
-    { "step": 3, "skill": "generate-tasks", "invocation": "/generate-tasks", "prompt": "..." }
+    { "step": 3, "skill": "backlog-tasks", "invocation": "/backlog-tasks", "prompt": "..." }
   ],
   "reflection_questions": ["...", "...", "..."]
 }
