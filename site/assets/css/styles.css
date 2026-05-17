@@ -768,6 +768,16 @@ pre.prompt-block {
 .note-spec .v.off { color: var(--text-faint); }
 
 /* ── spec table ── */
+.metric-def {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  margin-top: 3px;
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
 .spec-table {
   width: 100%;
   border-collapse: collapse;
