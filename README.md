@@ -14,7 +14,7 @@ Start at the Setup page (Day 0). You do not need to clone this repo — everythi
 - `site/index.html` — Landing page with challenge overview
 - `site/setup.html` — Day 0: how to install the PM Agent Kit and configure it for Terrain
 - `site/terrain.html` — The fictional company context used throughout the 20 days
-- `site/days/day-01.html` through `site/days/day-20.html` — One day page per skill
+- `site/days/day-01.html` through `site/days/day-20.html` — One page per skill day or capstone
 - `site/workbook.json` — Machine-readable curriculum index (see below)
 - `site/downloads/terrain-company-context.zip` — Downloadable Terrain context ZIP served from the site
 - `company/` — Source files for the Terrain context. Available as a downloadable ZIP from the setup page on the site.

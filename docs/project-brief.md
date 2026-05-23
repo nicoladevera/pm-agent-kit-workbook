@@ -3,7 +3,7 @@
 **Version:** 0.1  
 **Author:** Nicola de Vera
 **Date:** 2026-05-09  
-**Status:** Implemented draft — static site, curriculum index, and Terrain context are live; content QA and polish ongoing
+**Status:** Launch candidate — static site, curriculum index, and Terrain context are live
 
 ---
 
@@ -97,10 +97,9 @@ pm-agent-kit-workbook/
 - Step-by-step:
   1. Install Claude Code
   2. Clone the pm-agent-kit repo: `git clone https://github.com/nicoladevera/pm-agent-kit`
-  3. Clone this workbook repo: `git clone https://github.com/nicoladevera/pm-agent-kit-workbook`
-  4. Copy the Terrain company context files: `cp -R pm-agent-kit-workbook/company/. pm-agent-kit/company/` — this replaces the kit's stub placeholders with pre-filled Terrain context so every skill runs at full capacity. If you have already added real company context to `pm-agent-kit/company`, back it up before copying Terrain over it.
-  5. Open Claude Code in the pm-agent-kit directory
-  6. Run a smoke-test prompt (`/doc-review`) to confirm the kit is working
+  3. Download the Terrain company context ZIP from the workbook site and unzip it into `pm-agent-kit/company/` — this replaces the kit's stub placeholders with pre-filled Terrain context so every skill runs at full capacity. If you have already added real company context to `pm-agent-kit/company`, back it up before copying Terrain over it.
+  4. Open Claude Code in the pm-agent-kit directory
+  5. Run a smoke-test prompt (`/doc-review`) to confirm the kit is working
 - What to expect: a note on how the kit works (skills, context files, draft-confirm outputs); a note explaining why the company files matter — skills produce more specific, credible output when the agent has product, team, customer, and process context loaded
 - Link to pm-agent-kit README: `https://github.com/nicoladevera/pm-agent-kit`
 - **Dependency matrix by skill:** Not all skills are available immediately after cloning. The setup page must include this table so PMs know what to install before reaching that day:
@@ -304,7 +303,7 @@ A JSON file published with the static site that describes the full 20-day curric
 
 ### Terrain Company Context Files (`company/`)
 
-The workbook ships pre-filled company context files for Terrain, stored in `company/` and aligned to the pm-agent-kit's `company/` directory structure. Users copy this folder into their pm-agent-kit clone during Day 0 setup. This replaces the kit's stub placeholders with substantive Terrain context, enabling every skill to run at full output quality rather than degraded mode. Users who have already configured the kit for a real company should back up their existing `pm-agent-kit/company` directory before copying Terrain over it.
+The workbook ships pre-filled company context files for Terrain, stored in `company/` and aligned to the pm-agent-kit's `company/` directory structure. Users download this context during Day 0 setup and place it into their pm-agent-kit clone. This replaces the kit's stub placeholders with substantive Terrain context, enabling every skill to run at full output quality rather than degraded mode. Users who have already configured the kit for a real company should back up their existing `pm-agent-kit/company` directory before copying Terrain over it.
 
 **Why this matters:** The pm-agent-kit's CLAUDE.md treats stub files (comment-only templates) as unavailable context. Skills that read `facts/product.md`, `facts/customers.md`, `facts/team.md`, `norms/team-process.md`, and `norms/communication.md` are listed as "active runtime input" in the kit's ONBOARDING.md — these five files alone affect output quality for nearly every skill. Pre-filling them for Terrain means challenge participants experience the kit at full capability from Day 1, not a watered-down version.
 
