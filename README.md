@@ -23,6 +23,35 @@ Start at the Setup page (Day 0). You do not need to clone this repo — everythi
 
 This repo deploys the static site to GitHub Pages with GitHub Actions. The workflow publishes the `site/` directory directly, so GitHub Pages should be configured to use **GitHub Actions** as its source.
 
+## Analytics
+
+The workbook site uses Google Analytics 4 (GA4) to understand launch traffic and on-site behavior.
+
+- GA4 Measurement ID: `G-L6MZH516QP`
+- Implementation: `site/assets/js/main.js`
+- The Measurement ID is public by design and is safe to commit. It is not an API secret.
+- Analytics are disabled for local development: `file://`, `localhost`, `127.0.0.1`, and `0.0.0.0` do not send events.
+
+The shared site script loads `gtag.js` and configures GA4 for every page that includes `site/assets/js/main.js`. This keeps the tag in one place instead of duplicating the Google tag snippet across all HTML files.
+
+Custom events currently tracked:
+
+- `cta_click` — primary and secondary call-to-action links
+- `copy_prompt` — prompt copy buttons
+- `download_click` — downloadable assets
+- `outbound_click` — external links
+
+GA4's standard and enhanced measurement events cover baseline behavior such as page views, scrolls, and other default web interactions configured in the GA4 stream.
+
+To verify collection after deployment:
+
+1. Visit the live site: `https://nicoladevera.github.io/pm-agent-kit-workbook/`
+2. Open Google Analytics: https://analytics.google.com/
+3. Select the `PM Agent Kit Workbook` property and go to **Reports > Realtime**.
+4. Click around the site and confirm realtime activity appears.
+
+GA4 may show realtime users before setup banners such as "No data received from your website yet" or stream-level warnings clear. Treat realtime activity as the strongest immediate signal. Summary reports and setup-status warnings can lag, especially during the first 24-48 hours after installation.
+
 ## PM Agent Kit
 
 The workbook is built around the PM Agent Kit: https://github.com/nicoladevera/pm-agent-kit
