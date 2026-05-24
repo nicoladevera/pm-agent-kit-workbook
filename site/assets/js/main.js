@@ -3,6 +3,84 @@
 (function () {
   'use strict';
 
+  var GA_MEASUREMENT_ID = 'G-L6MZH516QP';
+
+  /* ── Analytics ── */
+  function shouldTrackAnalytics() {
+    if (!GA_MEASUREMENT_ID) return false;
+    if (!/^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID)) return false;
+    if (window.location.protocol === 'file:') return false;
+    if (/^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/i.test(window.location.hostname)) return false;
+    try {
+      if (localStorage.getItem('pmakw-disable-analytics') === 'true') return false;
+    } catch (e) {}
+    return true;
+  }
+
+  function initAnalytics() {
+    if (!shouldTrackAnalytics()) return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_MEASUREMENT_ID);
+
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
+    document.head.appendChild(script);
+  }
+
+  function trackEvent(name, params) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', name, params || {});
+  }
+
+  function getLinkContext(el) {
+    var href = el.getAttribute('href') || '';
+    var url;
+    try { url = new URL(href, window.location.href); } catch (e) {}
+
+    return {
+      link_text: (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 100),
+      link_url: url ? url.href : href,
+      link_domain: url ? url.hostname : '',
+      page_path: window.location.pathname
+    };
+  }
+
+  function initAnalyticsEvents() {
+    if (!shouldTrackAnalytics()) return;
+
+    document.addEventListener('click', function (e) {
+      var copyButton = e.target.closest('.copy-btn');
+      if (copyButton) {
+        trackEvent('copy_prompt', {
+          prompt_target: copyButton.getAttribute('data-target') || '',
+          page_path: window.location.pathname
+        });
+        return;
+      }
+
+      var cta = e.target.closest('a.btn');
+      if (cta) {
+        trackEvent('cta_click', getLinkContext(cta));
+        return;
+      }
+
+      var download = e.target.closest('a[download]');
+      if (download) {
+        trackEvent('download_click', getLinkContext(download));
+        return;
+      }
+
+      var outbound = e.target.closest('a[href^="http"]');
+      if (outbound && outbound.hostname !== window.location.hostname) {
+        trackEvent('outbound_click', getLinkContext(outbound));
+      }
+    });
+  }
+
   /* ── Theme toggle ── */
   function setThemeIcon(btn, theme) {
     btn.textContent = theme === 'dark' ? '☀︎' : '☽︎';
@@ -113,6 +191,8 @@
 
   /* ── Init ── */
   function init() {
+    initAnalytics();
+    initAnalyticsEvents();
     initThemeToggle();
     initSidebarToggle();
     initCopyButtons();
