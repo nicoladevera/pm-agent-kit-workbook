@@ -27,7 +27,7 @@ When updating curriculum content, the change sequence is: `docs/curriculum.md` �
 ### Site structure
 
 - `site/assets/css/styles.css` — single stylesheet, "Soft Studio" aesthetic. CSS custom properties define the full design token set (colors, spacing, typography). Light/dark theme via `[data-theme="dark"]` on `<html>`.
-- `site/assets/js/main.js` — single vanilla JS file. Handles: theme toggle (persisted via `localStorage` key `pmakw-theme`), mobile sidebar toggle, copy-to-clipboard for prompt blocks, and active nav highlighting.
+- `site/assets/js/main.js` — single vanilla JS file. Handles: GA4 analytics, theme toggle (persisted via `localStorage` key `pmakw-theme`), mobile sidebar toggle, copy-to-clipboard for prompt blocks, and active nav highlighting.
 - `site/days/day-NN.html` — all 20 day pages share the same HTML shell (topbar, sidebar, main content). The sidebar lists all days grouped by week.
 - `site/index.html`, `site/setup.html`, `site/terrain.html` — top-level pages with the same shell.
 - `site/workbook.json` — machine-readable curriculum index, published with the static site.
@@ -71,3 +71,9 @@ Two day types:
 - Days 1 and 2 are intentionally sequenced: Day 1 produces a PRD with `/prd-draft`; Day 2 reviews it with `/doc-review`.
 - Each day page's embedded `<script type="application/json" id="day-metadata">` must stay in sync with `site/workbook.json`.
 - The `advanced` prompt in each day always includes the full Terrain scenario context needed; the `basic` prompt is context-free.
+
+## Analytics conventions
+
+- Keep Google Analytics behavior centralized in `site/assets/js/main.js`.
+- Do not paste duplicate Google tag snippets into individual HTML pages unless intentionally changing the analytics loading strategy.
+- Preserve local development exclusions for `file://`, `localhost`, `127.0.0.1`, and `0.0.0.0` when editing analytics behavior.
