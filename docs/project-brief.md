@@ -93,7 +93,7 @@ pm-agent-kit-workbook/
 - Secondary CTA: "Jump to Day 1" (for users who already have the kit installed)
 
 #### Setup Page (`site/setup.html`) — Day 0, not counted in 20 days
-- What you need: a Mac or Linux machine, a Claude account, a terminal or IDE
+- What you need: a Mac or Linux machine, Claude Code access through Anthropic Console with active billing, a Claude Pro or Max plan, or enterprise access, and a terminal or IDE
 - Step-by-step:
   1. Install Claude Code
   2. Clone the pm-agent-kit repo: `git clone https://github.com/nicoladevera/pm-agent-kit`
